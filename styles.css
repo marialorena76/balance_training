@@ -1,0 +1,122 @@
+/* ============================================================
+   BALANCE TRAINING ACADEMY
+   Shared styles — extension of balancetrainingacademy.com.ar
+   Palette: saddle brown + tan + gold, sage-green accent. Typeface: Raleway.
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap');
+
+:root{
+  /* Browns (site primary / hover / dark surfaces) */
+  --forest:        #2E1A0A;   /* deepest brown — hero/footer/dark bg */
+  --forest-2:      #4F2D10;   /* dark brown 2 — info bars, dark cards */
+  --leaf-dark:     #4F2D10;   /* site primary — headings, body text */
+  --leaf:          #693C16;   /* site hover-link — mid saddle brown */
+  --leaf-bright:   #DCB67E;   /* site secondary tan — accent on dark */
+  --green-bg:      #F4EADA;   /* light tan tint — chips, soft sections */
+
+  /* Gold accent (site nav-hover) + warm tones */
+  --sun:           #D9AE23;   /* site gold — primary CTA / key accent */
+  --sun-deep:      #B8901A;   /* gold hover */
+  --sun-soft:      #E8C85A;   /* lighter gold — highlight text on dark */
+  --clay:          #693C16;   /* saddle brown — image fallback */
+  --sand:          #F1E6D2;   /* warm sand band */
+
+  /* Sage green (site success) */
+  --sage:          #7A9C59;
+  --sage-deep:     #5F7E45;
+  --alert:         #B20000;   /* site alert */
+
+  /* Neutrals — warm-leaning */
+  --paper:         #FFFFFF;   /* white page bg */
+  --paper-2:       #F6EFE2;   /* warm off-white alt */
+  --ink:           #4F2D10;   /* primary text — site brown */
+  --ink-soft:      #8A6A47;   /* muted brown */
+  --line:          #E8DBC5;   /* warm border */
+  --white:         #FFFFFF;
+
+  /* on-dark */
+  --cream:         #F6ECDB;
+  --leaf-on-dark:  #DCB67E;
+
+  --font-display: 'Raleway', sans-serif;
+  --font-body: 'Raleway', sans-serif;
+
+  --radius-sm:6px; --radius-md:10px; --radius-lg:16px; --radius-xl:24px; --radius-full:9999px;
+  --shadow-sm:0 1px 3px rgba(34,28,10,.08);
+  --shadow-md:0 6px 20px rgba(34,28,10,.10);
+  --shadow-lg:0 18px 44px rgba(34,28,10,.16);
+  --shadow-xl:0 30px 70px rgba(22,40,10,.28);
+
+  --maxw:1180px;
+  --ease:cubic-bezier(.22,.68,0,1);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
+body{font-family:var(--font-body);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;}
+img{display:block;max-width:100%;}
+button{font-family:inherit;}
+
+h1,h2,h3,h4,h5{font-family:var(--font-display);color:var(--leaf-dark);line-height:1.12;letter-spacing:-.015em;font-weight:800;}
+
+/* layout */
+.bta-container{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+.bta-section{padding:96px 0;}
+@media(max-width:760px){.bta-section{padding:64px 0;}}
+
+/* eyebrow / tag */
+.bta-eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-body);font-size:12.5px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--leaf);margin-bottom:18px;}
+.bta-eyebrow::before{content:"";width:26px;height:2px;background:var(--sun);display:inline-block;border-radius:2px;}
+.bta-eyebrow.leaf{color:var(--leaf-dark);}
+.bta-eyebrow.leaf::before{background:var(--leaf-dark);}
+.bta-eyebrow.on-dark{color:var(--leaf-bright);}
+.bta-eyebrow.on-dark::before{background:var(--leaf-bright);}
+
+/* buttons */
+.bta-btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--font-display);
+  font-weight:700;font-size:15.5px;padding:15px 30px;border-radius:var(--radius-full);border:2px solid transparent;
+  cursor:pointer;text-decoration:none;transition:transform .2s var(--ease),background .2s,box-shadow .2s,color .2s,border-color .2s;line-height:1;white-space:nowrap;}
+.bta-btn:active{transform:translateY(1px);}
+.bta-btn-primary{background:var(--sun);color:var(--forest);box-shadow:0 10px 24px rgba(217,174,35,.34);}
+.bta-btn-primary:hover{background:var(--sun-deep);color:var(--forest);transform:translateY(-2px);box-shadow:0 14px 30px rgba(217,174,35,.42);}
+.bta-btn-green{background:var(--leaf-dark);color:#fff;box-shadow:0 10px 24px rgba(79,45,16,.30);}
+.bta-btn-green:hover{background:var(--leaf);transform:translateY(-2px);}
+.bta-btn-outline{background:transparent;color:var(--leaf-dark);border-color:var(--leaf-dark);}
+.bta-btn-outline:hover{background:var(--leaf-dark);color:#fff;}
+.bta-btn-light{background:rgba(255,255,255,.10);color:#fff;border-color:rgba(255,255,255,.45);backdrop-filter:blur(4px);}
+.bta-btn-light:hover{background:#fff;color:var(--forest);border-color:#fff;}
+.bta-btn-sm{padding:11px 22px;font-size:14px;}
+
+/* link arrow */
+.bta-arrow{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-display);font-weight:700;
+  font-size:14.5px;color:var(--leaf);background:none;border:none;cursor:pointer;padding:0;transition:gap .2s;}
+.bta-arrow:hover{gap:12px;}
+.bta-arrow.leaf{color:var(--leaf-dark);}
+
+/* section bg helpers */
+.bg-paper{background:var(--paper);}
+.bg-paper2{background:var(--paper-2);}
+.bg-green{background:var(--green-bg);}
+.bg-sand{background:var(--sand);}
+.bg-forest{background:var(--forest);color:var(--cream);}
+.bg-forest h1,.bg-forest h2,.bg-forest h3,.bg-forest h4{color:#fff;}
+
+/* card */
+.bta-card{background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-md);border:1px solid var(--line);}
+
+/* reveal-on-scroll */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+.reveal.in{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+/* scrollbar */
+::-webkit-scrollbar{width:10px;height:10px;}
+::-webkit-scrollbar-track{background:#efe8d8;}
+::-webkit-scrollbar-thumb{background:#c9bfa6;border-radius:6px;border:2px solid #efe8d8;}
+
+/* text helpers */
+.lead{font-size:19px;line-height:1.7;color:var(--ink-soft);}
+@media(max-width:760px){.lead{font-size:17px;}}
+.muted{color:var(--ink-soft);}
+.grain{position:relative;}
