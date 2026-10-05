@@ -5,14 +5,17 @@ const { useState, useEffect, useRef, useCallback } = React;
 
 /* ---- files / contact ---- */
 const LANDING = "index.html";
+const CURSOS  = "cursos.html";
 const CURSO   = "curso.html";
+const ANDREA  = "andrea.html";
 const CONTACT = {
-  email: "andreapigazzi@gmail.com",
+  email: "academybalancetraining@gmail.com",
   whatsapp: "https://wa.me/5493548616290",
-  whatsappLabel: "+54 3548 61-6290",
-  instagram: "https://instagram.com/balancetrainingacademy",
-  igLabel: "@balancetrainingacademy",
+  whatsappLabel: "+549 3548 616290",
+  instagram: "https://instagram.com/balance.horsetraining.academy",
+  igLabel: "@balance.horsetraining.academy",
   facebook: "https://facebook.com/balancetrainingacademy",
+  web: "www.balancetrainingacademy.com",
 };
 
 /* ---- photos (confirmed-loading Unsplash equestrian) ---- */
@@ -104,9 +107,10 @@ function Nav({ active="inicio" }){
   },[]);
   const links = [
     { id:'metodo',  label:'Metodología', href:LANDING+'#metodo' },
-    { id:'cursos',  label:'Cursos',      href:LANDING+'#cursos' },
-    { id:'curso',   label:'Curso destacado', href:CURSO },
-    { id:'andrea',  label:'Sobre Andrea',href:LANDING+'#andrea' },
+    { id:'cursos',  label:'Cursos',      href:CURSOS },
+    { id:'curso',   label:'Formación 2027', href:'curso-formacion-integral.html' },
+    { id:'piramide',label:'Pirámide',    href:CURSOS+'#piramide' },
+    { id:'andrea',  label:'Soy Andrea',  href:ANDREA },
     { id:'faq',     label:'Preguntas',   href:LANDING+'#faq' },
   ];
   const solid = scrolled || open;
@@ -118,10 +122,10 @@ function Nav({ active="inicio" }){
       transition:'background .3s,border-color .3s'}}>
       <div className="bta-container" style={{display:'flex',alignItems:'center',height:74,justifyContent:'space-between'}}>
         <BrandLogo variant="dark" compact/>
-        <div className="bta-nav-links" style={{display:'flex',alignItems:'center',gap:30}}>
+        <div className="bta-nav-links" style={{display:'flex',alignItems:'center',gap:20}}>
           {links.map(l=>(
             <a key={l.id} href={l.href} style={{fontFamily:'var(--font-display)',fontWeight: active===l.id?700:500,
-              fontSize:15,color: active===l.id?'var(--leaf-bright)':'rgba(246,241,228,.86)',textDecoration:'none',
+              fontSize:15,color: active===l.id?'var(--leaf-bright)':'rgba(246,241,228,.86)',textDecoration:'none',whiteSpace:'nowrap',
               paddingBottom:3,borderBottom: active===l.id?'2px solid var(--leaf-bright)':'2px solid transparent',
               transition:'color .15s'}}
               onMouseEnter={e=>e.target.style.color='#fff'}
@@ -129,7 +133,7 @@ function Nav({ active="inicio" }){
               {l.label}
             </a>
           ))}
-          <a className="bta-btn bta-btn-primary bta-btn-sm" href={CURSO+'#inscripcion'}>Inscribirme</a>
+          <a className="bta-btn bta-btn-primary bta-btn-sm" href={CURSOS+'#catalogo'}>Inscribirme</a>
         </div>
         <button className="bta-burger" onClick={()=>setOpen(o=>!o)} aria-label="Menú"
           style={{display:'none',background:'none',border:'none',cursor:'pointer',padding:8}}>
@@ -146,7 +150,7 @@ function Nav({ active="inicio" }){
             fontFamily:'var(--font-display)',fontWeight:600,fontSize:16}}>{l.label}</a>
         ))}
         <div style={{padding:'12px 28px 0'}}>
-          <a className="bta-btn bta-btn-primary" href={CURSO+'#inscripcion'} style={{width:'100%'}} onClick={()=>setOpen(false)}>Inscribirme</a>
+          <a className="bta-btn bta-btn-primary" href={CURSOS+'#catalogo'} style={{width:'100%'}} onClick={()=>setOpen(false)}>Inscribirme</a>
         </div>
       </div>
     </nav>
@@ -166,7 +170,7 @@ function Footer(){
           <div>
             <BrandLogo variant="dark"/>
             <p style={{fontSize:14.5,lineHeight:1.75,marginTop:20,maxWidth:340}}>
-              Formación ecuestre ordenada, técnica y compasiva. 35 años de experiencia al servicio del bienestar del caballo y de quienes lo acompañan.
+              35 años acompañando la Formación y Profesionalización Ecuestre, por el Bienestar del Caballo y el Desarrollo integral de las personas.
             </p>
             <div style={{display:'flex',gap:14,marginTop:22}}>
               <a href={CONTACT.instagram} aria-label="Instagram" style={{width:40,height:40,borderRadius:'50%',border:'1px solid rgba(255,255,255,.2)',display:'flex',alignItems:'center',justifyContent:'center',textDecoration:'none'}}><Ig/></a>
@@ -176,7 +180,7 @@ function Footer(){
           </div>
           <div>
             <p style={{fontFamily:'var(--font-display)',fontWeight:700,color:'#fff',marginBottom:16,fontSize:15}}>Navegación</p>
-            {[['Metodología',LANDING+'#metodo'],['Cursos',LANDING+'#cursos'],['Curso destacado',CURSO],['Sobre Andrea',LANDING+'#andrea'],['Preguntas',LANDING+'#faq']].map(([t,h])=>(
+            {[['Metodología',LANDING+'#metodo'],['Cursos',CURSOS],['Formación 2027','curso-formacion-integral.html'],['Pirámide formativa',CURSOS+'#piramide'],['Soy Andrea',ANDREA]].map(([t,h])=>(
               <a key={t} href={h} style={{display:'block',fontSize:14,marginBottom:11,color:'rgba(246,241,228,.7)',textDecoration:'none'}}>{t}</a>
             ))}
           </div>
@@ -189,7 +193,7 @@ function Footer(){
         </div>
         <div style={{borderTop:'1px solid rgba(255,255,255,.12)',paddingTop:24,display:'flex',justifyContent:'space-between',flexWrap:'wrap',gap:10}}>
           <p style={{fontSize:12.5,color:'rgba(246,241,228,.45)'}}>© 2026 Balance Training Academy · Andrea Pigazzi. Todos los derechos reservados.</p>
-          <p style={{fontSize:12.5,color:'rgba(246,241,228,.45)'}}>balancetrainingacademy.com.ar</p>
+          <p style={{fontSize:12.5,color:'rgba(246,241,228,.45)'}}>{CONTACT.web}</p>
         </div>
       </div>
     </footer>
@@ -207,4 +211,4 @@ function WhatsFloat(){
   );
 }
 
-window.BTA = { LANDING, CURSO, CONTACT, PHOTOS, U, imgErr, useReveal, Horseshoe, BrandLogo, Nav, Footer, WhatsFloat, Ig, Fb, Wa };
+window.BTA = { LANDING, CURSOS, CURSO, ANDREA, CONTACT, PHOTOS, U, imgErr, useReveal, Horseshoe, BrandLogo, Nav, Footer, WhatsFloat, Ig, Fb, Wa };
