@@ -232,9 +232,9 @@ function CursoDestacado(){
               La columna vertebral de Balance Training ACADEMY: una formación integral, metodológica y súper personalizada, en tres etapas: online, presencial y mentoring.
             </p>
             <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'10px 18px',marginBottom:28}}>
-              {F.includes.map(i=>(
-                <div key={i} style={{display:'flex',gap:9,alignItems:'flex-start',fontSize:13.5,color:'rgba(246,241,228,.9)'}}>
-                  <Check c="var(--leaf-bright)" s={18}/><span>{i}</span>
+              {F.specs.map(([k,v])=>(
+                <div key={k} style={{display:'flex',gap:9,alignItems:'flex-start',fontSize:13.5,color:'rgba(246,241,228,.9)'}}>
+                  <Check c="var(--leaf-bright)" s={18}/><span><strong style={{color:'#fff'}}>{k}:</strong> {v}</span>
                 </div>
               ))}
             </div>

@@ -15,7 +15,7 @@ const CONTACT = {
   instagram: "https://instagram.com/balance.horsetraining.academy",
   igLabel: "@balance.horsetraining.academy",
   facebook: "https://facebook.com/balancetrainingacademy",
-  web: "www.balancetrainingacademy.com",
+  web: "www.balancetrainingacademy.com.ar",
 };
 
 /* ---- photos (confirmed-loading Unsplash equestrian) ---- */
@@ -78,20 +78,10 @@ function Horseshoe({ size=34, color="var(--leaf-dark)", dot="var(--sun)" }){
 }
 
 function BrandLogo({ variant="light", compact=false, onClick }){
-  const dark = variant === "dark";
-  const main = dark ? "#fff" : "var(--ink)";
-  const sub  = "var(--sun)";
-  const mark = dark ? "var(--leaf-bright)" : "var(--leaf-dark)";
+  const src = variant === "dark" ? "assets/logo-cream.png" : "assets/logo-brown.png";
   return (
-    <a href={LANDING} onClick={onClick} style={{display:'flex',alignItems:'center',gap:12,textDecoration:'none',cursor:'pointer'}}>
-      <Horseshoe size={compact?32:38} color={mark} dot="var(--sun)"/>
-      <span style={{display:'flex',flexDirection:'column',lineHeight:1}}>
-        <span style={{fontFamily:'var(--font-display)',fontSize:compact?17:19,color:main,letterSpacing:'.01em',whiteSpace:'nowrap'}}>
-          <span style={{fontWeight:400}}>Balance </span><span style={{fontWeight:800}}>Training</span>
-        </span>
-        <span style={{fontFamily:'var(--font-body)',fontSize:10,fontWeight:700,letterSpacing:'.24em',
-          textTransform:'uppercase',color:sub,marginTop:4}}>Academia ecuestre</span>
-      </span>
+    <a href={LANDING} onClick={onClick} aria-label="Balance Training Academy, ir al inicio" style={{display:'inline-flex',alignItems:'center',textDecoration:'none'}}>
+      <img src={src} alt="Balance Training Academy" style={{height:compact?46:64,width:'auto',display:'block'}}/>
     </a>
   );
 }
@@ -116,7 +106,7 @@ function Nav({ active="inicio" }){
   const solid = scrolled || open;
   return (
     <nav style={{position:'fixed',top:0,left:0,right:0,zIndex:200,
-      background: solid ? 'rgba(22,40,10,.94)' : 'transparent',
+      background: solid ? 'rgba(46,26,10,.96)' : 'transparent',
       backdropFilter: solid ? 'blur(10px)' : 'none',
       borderBottom: solid ? '1px solid rgba(255,255,255,.10)' : '1px solid transparent',
       transition:'background .3s,border-color .3s'}}>
@@ -143,7 +133,7 @@ function Nav({ active="inicio" }){
         </button>
       </div>
       {/* mobile drawer */}
-      <div className="bta-mobile-menu" style={{display:open?'block':'none',background:'rgba(22,40,10,.98)',borderTop:'1px solid rgba(255,255,255,.10)',padding:'10px 0 22px'}}>
+      <div className="bta-mobile-menu" style={{display:open?'block':'none',background:'rgba(46,26,10,.98)',borderTop:'1px solid rgba(255,255,255,.10)',padding:'10px 0 22px'}}>
         {links.map(l=>(
           <a key={l.id} href={l.href} onClick={()=>setOpen(false)}
             style={{display:'block',padding:'13px 28px',color:'rgba(246,241,228,.92)',textDecoration:'none',
@@ -158,9 +148,9 @@ function Nav({ active="inicio" }){
 }
 
 /* ---- footer ---- */
-function Ig({c="#C2DC84",s=18}){return(<svg width={s} height={s} viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke={c} strokeWidth="1.8"/><circle cx="12" cy="12" r="4" stroke={c} strokeWidth="1.8"/><circle cx="17.4" cy="6.6" r="1.2" fill={c}/></svg>);}
-function Fb({c="#C2DC84",s=18}){return(<svg width={s} height={s} viewBox="0 0 24 24" fill="none"><path d="M14 8.5h2.2V5.2H14c-2 0-3.4 1.4-3.4 3.5v1.9H8.4v3.2h2.2V21h3.3v-7.2h2.3l.5-3.2h-2.8V9c0-.4.3-.5.6-.5z" fill={c}/></svg>);}
-function Wa({c="#C2DC84",s=18}){return(<svg width={s} height={s} viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3z" stroke={c} strokeWidth="1.7"/><path d="M9 8.5c.2-.5.4-.5.7-.5h.5c.2 0 .4 0 .6.5l.6 1.4c.1.2 0 .4-.1.5l-.4.5c-.1.1-.2.3-.1.5.3.6 1.1 1.6 2.1 2 .2.1.4.1.5 0l.5-.5c.1-.2.3-.2.5-.1l1.3.7c.2.1.3.3.3.5 0 .6-.5 1.2-1 1.3-.5.1-1.1.3-3-.6s-3-2.9-3.1-3.1c-.1-.2-.6-1-.6-1.8s.3-1.2.5-1.5z" fill={c}/></svg>);}
+function Ig({c="#DCB67E",s=18}){return(<svg width={s} height={s} viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke={c} strokeWidth="1.8"/><circle cx="12" cy="12" r="4" stroke={c} strokeWidth="1.8"/><circle cx="17.4" cy="6.6" r="1.2" fill={c}/></svg>);}
+function Fb({c="#DCB67E",s=18}){return(<svg width={s} height={s} viewBox="0 0 24 24" fill="none"><path d="M14 8.5h2.2V5.2H14c-2 0-3.4 1.4-3.4 3.5v1.9H8.4v3.2h2.2V21h3.3v-7.2h2.3l.5-3.2h-2.8V9c0-.4.3-.5.6-.5z" fill={c}/></svg>);}
+function Wa({c="#DCB67E",s=18}){return(<svg width={s} height={s} viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3z" stroke={c} strokeWidth="1.7"/><path d="M9 8.5c.2-.5.4-.5.7-.5h.5c.2 0 .4 0 .6.5l.6 1.4c.1.2 0 .4-.1.5l-.4.5c-.1.1-.2.3-.1.5.3.6 1.1 1.6 2.1 2 .2.1.4.1.5 0l.5-.5c.1-.2.3-.2.5-.1l1.3.7c.2.1.3.3.3.5 0 .6-.5 1.2-1 1.3-.5.1-1.1.3-3-.6s-3-2.9-3.1-3.1c-.1-.2-.6-1-.6-1.8s.3-1.2.5-1.5z" fill={c}/></svg>);}
 
 function Footer(){
   return (
@@ -192,8 +182,8 @@ function Footer(){
           </div>
         </div>
         <div style={{borderTop:'1px solid rgba(255,255,255,.12)',paddingTop:24,display:'flex',justifyContent:'space-between',flexWrap:'wrap',gap:10}}>
-          <p style={{fontSize:12.5,color:'rgba(246,241,228,.45)'}}>© 2026 Balance Training Academy · Andrea Pigazzi. Todos los derechos reservados.</p>
-          <p style={{fontSize:12.5,color:'rgba(246,241,228,.45)'}}>{CONTACT.web}</p>
+          <p style={{fontSize:12.5,color:'rgba(246,241,228,.62)'}}>© 2026 Balance Training Academy® · Andrea Pigazzi. Todos los derechos reservados.</p>
+          <p style={{fontSize:12.5,color:'rgba(246,241,228,.62)'}}>{CONTACT.web}</p>
         </div>
       </div>
     </footer>
@@ -201,11 +191,12 @@ function Footer(){
 }
 
 /* ---- floating whatsapp ---- */
-function WhatsFloat(){
+function WhatsFloat({ msg, lift=false }){
+  const href = msg ? CONTACT.whatsapp + '?text=' + encodeURIComponent(msg) : CONTACT.whatsapp;
   return (
-    <a href={CONTACT.whatsapp} aria-label="WhatsApp" style={{position:'fixed',right:22,bottom:22,zIndex:150,
+    <a href={href} aria-label="Escribinos por WhatsApp" className={'bta-wa'+(lift?' is-lifted':'')} style={{position:'fixed',right:22,zIndex:150,
       width:56,height:56,borderRadius:'50%',background:'#25D366',display:'flex',alignItems:'center',justifyContent:'center',
-      boxShadow:'0 8px 24px rgba(0,0,0,.25)',textDecoration:'none'}}>
+      boxShadow:'0 8px 20px -4px rgba(0,0,0,.3)',textDecoration:'none'}}>
       <Wa c="#fff" s={28}/>
     </a>
   );

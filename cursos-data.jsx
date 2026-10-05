@@ -9,13 +9,13 @@ const P = (s) => "assets/portadas/" + s + ".jpg";
 const DATA = [
 /* ---------------- CURSOS ONLINE ---------------- */
 {
-  slug:'iniciacion', cat:'Cursos', stars:1, cover:P('iniciacion'), eyebrow:'Curso online',
+  slug:'iniciacion', enroll:'curso', specs:[['Modalidad','Online'],['Contenido','Introducción + 2 Master Classes'],['Duración','Más de 4 horas de clase']], cat:'Cursos', stars:1, cover:P('iniciacion'), eyebrow:'Curso online',
   t:'Iniciación a la Metodología Balance Training®',
   short:'El primer escalón: los pilares, la filosofía y el modo de trabajo del Método.',
   lead:'Un hermoso curso introductorio a la Metodología Balance Training, donde conoceremos los pilares fundacionales del Método, el modo de trabajo, su filosofía y objetivos.',
   facts:[['Introducción + 2 Master Classes','contenido del curso'],['+4 horas','de clase'],['★','primer escalón de la Pirámide']],
   about:[
-    'También abordaremos las principales herramientas en este camino, tanto las herramientas técnicas y físicas como las emocionales y espirituales.',
+    'Abordaremos las principales herramientas en este camino, tanto las herramientas técnicas y físicas como las emocionales y espirituales.',
     'Profundizaremos en los grandes tópicos del trabajo con caballos desde otra mirada, delinearemos los pasos formativos para desarrollar tu camino ecuestre y analizaremos qué condiciones son necesarias.',
     'Y finalmente haremos un recorrido por todos los escalones que Balance Training ACADEMY te propone para tu formación, de una manera organizada, metódica y holística.',
   ],
@@ -37,14 +37,13 @@ const DATA = [
     'Quienes quieran iniciarse en una Metodología que asegura el bienestar del caballo a la vez que establece relaciones sólidas y verdaderas.',
   ],
   forWhoNote:'Recomendamos este curso como primer escalón para todos aquellos que quieran acercarse a nuestra Metodología.',
-  includes:['Introducción y dos Master Classes','Más de 4 horas de clase','Primer escalón de la Pirámide Formativa'],
 },
 {
-  slug:'etologia', cat:'Cursos', stars:2, cover:P('etologia'), eyebrow:'Curso online',
+  slug:'etologia', enroll:'curso', specs:[['Modalidad','Online'],['Contenido','4 Master Classes'],['Duración','Aprox. 2 horas cada una']], cat:'Cursos', stars:2, cover:P('etologia'), eyebrow:'Curso online',
   t:'Etología, Formas de Aprendizaje y Comunicación',
   short:'El comportamiento del caballo, cómo aprende y cómo comunicarte con él.',
   lead:'Un hermoso curso donde recorreremos el fascinante mundo del comportamiento del caballo, sus formas de aprendizaje y la manera de aplicar este conocimiento al trato y la comunicación con ellos, y también a la doma y el entrenamiento.',
-  facts:[['4 Master Classes','de aprox. 2 horas'],['Online','a tu ritmo'],['★★','nivel en la Pirámide']],
+  facts:[['4 Master Classes','de aprox. 2 horas'],['Online','modalidad'],['★★','nivel en la Pirámide']],
   about:['Generando relaciones de respeto, armonía y confianza con la visión del Método Balance Training.'],
   programTitle:'Programa',
   program:[
@@ -74,10 +73,9 @@ const DATA = [
     'Toda persona que trabaje con caballos: entrenadores, domadores, instructores, terapeutas, veterinarios, etc.',
   ],
   reqSoft:'Sugerimos haber realizado primero el curso de Iniciación a la Metodología Balance Training, aunque no es excluyente.',
-  includes:['4 Master Classes','Aproximadamente 2 horas cada una','Nivel ★★ de la Pirámide Formativa'],
 },
 {
-  slug:'arte-menor-esfuerzo', cat:'Cursos', stars:2, cover:P('arte-menor-esfuerzo'), eyebrow:'Curso online',
+  slug:'arte-menor-esfuerzo', enroll:'curso', specs:[['Modalidad','Online'],['Contenido','5 Master Classes']], cat:'Cursos', stars:2, cover:P('arte-menor-esfuerzo'), eyebrow:'Curso online',
   t:'La Equitación y El Arte del menor esfuerzo',
   short:'Un camino de mayor liviandad y ligereza con tu caballo, y también en la vida.',
   lead:'Una capacitación diseñada para quienes desean profundizar en un camino de mayor liviandad y ligereza con sus caballos, y también trasladarlo a la vida.',
@@ -110,7 +108,7 @@ const DATA = [
   includes:['5 Master Classes','Guías de Trabajo','Material descargable','Bibliografía'],
 },
 {
-  slug:'psicofisica', cat:'Cursos', stars:2, cover:P('psicofisica'), eyebrow:'Curso online sincrónico',
+  slug:'psicofisica', enroll:'cohorte', specs:[['Modalidad','Online sincrónico, en vivo'],['Contenido','4 clases'],['Cupo','Grupos reducidos, una vez al año'],['Fecha','A definir']], cat:'Cursos', stars:2, cover:P('psicofisica'), eyebrow:'Curso online sincrónico',
   t:'Preparación Psico-Física del Jinete',
   short:'Cuerpo, mente y emoción alineados como tu mejor instrumento.',
   lead:'Un curso online sincrónico con fecha a definir. Se dicta una vez al año, en grupos reducidos, para garantizar una experiencia personalizada.',
@@ -137,11 +135,10 @@ const DATA = [
     'Una manera orgánica de comprender el arte de guiar y acompañar a un caballo, tanto desde el piso como en la montura.',
   ],
   forWho:['Jinetes, entrenadores, domadores, instructores y toda persona, profesional o aficionada, que quiera mejorar su monta, manejo y técnicas de entrenamiento y llevar su Equitación a otro nivel, tanto para sí misma como para sus alumnos.'],
-  includes:['4 clases online sincrónicas','Grupos reducidos','Experiencia personalizada','Fecha a definir · una vez al año'],
   dateNote:'Fecha a definir',
 },
 {
-  slug:'caballo-deportivo', cat:'Cursos', stars:2, cover:P('caballo-deportivo'), eyebrow:'Curso online',
+  slug:'caballo-deportivo', enroll:'curso', specs:[['Modalidad','Online'],['Contenido','4 Master Classes grabadas'],['Duración','2 horas cada una']], cat:'Cursos', stars:2, cover:P('caballo-deportivo'), eyebrow:'Curso online',
   t:'Bases Formativas del Caballo Deportivo',
   short:'Cómo se construye un caballo atleta desde sus bases, de forma progresiva y respetuosa.',
   lead:'Formar un caballo deportivo es mucho más que prepararlo físicamente o enseñarle una técnica.',
@@ -171,12 +168,11 @@ const DATA = [
     'Jinetes, amazonas, entrenadores, instructores, propietarios, estudiantes y profesionales del ámbito ecuestre que quieran comprender y organizar mejor la formación de un caballo deportivo.',
     'Los principios desarrollados pueden aplicarse a diferentes disciplinas ecuestres, desde la formación inicial hasta etapas más avanzadas del entrenamiento.',
   ],
-  includes:['4 Master Classes grabadas','2 horas cada una','Nivel ★★ de la Pirámide Formativa'],
 },
 
 /* ---------------- WEBINARS ---------------- */
 {
-  slug:'webinar-asiento', cat:'Webinars', cover:P('webinar-asiento'), eyebrow:'Webinar',
+  slug:'webinar-asiento', enroll:'curso', specs:[['Formato','Master Class online'],['Duración','1 h 30 min'],['Acceso','Cuando quieras']], cat:'Webinars', cover:P('webinar-asiento'), eyebrow:'Webinar',
   t:'Mejorar tu asiento es posible',
   short:'Una Master Class de 1 hora y media para una monta más armoniosa y conectada.',
   lead:'Una Master Class de 1 hora y media a la que podés acceder cuando quieras.',
@@ -186,10 +182,9 @@ const DATA = [
     'Todo jinete que quiera conseguir una monta más armoniosa y conectada, a través de mejorar su asiento, postura y coordinación de ayudas.',
     'Jinetes aficionados y especialmente instructores, equinoterapeutas y entrenadores de diferentes disciplinas.',
   ],
-  includes:['1 Master Class de 1 h 30 min','Acceso cuando quieras'],
 },
 {
-  slug:'webinar-caballo-nuevo', cat:'Webinars', cover:P('webinar-caballo-nuevo'), eyebrow:'Webinar',
+  slug:'webinar-caballo-nuevo', enroll:'curso', specs:[['Formato','Webinar online']], cat:'Webinars', cover:P('webinar-caballo-nuevo'), eyebrow:'Webinar',
   t:'Del caballo nuevo al caballo hecho',
   short:'La evolución del caballo joven: madurez mental, morfológica, biomecánica y funcional.',
   lead:'Comprender la evolución de un caballo en todas sus áreas es esencial para quienes se dedican a trabajar con caballos jóvenes.',
@@ -204,7 +199,7 @@ const DATA = [
   ],
 },
 {
-  slug:'webinar-comunicacion', cat:'Webinars', cover:P('webinar-comunicacion'), eyebrow:'Webinar',
+  slug:'webinar-comunicacion', enroll:'curso', specs:[['Formato','Webinar online']], cat:'Webinars', cover:P('webinar-comunicacion'), eyebrow:'Webinar',
   t:'Comunicación y Formas de Aprendizaje',
   short:'El lenguaje de los caballos y cómo relacionarte con ellos de forma respetuosa y colaborativa.',
   lead:'Un webinar dedicado a comprender con mayor profundidad el lenguaje de los caballos y cómo entablar relaciones con ellos de una manera respetuosa y colaborativa.',
@@ -218,7 +213,7 @@ const DATA = [
 
 /* ---------------- FORMACIÓN ---------------- */
 {
-  slug:'formacion-integral', cat:'Formación', stars:5, cover:P('formacion-integral'), eyebrow:'Programa Superior de Capacitación · Primer Nivel',
+  slug:'formacion-integral', enroll:'cohorte', specs:[['Etapa 1','Online por Zoom · 8 Master Classes'],['Etapa 2','Presencial · 3 días completos'],['Etapa 3','Mentoring · 2 sesiones individuales'],['Cierre','Trabajo final y certificado']], cat:'Formación', stars:5, cover:P('formacion-integral'), eyebrow:'Programa Superior de Capacitación · Primer Nivel',
   t:'Formación Ecuestre Integral 2027',
   short:'La columna vertebral de la Academia: online, presencial y mentoring, con certificado.',
   lead:'La columna vertebral de Balance Training ACADEMY. Una formación integral, metodológica y súper personalizada, que venimos dando hace 18 años, formando profesionales y aficionados de diferentes disciplinas con muy buenas bases técnicas y educativas.',
@@ -256,13 +251,12 @@ const DATA = [
     'Entrenadores y profesionales ecuestres que buscan ampliar, actualizar u organizar sus conocimientos dentro de una metodología.',
     'Personas de diferentes disciplinas que comprenden que, antes de cualquier especialización, existen fundamentos comunes que todo buen jinete y entrenador necesita dominar.',
   ],
-  includes:['8 Master Classes online por Zoom','3 días completos presenciales','2 sesiones individuales de mentoring','Trabajo final','Reunión de cierre','Certificado al completar las 3 etapas'],
   dateNote:'Fecha y lugar de la etapa presencial a confirmar',
 },
 
 /* ---------------- ACOMPAÑAMIENTO ---------------- */
 {
-  slug:'mentorias', cat:'Acompañamiento', stars:3, eyebrow:'Mentorías personalizadas',
+  slug:'mentorias', enroll:'entrevista', ctaShort:'Solicitar entrevista', specs:[['Encuentros','Una vez por semana, online'],['Compromiso','Mínimo 3 meses'],['Ingreso','Entrevista previa con la Mentora']], cat:'Acompañamiento', stars:3, eyebrow:'Mentorías personalizadas',
   t:'Mentorías Personalizadas',
   short:'Nuestro programa más personalizado: un plan a medida para vos y tu caballo.',
   lead:'Un acompañamiento personalizado para vos y tu caballo. Nuestro programa más personalizado de asesoramiento, formación y acompañamiento para jinetes y binomios que desean crecer de manera ordenada, progresiva y consciente.',
@@ -292,18 +286,17 @@ const DATA = [
   ctaLabel:'Solicitar entrevista por WhatsApp',
 },
 {
-  slug:'asesorias', cat:'Acompañamiento', eyebrow:'Asesoría online',
+  slug:'asesorias', enroll:'entrevista', ctaShort:'Coordinar llamada', specs:[['Sesión','1 h 30 min por Zoom'],['Primer paso','Llamada previa con la Mentora']], cat:'Acompañamiento', eyebrow:'Asesoría online',
   t:'Asesorías',
   short:'Una sesión de 1 h 30 por Zoom para los temas puntuales que necesites resolver.',
   lead:'Una sesión de una hora y media por Zoom, durante la cual nos abocamos a los temas específicos en los que necesites asesoramiento.',
   facts:[['1 h 30 min','por Zoom'],['A medida','de tu consulta']],
   about:['Incluye revisión de trabajos y asesoramiento tanto en la parte profesional como en la personal o técnica.'],
   req:['Una llamada previa con la Mentora.'],
-  includes:['Sesión de 1 h 30 min por Zoom','Revisión de trabajos','Asesoramiento profesional, personal o técnico'],
   ctaLabel:'Coordinar llamada por WhatsApp',
 },
 {
-  slug:'coaching', cat:'Acompañamiento', eyebrow:'Coaching',
+  slug:'coaching', enroll:'entrevista', ctaShort:'Coordinar llamada', specs:[['Sesión','50 minutos'],['Primer paso','Llamada previa con la Coach']], cat:'Acompañamiento', eyebrow:'Coaching',
   t:'Sesión de Coaching Deportivo y Ontológico',
   short:'Clarificá qué cambiar, qué camino seguir y qué competencias desarrollar.',
   lead:'El Coaching es una relación profesional continuada que ayuda a obtener resultados extraordinarios en la vida, la profesión, la empresa o los negocios de las personas.',
@@ -314,13 +307,12 @@ const DATA = [
     'El Coaching no es psicoterapia, ni consultoría, ni formación. Si cualquiera de estos servicios fuera necesario, como Coach te lo haré saber y te haré otra propuesta para que puedas seguir avanzando en tus metas. Si requerís algún servicio o profesional por fuera de mi dominio de formación, te recomendaré la derivación correspondiente.',
   ],
   req:['Una llamada previa con la Coach.'],
-  includes:['Sesiones de 50 minutos'],
   ctaLabel:'Coordinar llamada por WhatsApp',
 },
 
 /* ---------------- PRESENCIALES ---------------- */
 {
-  slug:'presenciales', cat:'Presenciales', eyebrow:'Presenciales',
+  slug:'presenciales', enroll:'consulta', specs:[['Dónde','En todo el país, según calendario'],['Clínicas','También en tu lugar']], cat:'Presenciales', eyebrow:'Presenciales',
   t:'Cursos, Capacitaciones y Clínicas en todo el país',
   short:'Capacitaciones presenciales en distintos lugares del país, según calendario.',
   lead:'Durante el año se dictan en diferentes lugares del país distintas capacitaciones, que vamos anunciando según calendario.',
@@ -332,7 +324,7 @@ const DATA = [
   ctaLabel:'Escribinos por WhatsApp',
 },
 {
-  slug:'estadias', cat:'Presenciales', eyebrow:'Presencial en Relinchos',
+  slug:'estadias', enroll:'entrevista', ctaShort:'Consultar fechas', specs:[['Lugar','Relinchos, Cruz Grande, Córdoba'],['Duración','3 días o 1 semana'],['Reserva','50 % del valor acordado']], cat:'Presenciales', eyebrow:'Presencial en Relinchos',
   t:'Estadías Personalizadas en Relinchos',
   short:'Unos días para aprender, practicar y vivir Balance Training® junto a la manada.',
   lead:'Una experiencia para aprender, practicar y vivir Balance Training®. Una invitación a venir a Relinchos y sumergirte durante unos días en una experiencia de aprendizaje junto a los caballos y la naturaleza.',
@@ -369,6 +361,21 @@ const EXTRA = [
   { slug:null, cat:'Formación', stars:6, t:'Formación Ecuestre Integral · Nivel 2', short:'El nivel más alto de profundización dentro del recorrido formativo.', soon:true },
 ];
 
+const TESTIMONIOS = [
+  { t:'Por primera vez entendí el "por qué" de cada cosa. Dejé de pelear con mi caballo y empezamos a entendernos de verdad.', n:'María Sol R.', r:'Aficionada · Córdoba' },
+  { t:'El orden de los contenidos es lo que más valoro. Sentí que avanzaba con bases, no improvisando como venía haciendo.', n:'Diego A.', r:'En profesionalización' },
+  { t:'Técnica seria y, a la vez, un respeto enorme por el animal. Andrea explica con una claridad que no encontré en ningún otro lado.', n:'Lucía F.', r:'Instructora' },
+];
+
+/* Pirámide Formativa (estrellas → escalones) */
+const PIRAMIDE = [
+  { s:6, t:['Formación Ecuestre Integral · Nivel 2'] },
+  { s:5, t:['Formación Ecuestre Integral 2027 · Nivel 1'], slug:'formacion-integral' },
+  { s:3, t:['Mentorías Personalizadas'], slug:'mentorias' },
+  { s:2, t:['Etología, Formas de Aprendizaje y Comunicación','Bases Formativas del Caballo Deportivo','Preparación Psico-Física del Jinete','La Equitación y El Arte del menor esfuerzo'] },
+  { s:1, t:['Iniciación a la Metodología Balance Training®'], slug:'iniciacion' },
+];
+
 const PAGE = (slug) => "curso-" + slug + ".html";
-window.BTA_DATA = { DATA, EXTRA, PAGE, bySlug:(s)=>DATA.find(c=>c.slug===s) };
+window.BTA_DATA = { DATA, EXTRA, PAGE, TESTIMONIOS, PIRAMIDE, bySlug:(s)=>DATA.find(c=>c.slug===s) };
 })();

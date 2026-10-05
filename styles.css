@@ -30,7 +30,7 @@
   --paper:         #FFFFFF;   /* white page bg */
   --paper-2:       #F6EFE2;   /* warm off-white alt */
   --ink:           #4F2D10;   /* primary text — site brown */
-  --ink-soft:      #8A6A47;   /* muted brown */
+  --ink-soft:      #7A5A39;   /* muted brown (≥5:1 sobre todos los fondos claros) */
   --line:          #E8DBC5;   /* warm border */
   --white:         #FFFFFF;
 
@@ -45,7 +45,7 @@
   --shadow-sm:0 1px 3px rgba(34,28,10,.08);
   --shadow-md:0 6px 20px rgba(34,28,10,.10);
   --shadow-lg:0 18px 44px rgba(34,28,10,.16);
-  --shadow-xl:0 30px 70px rgba(22,40,10,.28);
+  --shadow-xl:0 30px 70px rgba(46,26,10,.28);
 
   --maxw:1180px;
   --ease:cubic-bezier(.22,.68,0,1);
@@ -78,9 +78,9 @@ h1,h2,h3,h4,h5{font-family:var(--font-display);color:var(--leaf-dark);line-heigh
   font-weight:700;font-size:15.5px;padding:15px 30px;border-radius:var(--radius-full);border:2px solid transparent;
   cursor:pointer;text-decoration:none;transition:transform .2s var(--ease),background .2s,box-shadow .2s,color .2s,border-color .2s;line-height:1;white-space:nowrap;}
 .bta-btn:active{transform:translateY(1px);}
-.bta-btn-primary{background:var(--sun);color:var(--forest);box-shadow:0 10px 24px rgba(217,174,35,.34);}
-.bta-btn-primary:hover{background:var(--sun-deep);color:var(--forest);transform:translateY(-2px);box-shadow:0 14px 30px rgba(217,174,35,.42);}
-.bta-btn-green{background:var(--leaf-dark);color:#fff;box-shadow:0 10px 24px rgba(79,45,16,.30);}
+.bta-btn-primary{background:var(--sun);color:var(--forest);box-shadow:0 8px 18px -6px rgba(46,26,10,.45);}
+.bta-btn-primary:hover{background:var(--sun-deep);color:var(--forest);transform:translateY(-2px);box-shadow:0 12px 24px -8px rgba(46,26,10,.5);}
+.bta-btn-green{background:var(--leaf-dark);color:#fff;box-shadow:0 8px 18px -6px rgba(46,26,10,.4);}
 .bta-btn-green:hover{background:var(--leaf);transform:translateY(-2px);}
 .bta-btn-outline{background:transparent;color:var(--leaf-dark);border-color:var(--leaf-dark);}
 .bta-btn-outline:hover{background:var(--leaf-dark);color:#fff;}
@@ -89,7 +89,7 @@ h1,h2,h3,h4,h5{font-family:var(--font-display);color:var(--leaf-dark);line-heigh
 .bta-btn-sm{padding:11px 22px;font-size:14px;}
 
 /* link arrow */
-.bta-arrow{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-display);font-weight:700;
+.bta-arrow{text-decoration:none;display:inline-flex;align-items:center;gap:7px;font-family:var(--font-display);font-weight:700;
   font-size:14.5px;color:var(--leaf);background:none;border:none;cursor:pointer;padding:0;transition:gap .2s;}
 .bta-arrow:hover{gap:12px;}
 .bta-arrow.leaf{color:var(--leaf-dark);}
@@ -120,3 +120,24 @@ h1,h2,h3,h4,h5{font-family:var(--font-display);color:var(--leaf-dark);line-heigh
 @media(max-width:760px){.lead{font-size:17px;}}
 .muted{color:var(--ink-soft);}
 .grain{position:relative;}
+
+/* ---- superficies del navegador ---- */
+::selection{background:var(--sun-soft);color:var(--forest);}
+html{accent-color:var(--sun-deep);}
+a{color:inherit;text-underline-offset:3px;}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:6px;}
+.bg-forest :focus-visible,.bta-hero :focus-visible,footer :focus-visible,nav :focus-visible{outline-color:var(--sun-soft);}
+.bta-hero nav a{text-decoration:none;}
+.bta-hero nav a:hover{text-decoration:underline;}
+.bta-faq-q:hover span:first-child{color:var(--leaf);}
+
+/* ---- botón flotante de WhatsApp ---- */
+.bta-wa{bottom:22px;transition:bottom .3s var(--ease),transform .2s var(--ease);}
+.bta-wa:hover{transform:scale(1.06);}
+.bta-wa.is-lifted{bottom:86px;}
+@media(max-width:760px){.bta-wa.is-lifted{bottom:80px;}}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;scroll-behavior:auto!important;}
+}
+@media(max-width:480px){.bta-btn{white-space:normal;text-align:center;line-height:1.25;}}
