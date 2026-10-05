@@ -16,13 +16,7 @@ const CURSOS_DATA = BTA_LIST.map(c=>({ t:c.t, d:c.short, cat:c.cat, stars:c.star
 
 const FILTROS = ['Todos','Cursos','Webinars','Formación','Acompañamiento','Presenciales'];
 
-const PIRAMIDE = [
-  { s:6, t:['Formación Ecuestre Integral · Nivel 2'] },
-  { s:5, t:['Formación Ecuestre Integral 2027 · Nivel 1'] },
-  { s:3, t:['Mentorías Personalizadas'] },
-  { s:2, t:['Etología, Formas de Aprendizaje y Comunicación','Bases Formativas del Caballo Deportivo','Preparación Psico-Física del Jinete','La Equitación y El Arte del menor esfuerzo'] },
-  { s:1, t:['Iniciación a la Metodología Balance Training®'] },
-];
+const PIRAMIDE = window.BTA_DATA.PIRAMIDE;
 
 /* ---------- HEADER ---------- */
 function Header(){
@@ -116,21 +110,25 @@ function Piramide(){
             y los requerimientos de cada uno. Es sólo una sugerencia y no invalida tomarlos en otro orden.
           </p>
         </div>
-        <div style={{display:'flex',flexDirection:'column',gap:12,maxWidth:880,margin:'0 auto'}}>
+        <ol aria-label="Pirámide Formativa, de arriba hacia abajo" style={{listStyle:'none',display:'flex',flexDirection:'column',gap:10,alignItems:'center',maxWidth:900,margin:'0 auto'}}>
           {PIRAMIDE.map((row,i)=>{
-            const width = 46 + i*13.5;
+            const courses = BTA_LIST.filter(d=>d.stars===row.s);
+            const soon = row.soon !== undefined && courses.length===0;
             return (
-              <div key={row.s} className="bta-pir-row" style={{width:width+'%',maxWidth:'100%',margin:'0 auto',background:'#fff',
-                border:'1px solid var(--line)',borderLeft:'4px solid var(--leaf)',borderRadius:'var(--radius-md)',
-                padding:'16px 22px',boxShadow:'var(--shadow-sm)',display:'flex',gap:16,alignItems:'center',flexWrap:'wrap'}}>
-                <span style={{flexShrink:0,fontFamily:'var(--font-display)',fontWeight:800,fontSize:13,color:'var(--sun)',letterSpacing:'.1em'}}>{'★'.repeat(row.s)}</span>
-                <div style={{display:'flex',flexDirection:'column',gap:5,flex:1,minWidth:200}}>
-                  {row.t.map(t=><span key={t} style={{fontSize:14.5,lineHeight:1.45,color:'var(--ink)',fontWeight:600}}>{t}</span>)}
-                </div>
-              </div>
+              <li key={row.s} className="bta-pir-row" style={{width:(46+i*(54/(PIRAMIDE.length-1)))+'%',minWidth:0,background:soon?'transparent':'#fff',
+                border:soon?'1px dashed var(--line-strong)':'1px solid var(--line)',borderRadius:'var(--radius-md)',
+                padding:'14px 20px',boxShadow:soon?'none':'var(--shadow-sm)',display:'flex',gap:16,alignItems:'center',flexWrap:'wrap'}}>
+                <span className="bta-sr">Nivel {row.s} {row.s===1?'estrella':'estrellas'}{soon?', próximamente':''}.</span>
+                <span aria-hidden="true" style={{flexShrink:0,minWidth:90,fontFamily:'var(--font-display)',fontWeight:800,fontSize:14,color:'var(--gold-text)',letterSpacing:'.1em'}}>{'★'.repeat(row.s)}</span>
+                <span style={{display:'flex',flexWrap:'wrap',gap:'5px 16px',flex:1,minWidth:180,fontSize:14.5,lineHeight:1.45}}>
+                  {soon
+                    ? <span style={{color:'var(--ink-soft)',fontStyle:'italic'}}>{(row.soon.length?row.soon.join(' · ')+' · ':'')}Próximamente</span>
+                    : courses.map(c=><a key={c.slug} href={PAGE(c.slug)} style={{color:'var(--ink)',fontWeight:600}}>{c.t}</a>)}
+                </span>
+              </li>
             );
           })}
-        </div>
+        </ol>
         <p style={{textAlign:'center',marginTop:34,fontSize:14.5,color:'var(--ink-soft)'}}>
           Cualquier duda nos podés escribir a <a href={"mailto:"+CONTACT.email} style={{color:'var(--leaf)',fontWeight:700}}>{CONTACT.email}</a>
         </p>

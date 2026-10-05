@@ -367,13 +367,15 @@ const TESTIMONIOS = [
   { t:'Técnica seria y, a la vez, un respeto enorme por el animal. Andrea explica con una claridad que no encontré en ningún otro lado.', n:'Lucía F.', r:'Instructora' },
 ];
 
-/* Pirámide Formativa (estrellas → escalones) */
+/* Pirámide Formativa: escalones por estrellas. Los cursos de cada escalón salen de DATA;
+   los escalones sin contenido publicado se muestran como "Próximamente". */
 const PIRAMIDE = [
-  { s:6, t:['Formación Ecuestre Integral · Nivel 2'] },
-  { s:5, t:['Formación Ecuestre Integral 2027 · Nivel 1'], slug:'formacion-integral' },
-  { s:3, t:['Mentorías Personalizadas'], slug:'mentorias' },
-  { s:2, t:['Etología, Formas de Aprendizaje y Comunicación','Bases Formativas del Caballo Deportivo','Preparación Psico-Física del Jinete','La Equitación y El Arte del menor esfuerzo'] },
-  { s:1, t:['Iniciación a la Metodología Balance Training®'], slug:'iniciacion' },
+  { s:6, soon:['Formación Ecuestre Integral · Nivel 2'] },
+  { s:5 },
+  { s:4, soon:[] },
+  { s:3 },
+  { s:2 },
+  { s:1 },
 ];
 
 const PAGE = (slug) => "curso-" + slug + ".html";

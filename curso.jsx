@@ -50,8 +50,8 @@ function Hero(){
   return (
     <header className="bta-hero" style={{position:'relative',background:'var(--forest)',overflow:'hidden',paddingTop:74}}>
       <div style={{position:'absolute',inset:0}} aria-hidden="true">
-        <img src={PHOTO_ANDREA} alt="" style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'70% 35%',opacity:.38}} onError={imgErr('var(--forest-2)')}/>
-        <div style={{position:'absolute',inset:0,background:'linear-gradient(90deg,rgba(42,23,8,.97) 0%,rgba(46,26,10,.9) 50%,rgba(46,26,10,.72) 100%)'}}></div>
+        <img src={PHOTO_ANDREA} alt="" style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'70% 35%',opacity:.55}} onError={imgErr('var(--forest-2)')}/>
+        <div style={{position:'absolute',inset:0,background:'linear-gradient(90deg,rgba(42,23,8,.97) 0%,rgba(46,26,10,.88) 48%,rgba(46,26,10,.6) 100%)'}}></div>
       </div>
       <div className="bta-container" style={{position:'relative',zIndex:2,padding:'48px 28px 68px'}}>
         <nav aria-label="Ruta de navegación" style={{fontSize:13,color:'rgba(246,241,228,.72)',marginBottom:28,display:'flex',gap:8,flexWrap:'wrap'}}>
@@ -82,7 +82,7 @@ function Hero(){
           </div>
           <div className="bta-hero-visual" style={{minWidth:0}}>
             <img src={visual} alt={C.cover ? 'Portada: '+C.t : 'Andrea Pigazzi con su caballo en Córdoba'}
-              style={{width:'100%',display:'block',aspectRatio:C.cover?'auto':'4/3',objectFit:'cover',objectPosition:'72% 30%',borderRadius:'var(--radius-lg)',boxShadow:'0 24px 50px -12px rgba(0,0,0,.55)',border:'1px solid rgba(220,182,126,.3)'}}
+              style={{width:'100%',display:'block',aspectRatio:C.cover?'auto':'4/3',objectFit:'cover',objectPosition:'72% 30%',borderRadius:'var(--radius-lg)',boxShadow:'0 24px 50px -16px rgba(0,0,0,.6)'}}
               onError={imgErr('var(--forest-2)')}/>
           </div>
         </div>
@@ -126,7 +126,7 @@ function Programa(){
         <ol className={detailed?'':'bta-prog-cols'} style={{listStyle:'none',marginTop:label?0:28,display:'grid',gridTemplateColumns:detailed?'1fr':'1fr 1fr',columnGap:48}}>
           {C.program.map((m,i)=>(
             <li key={m.t} style={{display:'flex',gap:18,alignItems:'baseline',padding:'18px 0',borderTop:'1px solid var(--line)'}}>
-              <span style={{flexShrink:0,minWidth:28,fontFamily:'var(--font-display)',fontWeight:800,fontSize:17,color:'var(--sun-deep)',fontVariantNumeric:'tabular-nums'}}>{String(i+1).padStart(2,'0')}</span>
+              <span style={{flexShrink:0,minWidth:28,fontFamily:'var(--font-display)',fontWeight:800,fontSize:17,color:'var(--gold-text)',fontVariantNumeric:'tabular-nums'}}>{String(i+1).padStart(2,'0')}</span>
               <div style={{minWidth:0}}>
                 <span style={{fontFamily:'var(--font-display)',fontWeight:700,fontSize:17,color:'var(--ink)'}}>{label?label+' '+(i+1)+': ':''}{m.t}</span>
                 {m.d && <p style={{fontSize:15,lineHeight:1.65,color:'var(--ink-soft)',marginTop:5}}>{m.d}</p>}
@@ -149,7 +149,7 @@ function Blocks(){
           {C.blocks.map(b=>(
             <div key={b.title}>
               <h3 style={{fontSize:21,lineHeight:1.3,marginBottom:6,color:'var(--ink)'}}>{b.title}</h3>
-              <p style={{fontSize:14,fontWeight:700,color:'var(--sun-deep)',marginBottom:14}}>{b.eyebrow}</p>
+              <p style={{fontSize:14,fontWeight:700,color:'var(--gold-text)',marginBottom:14}}>{b.eyebrow}</p>
               <div style={{display:'flex',flexDirection:'column',gap:10}}>
                 {b.paras.map((p,i)=><p key={i} style={{fontSize:15.5,lineHeight:1.7,color:'var(--ink-soft)'}}>{p}</p>)}
               </div>
@@ -201,7 +201,7 @@ function ParaQuien(){
           <ol style={{listStyle:'none',display:'flex',flexDirection:'column',gap:14}}>
             {(C.req||[C.reqSoft]).map((t,i)=><li key={i} style={{display:'flex',gap:12,alignItems:'flex-start'}}>
               {C.req && C.req.length>1
-                ? <span aria-hidden="true" style={{flexShrink:0,minWidth:22,fontWeight:800,color:'var(--sun-deep)',fontVariantNumeric:'tabular-nums'}}>{i+1}.</span>
+                ? <span aria-hidden="true" style={{flexShrink:0,minWidth:22,fontWeight:800,color:'var(--gold-text)',fontVariantNumeric:'tabular-nums'}}>{i+1}.</span>
                 : <Check s={19} c="var(--leaf)"/>}
               <span style={{fontSize:15.5,lineHeight:1.6,color:'var(--ink)'}}>{t}</span>
             </li>)}
@@ -249,7 +249,7 @@ function Inscripcion(){
   return (
     <section id="inscripcion" className="bg-paper2 bta-section">
       <div className="bta-container bta-insc" style={{maxWidth:1040,display:'grid',gridTemplateColumns:'1.25fr .75fr',gap:28,alignItems:'start'}}>
-        <div style={{background:'#fff',borderRadius:'var(--radius-xl)',boxShadow:'var(--shadow-lg)',border:'1px solid var(--line)',overflow:'hidden'}}>
+        <div style={{background:'#fff',borderRadius:'var(--radius-xl)',boxShadow:'var(--shadow-lg)',overflow:'hidden'}}>
           <div style={{background:'var(--forest)',padding:'28px 34px'}}>
             <H2 light style={{fontSize:'clamp(24px,3vw,32px)'}}>{E.title}</H2>
             <p style={{color:'var(--leaf-bright)',fontSize:15,fontWeight:600,marginTop:6}}>{C.t}</p>
@@ -272,7 +272,7 @@ function Inscripcion(){
             <p style={{fontSize:16,lineHeight:1.65,color:'var(--ink)',marginBottom:24}}>{E.text}</p>
             <div style={{display:'flex',gap:12,flexWrap:'wrap',marginBottom:20}}>
               {C.checkout && <a className="bta-btn bta-btn-primary" href={C.checkout}>Inscribirme ahora</a>}
-              <a className={C.checkout?'bta-btn bta-btn-green':'bta-btn bta-btn-primary'} href={WA}>{C.checkout?'¿Dudas? Escribinos':(C.ctaLabel||'Consultar por WhatsApp')}</a>
+              <a className={C.checkout?'bta-btn bta-btn-green':'bta-btn bta-btn-primary'} href={WA}>{C.checkout?'¿Dudas? Escribinos':(C.ctaLabel||CTA_LABEL+' por WhatsApp')}</a>
               {!C.checkout && <a className="bta-btn bta-btn-outline" href={"mailto:"+CONTACT.email+"?subject="+encodeURIComponent(C.t)}>Escribir por mail</a>}
             </div>
             <p style={{fontSize:14,color:'var(--ink-soft)',lineHeight:1.7}}>
@@ -298,10 +298,11 @@ function Faq(){
   const qs = [];
   if(C.req) qs.push({q:'¿Tiene requisitos previos?', a:C.req.join(' ')});
   else if(C.reqSoft) qs.push({q:'¿Necesito haber hecho otro curso antes?', a:C.reqSoft});
+  if(C.enroll==='curso' && !/grabad|cuando quieras/i.test(JSON.stringify(C.specs||[]))) qs.push({q:'¿Es en vivo o grabado?', a:'Escribinos por WhatsApp y te contamos cómo es el acceso a esta capacitación y cuándo podés empezar.'});
   qs.push({q:'¿Cuánto sale y cómo se paga?', a:'Escribinos por WhatsApp al '+CONTACT.whatsappLabel+' o a '+CONTACT.email+' y te pasamos el valor vigente y las formas de pago disponibles.'});
   if(C.stars) qs.push({q:'¿Qué significan las estrellas?', a:'Indican el escalón de cada capacitación dentro de la Pirámide Formativa, el orden en que sugerimos ir tomándolas. Es una sugerencia y no invalida tomarlas en otro orden.'});
   qs.push({q:'No sé si es la capacitación indicada para mí, ¿me orientan?', a:'Sí, con mucho gusto. Contanos tu nivel, tu experiencia y tus intereses, y te asesoramos para que elijas el camino más adecuado.'});
-  const [open,setOpen] = useStateC(0);
+  const [open,setOpen] = useStateC(qs.length-1);
   return (
     <section className="bg-paper bta-section">
       <div className="bta-container" style={{maxWidth:800}}>
@@ -332,15 +333,47 @@ function Faq(){
 /* ---------- PIRÁMIDE + TU PRÓXIMO ESCALÓN ---------- */
 function CaminoCard({c}){
   return (
-    <a href={PAGE(c.slug)} className="bta-lift" style={{display:'block',textDecoration:'none',background:'#fff',borderRadius:'var(--radius-lg)',overflow:'hidden',boxShadow:'var(--shadow-sm)',border:'1px solid var(--line)'}}>
-      {c.cover
-        ? <img src={c.cover} alt="" loading="lazy" style={{width:'100%',aspectRatio:'16/9',objectFit:'cover',display:'block'}} onError={imgErr('var(--sand)')}/>
-        : <div style={{aspectRatio:'16/9',background:'var(--forest)',display:'flex',alignItems:'flex-end',padding:18}}><span style={{fontFamily:'var(--font-display)',fontWeight:800,fontSize:20,color:'#fff',lineHeight:1.15}}>{c.t}</span></div>}
+    <a href={PAGE(c.slug)} className="bta-lift" style={{display:'flex',flexDirection:'column',textDecoration:'none',background:'#fff',borderRadius:'var(--radius-lg)',overflow:'hidden',boxShadow:'var(--shadow-sm)'}}>
+      <img src={c.cover || PHOTO_ANDREA} alt="" loading="lazy" style={{width:'100%',aspectRatio:'16/9',objectFit:'cover',objectPosition:c.cover?'center':'72% 30%',display:'block'}} onError={imgErr('var(--sand)')}/>
       <div style={{padding:'16px 18px 20px'}}>
         <div style={{fontSize:13.5,color:'var(--leaf)',fontWeight:700,marginBottom:6}}>{c.eyebrow}{c.stars?' · '+starStr(c.stars):''}</div>
         <div style={{fontFamily:'var(--font-display)',fontWeight:700,fontSize:16.5,color:'var(--ink)',lineHeight:1.3}}>{c.t}</div>
       </div>
     </a>
+  );
+}
+
+function Piramide(){
+  const n = PIRAMIDE.length;
+  return (
+    <div>
+      <H2 style={{fontSize:'clamp(24px,3vw,32px)',marginBottom:10}}>Tu lugar en la Pirámide Formativa</H2>
+      <p style={{fontSize:16,lineHeight:1.6,color:'var(--ink-soft)',marginBottom:28,maxWidth:620}}>El orden en que sugerimos ir tomando las capacitaciones. Es una guía, no una obligación: cada escalón suma sobre el anterior.</p>
+      <ol aria-label="Pirámide Formativa, de arriba hacia abajo" style={{listStyle:'none',display:'flex',flexDirection:'column',gap:8,alignItems:'center'}}>
+        {PIRAMIDE.map((row,i)=>{
+          const here = row.s===C.stars;
+          const courses = DATA.filter(d=>d.stars===row.s);
+          const soon = row.soon !== undefined && courses.length===0;
+          return (
+            <li key={row.s} className="bta-pir-row" aria-current={here?'step':undefined}
+              style={{width:(46+i*(54/(n-1)))+'%',minWidth:0,background:here?'var(--sun)':soon?'transparent':'#fff',
+                border:soon?'1px dashed var(--line-strong)':'1px solid '+(here?'var(--sun-deep)':'var(--line)'),
+                borderRadius:'var(--radius-md)',padding:'12px 16px',display:'flex',gap:14,alignItems:'center',flexWrap:'wrap',
+                boxShadow:here?'0 10px 24px -10px rgba(46,26,10,.45)':'none'}}>
+              <span className="bta-sr">Nivel {row.s} {row.s===1?'estrella':'estrellas'}{here?', estás en este escalón':''}{soon?', próximamente':''}.</span>
+              <span aria-hidden="true" style={{flexShrink:0,minWidth:84,fontSize:14,fontWeight:800,letterSpacing:'.1em',color:here?'var(--forest)':'var(--gold-text)'}}>{starStr(row.s)}</span>
+              <span style={{flex:1,minWidth:160,display:'flex',flexWrap:'wrap',gap:'4px 14px',fontSize:14.5,lineHeight:1.4}}>
+                {soon
+                  ? <span style={{color:'var(--ink-soft)',fontStyle:'italic'}}>{(row.soon.length?row.soon.join(' · ')+' · ':'')}Próximamente</span>
+                  : courses.map(c=> c.slug===C.slug
+                      ? <span key={c.slug} style={{fontWeight:800,color:'var(--forest)'}}>{c.t} <span style={{fontWeight:700}}>· Estás acá</span></span>
+                      : <a key={c.slug} href={PAGE(c.slug)} style={{fontWeight:600,color:here?'var(--forest)':'var(--ink)'}}>{c.t}</a>)}
+              </span>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
   );
 }
 
@@ -359,32 +392,17 @@ function Camino(){
   }
   return (
     <section className="bg-sand bta-section" id="piramide">
-      <div className="bta-container bta-camino" style={{display:'grid',gridTemplateColumns:C.stars?'.8fr 1.6fr':'1fr',gap:48,alignItems:'start'}}>
-        {C.stars && <div>
-          <H2 style={{fontSize:'clamp(22px,2.6vw,30px)',marginBottom:12}}>Tu lugar en la Pirámide Formativa</H2>
-          <p style={{fontSize:15.5,lineHeight:1.6,color:'var(--ink-soft)',marginBottom:24}}>El orden en que sugerimos ir tomando las capacitaciones. Es una guía, no una obligación.</p>
-          <ol aria-label="Pirámide Formativa" style={{listStyle:'none',display:'flex',flexDirection:'column',gap:6,alignItems:'center'}}>
-            {PIRAMIDE.map((row,i)=>{
-              const here = row.s===C.stars;
-              return (
-                <li key={row.s} aria-current={here?'step':undefined} style={{width:(40+i*15)+'%',background:here?'var(--sun)':'#fff',border:'1px solid '+(here?'var(--sun-deep)':'var(--line)'),borderRadius:'var(--radius-sm)',padding:'9px 10px',textAlign:'center',boxShadow:here?'var(--shadow-md)':'none'}}>
-                  <span style={{fontSize:13,fontWeight:800,letterSpacing:'.08em',color:here?'var(--forest)':'var(--sun-deep)'}} aria-label={row.s+' estrellas'}>{starStr(row.s)}</span>
-                  {here && <span style={{display:'block',fontSize:12.5,fontWeight:700,color:'var(--forest)',marginTop:2}}>Estás acá</span>}
-                </li>
-              );
-            })}
-          </ol>
-          <a href={CURSOS+'#piramide'} className="bta-arrow" style={{marginTop:20}}>Ver la Pirámide completa <span aria-hidden="true">→</span></a>
-        </div>}
+      <div className="bta-container" style={{display:'flex',flexDirection:'column',gap:64}}>
+        {C.stars && <Piramide/>}
         <div>
           <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-end',gap:16,flexWrap:'wrap',marginBottom:24}}>
             <div>
               <H2 style={{fontSize:'clamp(22px,2.6vw,30px)',marginBottom:6}}>{title}</H2>
-              <p style={{fontSize:15.5,color:'var(--ink-soft)'}}>{intro}</p>
+              <p style={{fontSize:16,color:'var(--ink-soft)'}}>{intro}</p>
             </div>
             <a className="bta-btn bta-btn-outline bta-btn-sm" href={CURSOS}>Ver catálogo completo</a>
           </div>
-          <div className="bta-rel" style={{display:'grid',gridTemplateColumns:'repeat('+Math.min(3,list.length)+',1fr)',gap:18}}>
+          <div className="bta-rel" style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:20}}>
             {list.map(c=><CaminoCard key={c.slug} c={c}/>)}
           </div>
         </div>
@@ -406,11 +424,13 @@ function StickyBar({onChange}){
     return ()=>{ window.removeEventListener('scroll',update); io && io.disconnect(); };
   },[]);
   return (
-    <div aria-hidden={!show} className="bta-stickybar" style={{position:'fixed',left:0,right:0,bottom:0,zIndex:140,background:'var(--forest)',borderTop:'1px solid rgba(255,255,255,.14)',
+    <div aria-hidden={!show} inert={show?undefined:''} className="bta-stickybar" style={{position:'fixed',left:0,right:0,bottom:0,zIndex:140,background:'var(--forest)',borderTop:'1px solid rgba(255,255,255,.14)',
       paddingBottom:'env(safe-area-inset-bottom, 0px)',transform:show?'translateY(0)':'translateY(110%)',transition:'transform .3s var(--ease)'}}>
       <div className="bta-container" style={{display:'flex',alignItems:'center',justifyContent:'space-between',gap:14,padding:'12px 28px'}}>
         <div style={{minWidth:0,fontFamily:'var(--font-display)',fontWeight:700,color:'#fff',fontSize:15,whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{C.t}</div>
-        <a className="bta-btn bta-btn-primary bta-btn-sm" href={CTA_HREF} tabIndex={show?0:-1} style={{flexShrink:0}}>{C.checkout?'Inscribirme':(C.ctaShort||'Consultar')}</a>
+        <a className="bta-btn bta-btn-primary bta-btn-sm" href={CTA_HREF} tabIndex={show?0:-1} style={{flexShrink:0}}>
+          {C.checkout ? 'Inscribirme' : C.ctaShort ? C.ctaShort : <><span className="bta-only-wide">Consultar inscripción</span><span className="bta-only-narrow">Consultar</span></>}
+        </a>
       </div>
     </div>
   );
@@ -438,10 +458,10 @@ function App(){
   useEffectC(()=>{ document.title = (C ? C.t : 'Capacitación no encontrada') + ' — Balance Training Academy®'; },[]);
   if(!C) return (<div><Nav active="cursos"/><NoEncontrado/><Footer/></div>);
   return (
-    <div>
-      <Nav active="cursos"/>
+    <div style={{background:'var(--forest)',paddingBottom:64}}>
+      <Nav active="cursos" cta={{href:CTA_HREF,label:CTA_LABEL}} skip/>
       <Hero/>
-      <main>
+      <main id="contenido" tabIndex={-1}>
         <About/>
         <Programa/>
         <Blocks/>

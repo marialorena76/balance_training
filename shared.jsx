@@ -87,7 +87,9 @@ function BrandLogo({ variant="light", compact=false, onClick }){
 }
 
 /* ---- nav ---- */
-function Nav({ active="inicio" }){
+function Nav({ active="inicio", cta, skip=false }){
+  const ctaHref = cta ? cta.href : CURSOS+'#catalogo';
+  const ctaLabel = cta ? cta.label : 'Inscribirme';
   const [scrolled,setScrolled] = useState(false);
   const [open,setOpen] = useState(false);
   useEffect(()=>{
@@ -105,7 +107,9 @@ function Nav({ active="inicio" }){
   ];
   const solid = scrolled || open;
   return (
-    <nav style={{position:'fixed',top:0,left:0,right:0,zIndex:200,
+    <>
+    {skip && <a href="#contenido" className="bta-skip">Saltar al contenido</a>}
+    <nav aria-label="Principal" style={{position:'fixed',top:0,left:0,right:0,zIndex:200,
       background: solid ? 'rgba(46,26,10,.96)' : 'transparent',
       backdropFilter: solid ? 'blur(10px)' : 'none',
       borderBottom: solid ? '1px solid rgba(255,255,255,.10)' : '1px solid transparent',
@@ -123,9 +127,9 @@ function Nav({ active="inicio" }){
               {l.label}
             </a>
           ))}
-          <a className="bta-btn bta-btn-primary bta-btn-sm" href={CURSOS+'#catalogo'}>Inscribirme</a>
+          <a className="bta-btn bta-btn-primary bta-btn-sm" href={ctaHref}>{ctaLabel}</a>
         </div>
-        <button className="bta-burger" onClick={()=>setOpen(o=>!o)} aria-label="Menú"
+        <button className="bta-burger" onClick={()=>setOpen(o=>!o)} aria-label={open?'Cerrar menú':'Abrir menú'} aria-expanded={open} aria-controls="bta-menu-movil"
           style={{display:'none',background:'none',border:'none',cursor:'pointer',padding:8}}>
           <span style={{display:'block',width:24,height:2,background:'#fff',borderRadius:2,marginBottom:6,transition:'.2s',transform:open?'translateY(8px) rotate(45deg)':'none'}}></span>
           <span style={{display:'block',width:24,height:2,background:'#fff',borderRadius:2,marginBottom:6,opacity:open?0:1,transition:'.2s'}}></span>
@@ -133,17 +137,18 @@ function Nav({ active="inicio" }){
         </button>
       </div>
       {/* mobile drawer */}
-      <div className="bta-mobile-menu" style={{display:open?'block':'none',background:'rgba(46,26,10,.98)',borderTop:'1px solid rgba(255,255,255,.10)',padding:'10px 0 22px'}}>
+      <div id="bta-menu-movil" className="bta-mobile-menu" style={{display:open?'block':'none',background:'rgba(46,26,10,.98)',borderTop:'1px solid rgba(255,255,255,.10)',padding:'10px 0 22px'}}>
         {links.map(l=>(
           <a key={l.id} href={l.href} onClick={()=>setOpen(false)}
             style={{display:'block',padding:'13px 28px',color:'rgba(246,241,228,.92)',textDecoration:'none',
             fontFamily:'var(--font-display)',fontWeight:600,fontSize:16}}>{l.label}</a>
         ))}
         <div style={{padding:'12px 28px 0'}}>
-          <a className="bta-btn bta-btn-primary" href={CURSOS+'#catalogo'} style={{width:'100%'}} onClick={()=>setOpen(false)}>Inscribirme</a>
+          <a className="bta-btn bta-btn-primary" href={ctaHref} style={{width:'100%'}} onClick={()=>setOpen(false)}>{ctaLabel}</a>
         </div>
       </div>
     </nav>
+    </>
   );
 }
 
