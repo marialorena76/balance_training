@@ -3,32 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Balance Training Academy — Equitación con respeto, técnica y método</title>
+<title>Balance Training Academy® — 35 años acompañando la Formación y Profesionalización Ecuestre</title>
 <link rel="stylesheet" href="styles.css">
 <style>
-  /* scroll cue */
-  .bta-scrolldot{width:22px;height:36px;border:2px solid rgba(246,241,228,.5);border-radius:12px;position:relative;}
-  .bta-scrolldot::after{content:"";position:absolute;top:6px;left:50%;transform:translateX(-50%);width:4px;height:7px;border-radius:2px;background:var(--leaf-bright);animation:btaScroll 1.6s var(--ease) infinite;}
-  @keyframes btaScroll{0%{opacity:0;transform:translate(-50%,0);}30%{opacity:1;}70%{opacity:1;transform:translate(-50%,12px);}100%{opacity:0;transform:translate(-50%,14px);}}
-  @media(prefers-reduced-motion:reduce){.bta-scrolldot::after{animation:none;}}
-
   .bta-lift{transition:transform .25s var(--ease),box-shadow .25s var(--ease)!important;}
-  .bta-lift:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)!important;}
-  .bta-pillar{transition:transform .25s var(--ease),background .25s!important;}
-  .bta-pillar:hover{transform:translateY(-5px);background:rgba(255,255,255,.09)!important;}
-
-  /* ---- responsive ---- */
-  @media(max-width:980px){
-    .bta-pillar-grid{grid-template-columns:1fr 1fr!important;}
-    .bta-feat{grid-template-columns:1fr!important;}
-    .bta-feat .bta-feat-body{padding:36px 28px!important;}
-    .bta-trans,.bta-andrea,.bta-bienv{grid-template-columns:1fr!important;gap:36px!important;}
-    .bta-cat-grid,.bta-who-grid{grid-template-columns:1fr 1fr!important;}
-  }
+  .bta-lift:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)!important;}
+  .bta-start-link:hover span:first-child{color:var(--forest)!important;}
   @media(max-width:1010px){.bta-nav-links{display:none!important;}.bta-burger{display:block!important;}}
+  @media(max-width:980px){
+    .bta-bienv,.bta-feat,.bta-trans,.bta-empezar{grid-template-columns:1fr!important;gap:36px!important;}
+    .bta-feat .bta-feat-body{padding:8px 28px 36px!important;}
+    .bta-pillar-grid,.bta-cat-grid,.bta-testi{grid-template-columns:1fr 1fr!important;}
+    .bta-bienv img{max-width:460px;}
+  }
   @media(max-width:760px){
-    .bta-pain-grid,.bta-pillar-grid,.bta-cat-grid,.bta-who-grid{grid-template-columns:1fr!important;}
+    .bta-pain-grid,.bta-pillar-grid,.bta-cat-grid,.bta-who-grid,.bta-trans-list,.bta-testi{grid-template-columns:1fr!important;}
     .bta-foot-grid{grid-template-columns:1fr!important;gap:36px!important;}
+    .bta-home-hero .bta-container{padding-block:120px 64px!important;}
   }
 </style>
 </head>

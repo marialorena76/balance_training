@@ -378,6 +378,16 @@ const PIRAMIDE = [
   { s:1 },
 ];
 
+/* Carta de bienvenida de Andrea (textos academy.docx, Página de INICIO) */
+const CARTA = [
+  'Quiero darte una cálida bienvenida a este espacio que nació después de más de 35 años de experiencia, aprendizaje, enseñanza y trabajo cotidiano junto a los caballos.',
+  'A lo largo de todos estos años fui comprendiendo la necesidad de crear una formación verdaderamente integral, clara y ordenada. Un espacio donde las personas pudieran aprender de manera profunda, metódica y acompañada, pero también accesible y posible de integrar en la práctica real.',
+  'Así nació Balance Training Academy®. Una Academia pensada tanto para aficionados como para profesionales que desean desarrollar una comprensión más consciente, técnica y respetuosa del caballo. Nuestro enfoque se basa en el Método Balance Training®, una metodología orientada al bienestar del caballo, al desarrollo técnico y al crecimiento integral de las personas.',
+  'Creo profundamente que formar personas de caballos no consiste solamente en enseñar técnica, sino también en transmitir valores, como la sensibilidad, la compasión, la templanza y una manera más consciente de relacionarnos con ellos.',
+  'Por eso, cada formación, mentoría y capacitación dentro de la Academia busca acompañar a los alumnos de manera cercana, progresiva y ordenada, brindando herramientas reales para crecer con bases sólidas.',
+  'Mi deseo es que este espacio sea no solo un lugar de aprendizaje, sino también de inspiración, crecimiento y transformación. Gracias por estar aquí y por elegir ser parte de este camino.',
+];
+
 const PAGE = (slug) => "curso-" + slug + ".html";
-window.BTA_DATA = { DATA, EXTRA, PAGE, TESTIMONIOS, PIRAMIDE, bySlug:(s)=>DATA.find(c=>c.slug===s) };
+window.BTA_DATA = { DATA, EXTRA, PAGE, TESTIMONIOS, PIRAMIDE, CARTA, bySlug:(s)=>DATA.find(c=>c.slug===s) };
 })();

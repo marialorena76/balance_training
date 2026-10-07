@@ -97,6 +97,26 @@ function Intro(){
   );
 }
 
+/* ---------- CARTA DE BIENVENIDA ---------- */
+function Carta(){
+  const { CARTA } = window.BTA_DATA;
+  return (
+    <section id="carta" className="bg-paper2 bta-section">
+      <div className="bta-container" style={{maxWidth:760}}>
+        <h2 style={{fontSize:'clamp(28px,4vw,42px)',marginBottom:28,textWrap:'balance'}}>Carta de bienvenida</h2>
+        {CARTA.map((p,i)=>(
+          <p key={i} style={{fontSize:i===0?19:17,lineHeight:1.8,color:i===0?'var(--ink)':'var(--ink-soft)',marginBottom:18}}>{p}</p>
+        ))}
+        <div style={{marginTop:28,paddingTop:22,borderTop:'1px solid var(--line)'}}>
+          <p style={{fontStyle:'italic',fontSize:17,color:'var(--ink-soft)',marginBottom:6}}>Con cariño,</p>
+          <p style={{fontFamily:'var(--font-display)',fontWeight:800,fontSize:22,color:'var(--ink)'}}>Andrea Pigazzi</p>
+          <p style={{fontSize:14.5,color:'var(--ink-soft)',marginTop:4}}>Directora de Balance Training Academy® · Creadora del Método Balance Training®</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ---------- ORIGEN ---------- */
 function Origen(){
   return (
@@ -188,8 +208,8 @@ function Formacion(){
                 <span key={a} style={{background:'var(--green-bg)',color:'var(--leaf-dark)',border:'1px solid var(--line)',borderRadius:'var(--radius-full)',padding:'9px 17px',fontSize:14.5,fontWeight:600}}>{a}</span>
               ))}
             </div>
-            <div className="reveal" style={{background:'var(--paper-2)',borderLeft:'3px solid var(--sun)',borderRadius:'0 var(--radius-md) var(--radius-md) 0',padding:'24px 26px'}}>
-              <p style={{fontSize:16.5,lineHeight:1.8,color:'var(--ink)'}}>
+            <div className="reveal" style={{background:'var(--paper-2)',borderRadius:'var(--radius-md)',padding:'24px 26px'}}>
+              <p style={{fontSize:17.5,lineHeight:1.75,color:'var(--leaf)',fontStyle:'italic',fontWeight:500}}>
                 Creo profundamente en una enseñanza humanizada, basada en el respeto, la comprensión y el desarrollo integral tanto del caballo como de las personas.
               </p>
             </div>
@@ -247,15 +267,18 @@ function App(){
   useReveal();
   return (
     <React.Fragment>
-      <Nav active="andrea"/>
+      <Nav active="andrea" skip/>
       <Hero/>
-      <Roles/>
-      <Intro/>
-      <Origen/>
-      <Pilares/>
-      <Formacion/>
-      <Cierre/>
-      <Cta/>
+      <main id="contenido" tabIndex={-1}>
+        <Roles/>
+        <Intro/>
+        <Carta/>
+        <Origen/>
+        <Pilares/>
+        <Formacion/>
+        <Cierre/>
+        <Cta/>
+      </main>
       <Footer/>
       <WhatsFloat/>
     </React.Fragment>

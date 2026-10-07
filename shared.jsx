@@ -88,8 +88,8 @@ function BrandLogo({ variant="light", compact=false, onClick }){
 
 /* ---- nav ---- */
 function Nav({ active="inicio", cta, skip=false }){
-  const ctaHref = cta ? cta.href : CURSOS+'#catalogo';
-  const ctaLabel = cta ? cta.label : 'Inscribirme';
+  const ctaHref = cta ? cta.href : CURSOS;
+  const ctaLabel = cta ? cta.label : 'Ver capacitaciones';
   const [scrolled,setScrolled] = useState(false);
   const [open,setOpen] = useState(false);
   useEffect(()=>{

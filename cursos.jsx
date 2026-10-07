@@ -165,11 +165,13 @@ function App(){
   useReveal();
   return (
     <div>
-      <Nav active="cursos"/>
+      <Nav active="cursos" skip/>
       <Header/>
-      <Catalogo/>
-      <Piramide/>
-      <CTA/>
+      <main id="contenido" tabIndex={-1}>
+        <Catalogo/>
+        <Piramide/>
+        <CTA/>
+      </main>
       <Footer/>
       <WhatsFloat/>
     </div>

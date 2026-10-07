@@ -1,89 +1,82 @@
-/* ===== Balance Training Academy — Landing (venta) ===== */
-const { useState:useStateL, useEffect:useEffectL, useRef:useRefL } = React;
+/* ============================================================
+   Balance Training Academy — Inicio
+   Textos: "textos academy.docx" (Andrea Pigazzi). Datos de cursos,
+   testimonios, Pirámide y carta: cursos-data.jsx (fuente única).
+   ============================================================ */
+const { useState:useStateL } = React;
 const B = window.BTA;
-const { Nav, Footer, WhatsFloat, useReveal, PHOTOS, imgErr, LANDING, CURSO, CONTACT, Horseshoe } = B;
+const { Nav, Footer, WhatsFloat, useReveal, imgErr, CURSOS, ANDREA, CONTACT } = B;
+const BD = window.BTA_DATA;
+const { DATA, PAGE, PIRAMIDE, TESTIMONIOS, CARTA, bySlug } = BD;
+const starStr = (n) => n ? '★'.repeat(n) : '';
 
-const Check = ({c="var(--sage)",s=22})=>(
-  <svg width={s} height={s} viewBox="0 0 24 24" fill="none" style={{flexShrink:0}}>
-    <circle cx="12" cy="12" r="11" fill={c} opacity=".12"/>
-    <path d="M7 12.4l3.2 3.2L17 8.6" stroke={c} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+const Check = ({c="var(--sage-deep)",s=20})=>(
+  <svg width={s} height={s} viewBox="0 0 24 24" fill="none" aria-hidden="true" style={{flexShrink:0,marginTop:2}}>
+    <circle cx="12" cy="12" r="11" fill={c} opacity=".14"/>
+    <path d="M7 12.4l3.2 3.1L17 8.5" stroke={c} strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
+);
+const H2 = ({children, light, style}) => (
+  <h2 style={{fontSize:'clamp(28px,3.8vw,42px)',lineHeight:1.12,textWrap:'balance',color:light?'#fff':'var(--ink)',...style}}>{children}</h2>
 );
 
 /* ---------- HERO ---------- */
 function Hero(){
   return (
-    <header id="top" style={{position:'relative',minHeight:'100vh',display:'flex',alignItems:'center',
-      background:'var(--forest)',overflow:'hidden'}}>
-      <div style={{position:'absolute',inset:0}}>
-        <img src={PHOTOS.heroRun} alt="" style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'center 35%'}} onError={imgErr('var(--forest-2)')}/>
-        <div style={{position:'absolute',inset:0,background:'linear-gradient(90deg,rgba(42,23,8,.92) 0%,rgba(55,32,14,.78) 42%,rgba(55,32,14,.30) 100%)'}}></div>
-        <div style={{position:'absolute',inset:0,background:'linear-gradient(0deg,rgba(42,23,8,.65),transparent 40%)'}}></div>
+    <header className="bta-home-hero" style={{position:'relative',background:'var(--forest)',overflow:'hidden'}}>
+      <div style={{position:'absolute',inset:0}} aria-hidden="true">
+        <img src="assets/andrea-hero.jpg" alt="" style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'72% 30%'}} onError={imgErr('var(--forest-2)')}/>
+        <div style={{position:'absolute',inset:0,background:'linear-gradient(90deg,rgba(42,23,8,.95) 0%,rgba(46,26,10,.84) 44%,rgba(46,26,10,.25) 100%)'}}></div>
       </div>
-      <div className="bta-container" style={{position:'relative',zIndex:2,paddingTop:120,paddingBottom:70}}>
-        <div style={{maxWidth:680}}>
-          <p className="bta-eyebrow on-dark reveal">Balance Training® Academy</p>
-          <h1 className="reveal" style={{fontSize:'clamp(36px,5.6vw,68px)',color:'#fff',lineHeight:1.06,marginBottom:24,transitionDelay:'.06s'}}>
+      <div className="bta-container" style={{position:'relative',zIndex:2,paddingBlock:'150px 96px'}}>
+        <div style={{maxWidth:640}}>
+          <h1 style={{fontSize:'clamp(32px,5.4vw,64px)',color:'#fff',lineHeight:1.06,marginBottom:22,textWrap:'balance',overflowWrap:'break-word',hyphens:'auto'}}>
             35 años acompañando la <span style={{color:'var(--sun-soft)'}}>Formación y Profesionalización Ecuestre</span>
           </h1>
-          <p className="lead reveal" style={{color:'rgba(246,241,228,.92)',fontSize:'clamp(17px,2.2vw,21px)',maxWidth:560,marginBottom:14,transitionDelay:'.12s'}}>
-            Por el Bienestar del Caballo y el Desarrollo integral de las personas. Una Academia pensada tanto para aficionados como para profesionales que desean desarrollar una comprensión más consciente, técnica y respetuosa del caballo.
+          <p style={{color:'rgba(246,241,228,.92)',fontSize:'clamp(17px,2vw,20px)',lineHeight:1.65,maxWidth:560,marginBottom:34}}>
+            Por el Bienestar del Caballo y el Desarrollo integral de las personas. Una Academia pensada tanto para aficionados como para profesionales.
           </p>
-          <p className="reveal" style={{fontFamily:'var(--font-display)',fontWeight:500,fontStyle:'italic',color:'var(--leaf-bright)',fontSize:17,marginBottom:36,transitionDelay:'.16s'}}>
-            No necesitás más información desordenada. Necesitás un Método.
-          </p>
-          <div className="reveal" style={{display:'flex',gap:14,flexWrap:'wrap',transitionDelay:'.22s'}}>
-            <a className="bta-btn bta-btn-primary" href={B.CURSOS}>Ver las capacitaciones</a>
-            <a className="bta-btn bta-btn-light" href="#metodo">Conocer la metodología</a>
+          <div style={{display:'flex',gap:14,flexWrap:'wrap',marginBottom:40}}>
+            <a className="bta-btn bta-btn-primary" href="#empezar">Encontrá tu punto de partida</a>
+            <a className="bta-btn bta-btn-light" href={CURSOS}>Ver capacitaciones</a>
           </div>
-          <div className="reveal" style={{display:'flex',gap:26,marginTop:44,flexWrap:'wrap',transitionDelay:'.28s'}}>
-            {[['35','años de trayectoria'],['Método','propio y ordenado'],['Online','en vivo + a tu ritmo']].map(([a,b])=>(
-              <div key={a} style={{borderLeft:'2px solid rgba(220,182,126,.5)',paddingLeft:14}}>
-                <div style={{fontFamily:'var(--font-display)',fontWeight:800,fontSize:22,color:'#fff',lineHeight:1}}>{a}</div>
-                <div style={{fontSize:12.5,color:'rgba(246,241,228,.75)',marginTop:4,maxWidth:120}}>{b}</div>
+          <dl style={{display:'flex',gap:28,flexWrap:'wrap'}}>
+            {[['35 años','junto a los caballos'],['Método propio','Balance Training®'],['Relinchos','Cruz Grande, Córdoba']].map(([a,b])=>(
+              <div key={a} style={{borderLeft:'1px solid rgba(220,182,126,.5)',paddingLeft:14}}>
+                <dt style={{fontFamily:'var(--font-display)',fontWeight:800,fontSize:19,color:'#fff',lineHeight:1.2}}>{a}</dt>
+                <dd style={{fontSize:13.5,color:'rgba(246,241,228,.8)',marginTop:4}}>{b}</dd>
               </div>
             ))}
-          </div>
+          </dl>
         </div>
-      </div>
-      <div style={{position:'absolute',bottom:26,left:'50%',transform:'translateX(-50%)',zIndex:2,display:'flex',flexDirection:'column',alignItems:'center',gap:8}}>
-        <span style={{fontSize:11,letterSpacing:'.2em',textTransform:'uppercase',color:'rgba(246,241,228,.6)'}}>Descubrí</span>
-        <div className="bta-scrolldot"></div>
       </div>
     </header>
   );
 }
 
-/* ---------- BIENVENIDA ---------- */
+/* ---------- BIENVENIDA (carta resumida + Andrea) ---------- */
 function Bienvenida(){
-  const parrafos = [
-    'Quiero darte una cálida bienvenida a este espacio que nació después de más de 35 años de experiencia, aprendizaje, enseñanza y trabajo cotidiano junto a los caballos.',
-    'A lo largo de todos estos años fui comprendiendo la necesidad de crear una formación verdaderamente integral, clara y ordenada. Un espacio donde las personas pudieran aprender de manera profunda, metódica y acompañada, pero también accesible y posible de integrar en la práctica real.',
-    'Así nació Balance Training Academy®. Nuestro enfoque se basa en el Método Balance Training®, una metodología orientada al bienestar del caballo, al desarrollo técnico y al crecimiento integral de las personas.',
-    'Creo profundamente que formar personas de caballos no consiste solamente en enseñar técnica, sino también en transmitir valores, como la sensibilidad, la compasión, la templanza y una manera más consciente de relacionarnos con ellos.',
-    'Por eso, cada formación, mentoría y capacitación dentro de la Academia busca acompañar a los alumnos de manera cercana, progresiva y ordenada, brindando herramientas reales para crecer con bases sólidas.',
-    'Mi deseo es que este espacio sea no solo un lugar de aprendizaje, sino también de inspiración, crecimiento y transformación. Gracias por estar aquí y por elegir ser parte de este camino.',
-  ];
   return (
     <section className="bg-paper bta-section">
-      <div className="bta-container bta-bienv" style={{display:'grid',gridTemplateColumns:'.8fr 1.2fr',gap:56,alignItems:'start'}}>
-        <div className="reveal" style={{position:'relative'}}>
-          <div style={{borderRadius:'var(--radius-xl)',overflow:'hidden',aspectRatio:'4/5',boxShadow:'var(--shadow-lg)',background:'var(--clay)'}}>
-            <img src={PHOTOS.bond} alt="" style={{width:'100%',height:'100%',objectFit:'cover'}} onError={imgErr('var(--clay)')}/>
-          </div>
-        </div>
-        <div>
-          <p className="bta-eyebrow leaf reveal">Bienvenida</p>
-          <h2 className="reveal" style={{fontSize:'clamp(26px,3.8vw,40px)',marginBottom:22}}>
-            Así nació <span style={{color:'var(--leaf)'}}>Balance Training Academy®</span>
-          </h2>
-          {parrafos.map((p,i)=>(
-            <p key={i} className="reveal" style={{fontSize:i===0?17:15.5,lineHeight:1.8,color:i===0?'var(--ink)':'var(--ink-soft)',marginBottom:16,transitionDelay:(i*.05)+'s'}}>{p}</p>
-          ))}
-          <div className="reveal" style={{marginTop:26,paddingTop:22,borderTop:'1px solid var(--line)'}}>
-            <p style={{fontFamily:'var(--font-display)',fontStyle:'italic',fontSize:16,color:'var(--ink-soft)',marginBottom:8}}>Con cariño,</p>
-            <p style={{fontFamily:'var(--font-display)',fontWeight:800,fontSize:21,color:'var(--leaf-dark)',lineHeight:1.2}}>Andrea Pigazzi</p>
-            <p style={{fontSize:13.5,color:'var(--ink-soft)',marginTop:5}}>Directora de Balance Training Academy® · Creadora del Método Balance Training®</p>
+      <div className="bta-container bta-bienv" style={{display:'grid',gridTemplateColumns:'.85fr 1.15fr',gap:64,alignItems:'center'}}>
+        <img src="assets/andrea-portrait.jpg" alt="Andrea Pigazzi, creadora del Método Balance Training®, junto a su caballo" loading="lazy"
+          style={{width:'100%',aspectRatio:'4/5',objectFit:'cover',objectPosition:'74% 40%',borderRadius:'var(--radius-xl)',boxShadow:'var(--shadow-lg)'}} onError={imgErr('var(--clay)')}/>
+        <div style={{minWidth:0}}>
+          <H2 style={{marginBottom:24}}>Bienvenida a Balance Training Academy®</H2>
+          <p style={{fontSize:19,lineHeight:1.7,color:'var(--ink)',fontWeight:500,marginBottom:18}}>{CARTA[0]}</p>
+          <p style={{fontSize:17,lineHeight:1.75,color:'var(--ink-soft)',marginBottom:30}}>{CARTA[3]}</p>
+          <figure style={{paddingTop:24,borderTop:'1px solid var(--line)',marginBottom:28}}>
+            <blockquote style={{fontSize:'clamp(18px,2vw,21px)',lineHeight:1.55,fontStyle:'italic',color:'var(--leaf)',marginBottom:16}}>
+              “El Bienestar y el futuro del Caballo al lado del humano está absolutamente ligado a cuán formadas, experimentadas y compasivas sean las personas que los manejan.”
+            </blockquote>
+            <figcaption>
+              <strong style={{display:'block',fontFamily:'var(--font-display)',fontSize:19,color:'var(--ink)'}}>Andrea Pigazzi</strong>
+              <span style={{fontSize:14.5,color:'var(--ink-soft)'}}>Directora de Balance Training Academy® · Creadora del Método Balance Training®</span>
+            </figcaption>
+          </figure>
+          <div style={{display:'flex',gap:12,flexWrap:'wrap'}}>
+            <a className="bta-btn bta-btn-outline" href={ANDREA+'#carta'}>Leer la carta completa</a>
+            <a className="bta-btn bta-btn-outline" href={ANDREA}>Conocé a Andrea</a>
           </div>
         </div>
       </div>
@@ -91,7 +84,7 @@ function Bienvenida(){
   );
 }
 
-/* ---------- PAIN ---------- */
+/* ---------- DOLORES ---------- */
 function Pain(){
   const pains = [
     'Sentís que avanzás a ciegas y cometés errores que no sabés cómo resolver.',
@@ -103,23 +96,15 @@ function Pain(){
   ];
   return (
     <section className="bg-paper2 bta-section">
-      <div className="bta-container" style={{maxWidth:920}}>
-        <p className="bta-eyebrow leaf reveal">Puede que algo de esto te esté pasando…</p>
-        <h2 className="reveal" style={{fontSize:'clamp(28px,4vw,42px)',marginBottom:14}}>
-          ¿Querés avanzar en tu formación pero no encontrás una manera <span style={{color:'var(--sun-deep)'}}>integral y realmente efectiva</span>?
-        </h2>
-        <p className="lead reveal" style={{maxWidth:680,marginBottom:40}}>
-          La mayoría de los problemas con los caballos no nacen de mala voluntad, sino de la falta de conocimiento y de un camino claro para aprender.
-        </p>
-        <div className="bta-pain-grid" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:16}}>
-          {pains.map((p,i)=>(
-            <div key={i} className="reveal" style={{display:'flex',gap:14,background:'#fff',border:'1px solid var(--line)',borderRadius:'var(--radius-md)',padding:'20px 22px',boxShadow:'var(--shadow-sm)',transitionDelay:(i*.06)+'s'}}>
-              <span style={{flexShrink:0,width:30,height:30,borderRadius:'50%',background:'rgba(181,97,46,.12)',color:'var(--clay)',display:'flex',alignItems:'center',justifyContent:'center',fontWeight:800,fontFamily:'var(--font-display)'}}>!</span>
-              <p style={{fontSize:15.5,lineHeight:1.6,color:'var(--ink)'}}>{p}</p>
-            </div>
+      <div className="bta-container" style={{maxWidth:960}}>
+        <H2 style={{marginBottom:12,maxWidth:760}}>¿Querés avanzar en tu formación pero no encontrás una manera integral y realmente efectiva?</H2>
+        <p style={{fontSize:18,color:'var(--ink-soft)',marginBottom:34}}>Puede que algo de esto te esté pasando…</p>
+        <ul className="bta-pain-grid" style={{listStyle:'none',display:'grid',gridTemplateColumns:'1fr 1fr',columnGap:48}}>
+          {pains.map(p=>(
+            <li key={p} style={{fontSize:17,lineHeight:1.6,color:'var(--ink)',padding:'18px 0',borderTop:'1px solid var(--line-strong)'}}>{p}</li>
           ))}
-        </div>
-        <p className="reveal" style={{textAlign:'center',marginTop:40,fontFamily:'var(--font-display)',fontWeight:700,fontStyle:'italic',fontSize:'clamp(19px,2.6vw,26px)',color:'var(--leaf-dark)'}}>
+        </ul>
+        <p style={{marginTop:40,fontFamily:'var(--font-display)',fontWeight:800,fontSize:'clamp(22px,2.8vw,30px)',lineHeight:1.25,color:'var(--leaf)'}}>
           No necesitás más información desordenada. ¡Necesitás un Método!
         </p>
       </div>
@@ -127,122 +112,139 @@ function Pain(){
   );
 }
 
-/* ---------- METODOLOGÍA ---------- */
+/* ---------- METODOLOGÍA + TRANSFORMACIÓN ---------- */
 function Metodo(){
   const pillars = [
-    { n:'01', t:'Conocimiento profundo del caballo', d:'Partimos de su naturaleza, su etología y su lenguaje. Entender cómo piensa y siente el caballo es el primer paso para todo lo demás.' },
-    { n:'02', t:'Trato compasivo y respetuoso', d:'Una alternativa amable, sin violencia ni atajos. El vínculo y la confianza son la base —no el sometimiento.' },
-    { n:'03', t:'Técnica y eficiencia reales', d:'Resultados concretos y permanentes e incorporación de herramientas importantes para tratar y entrenar todo tipo de caballos y disciplinas.' },
-    { n:'04', t:'Desarrollo integral del jinete', d:'Estamos convencidos que formar jinetes y entrenadores de caballos no solo atiende a cuestiones ecuestres, sino a la formación integral en valores y herramientas para la vida.' },
+    { t:'Conocimiento profundo del caballo', d:'Partimos de su naturaleza, su etología y su lenguaje. Entender cómo piensa y siente el caballo es el primer paso para todo lo demás.' },
+    { t:'Trato compasivo y respetuoso', d:'Una alternativa amable, sin violencia ni atajos. El vínculo y la confianza son la base, no el sometimiento.' },
+    { t:'Técnica y eficiencia reales', d:'Resultados concretos y permanentes e incorporación de herramientas importantes para tratar y entrenar todo tipo de caballos y disciplinas.' },
+    { t:'Desarrollo integral del jinete', d:'Formar jinetes y entrenadores no solo atiende a cuestiones ecuestres, sino a la formación integral en valores y herramientas para la vida.' },
   ];
+  const trans = ['Bases formativas sólidas basadas en experiencia y aporte científico.','Mayores conocimientos teóricos y prácticos.','Mayor capacidad de resolver problemas con tu caballo y los de tus alumnos.','Más y mejores herramientas para Iniciar, Entrenar y Corregir Caballos.','Comprensión de fundamentos de la práctica ecuestre alineada con el Bienestar del caballo.','Tecnificación y perfeccionamiento real de tu trabajo.','Herramientas para tu trabajo sobre ti mismo.','Solvencia, autonomía y vínculos armoniosos con los caballos.'];
   return (
-    <section id="metodo" className="bg-forest bta-section grain" style={{position:'relative',overflow:'hidden'}}>
-      <div style={{position:'absolute',right:-120,top:-80,opacity:.06,transform:'rotate(12deg)'}}>
-        <Horseshoe size={520} color="#fff" dot="#fff"/>
-      </div>
-      <div className="bta-container" style={{position:'relative',zIndex:2}}>
-        <div style={{maxWidth:720,marginBottom:54}}>
-          <p className="bta-eyebrow on-dark reveal">La metodología</p>
-          <h2 className="reveal" style={{fontSize:'clamp(28px,4.4vw,46px)',marginBottom:18}}>
-            ¿Qué es la Metodología <span style={{color:'var(--sun-soft)'}}>Balance Training®</span>?
-          </h2>
-          <p className="lead reveal" style={{color:'rgba(246,241,228,.86)',maxWidth:640,marginBottom:16}}>
+    <section id="metodo" className="bg-forest bta-section">
+      <div className="bta-container">
+        <div style={{maxWidth:760,marginBottom:48}}>
+          <H2 light style={{marginBottom:18}}>¿Qué es la Metodología <span style={{color:'var(--sun-soft)'}}>Balance Training®</span>?</H2>
+          <p style={{fontSize:18,lineHeight:1.7,color:'rgba(246,241,228,.92)',marginBottom:14}}>
             Un método para iniciar, entrenar y reeducar caballos respetando su naturaleza y su bienestar en toda circunstancia. Un sistema que busca desarrollar caballos calmos, seguros y estables, construyendo balance y equilibrio en todos los planos: físico, mental y emocional.
           </p>
-          <p className="reveal" style={{color:'rgba(246,241,228,.72)',fontSize:16,lineHeight:1.75,maxWidth:640}}>
-            Al mismo tiempo, es un modelo de enseñanza enfocado en el acompañamiento y desarrollo integral de las personas, acompañándolas a desarrollar todo su potencial. Te asegura un camino ordenado, armonioso y acompañado, dentro de un Método muy técnico, respetuoso del caballo y ético en cuanto a las normas de Bienestar y las buenas prácticas.
+          <p style={{fontSize:16.5,lineHeight:1.75,color:'rgba(246,241,228,.8)'}}>
+            Al mismo tiempo, es un modelo de enseñanza enfocado en el acompañamiento y desarrollo integral de las personas: un camino ordenado, armonioso y acompañado, dentro de un Método muy técnico, respetuoso del caballo y ético en cuanto a las normas de Bienestar y las buenas prácticas.
           </p>
         </div>
-        <div className="bta-pillar-grid" style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:18}}>
-          {pillars.map((p,i)=>(
-            <div key={p.n} className="reveal bta-pillar" style={{background:'rgba(255,255,255,.05)',border:'1px solid rgba(255,255,255,.12)',borderRadius:'var(--radius-lg)',padding:'28px 24px',transitionDelay:(i*.08)+'s'}}>
-              <div style={{fontFamily:'var(--font-display)',fontWeight:800,fontSize:34,color:'var(--leaf-bright)',marginBottom:14,opacity:.9}}>{p.n}</div>
-              <h3 style={{color:'#fff',fontSize:18.5,marginBottom:12,lineHeight:1.25}}>{p.t}</h3>
-              <p style={{fontSize:14,lineHeight:1.65,color:'rgba(246,241,228,.78)'}}>{p.d}</p>
+        <div className="bta-pillar-grid" style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'32px 36px',paddingTop:36,borderTop:'1px solid rgba(220,182,126,.3)'}}>
+          {pillars.map(p=>(
+            <div key={p.t} style={{minWidth:0}}>
+              <h3 style={{color:'var(--leaf-bright)',fontSize:19,marginBottom:10,lineHeight:1.25}}>{p.t}</h3>
+              <p style={{fontSize:15.5,lineHeight:1.65,color:'rgba(246,241,228,.85)'}}>{p.d}</p>
             </div>
           ))}
         </div>
+        <div className="bta-trans" style={{display:'grid',gridTemplateColumns:'.8fr 1.6fr',gap:48,marginTop:64,paddingTop:44,borderTop:'1px solid rgba(220,182,126,.3)'}}>
+          <h3 style={{color:'#fff',fontSize:'clamp(24px,2.8vw,32px)',lineHeight:1.15}}>¿Qué transformación vas a lograr?</h3>
+          <ul style={{listStyle:'none',display:'grid',gridTemplateColumns:'1fr 1fr',gap:'14px 32px'}} className="bta-trans-list">
+            {trans.map(t=><li key={t} style={{display:'flex',gap:12,alignItems:'flex-start',fontSize:16,lineHeight:1.5,color:'rgba(246,241,228,.92)'}}><Check c="var(--leaf-bright)" s={19}/><span>{t}</span></li>)}
+          </ul>
+        </div>
       </div>
     </section>
   );
 }
 
-/* ---------- IMAGE BREAK ---------- */
-function ImageBreak(){
-  return (
-    <section style={{position:'relative',height:'52vh',minHeight:380,overflow:'hidden',display:'flex',alignItems:'center'}}>
-      <img src={PHOTOS.bond} alt="" style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover',objectPosition:'center 30%'}} onError={imgErr('var(--clay)')}/>
-      <div style={{position:'absolute',inset:0,background:'linear-gradient(90deg,rgba(42,23,8,.78),rgba(42,23,8,.18))'}}></div>
-      <div className="bta-container" style={{position:'relative',zIndex:2}}>
-        <blockquote className="reveal" style={{maxWidth:620}}>
-          <p style={{fontFamily:'var(--font-display)',fontWeight:400,fontStyle:'italic',fontSize:'clamp(21px,3.2vw,34px)',color:'#fff',lineHeight:1.35}}>
-            “El Bienestar y el futuro del Caballo al lado del humano está absolutamente ligado a cuán formadas, experimentadas y compasivas sean las personas que los manejan.”
-          </p>
-          <footer style={{marginTop:20,color:'var(--leaf-bright)',fontWeight:600,letterSpacing:'.04em'}}>— Andrea Pigazzi, creadora de la Metodología Balance Training®</footer>
-        </blockquote>
-      </div>
-    </section>
-  );
-}
-
-/* ---------- PARA QUIÉN ---------- */
-function ParaQuien(){
-  const who = [
-    { t:'Quienes se inician en el mundo del caballo', d:'Para todos aquellos que quieran introducirse en el mundo del caballo desde una mirada respetuosa y compasiva.', tag:'Desde cero' },
-    { t:'Quienes quieren avanzar en su formación', d:'Para toda persona que quiera iniciarse o avanzar en su formación ecuestre y llevar sus conocimientos y herramientas a otro nivel.', tag:'Formación' },
-    { t:'Profesionales que buscan tecnificarse', d:'Para profesionales que buscan tecnificarse y profesionalizarse, afinando su parte técnica y su criterio de trabajo.', tag:'Perfeccionamiento' },
-    { t:'Docencia, terapias y recreación', d:'Para profesionales de la docencia, las terapias o la recreación que trabajan con caballos y personas.', tag:'Aplicación profesional' },
+/* ---------- ¿POR DÓNDE EMPIEZO? ---------- */
+function Empezar(){
+  const ini = bySlug('iniciacion'), fei = bySlug('formacion-integral'), men = bySlug('mentorias');
+  const etol = bySlug('etologia'), asi = bySlug('webinar-asiento');
+  const perfiles = [
+    { t:'Te iniciás en el mundo del caballo', d:'Para quienes quieren introducirse en el mundo del caballo desde una mirada respetuosa y compasiva.',
+      go:[[ini.t, PAGE(ini.slug), 'El primer escalón de la Pirámide']] },
+    { t:'Querés avanzar en tu formación', d:'Para quienes quieren llevar sus conocimientos y herramientas a otro nivel.',
+      go:[['Cursos del escalón ★★', CURSOS+'#piramide', 'Después de la Iniciación']] },
+    { t:'Sos profesional y buscás tecnificarte', d:'Para profesionales que buscan tecnificarse y profesionalizarse con bases sólidas.',
+      go:[[fei.t, PAGE(fei.slug), 'La columna vertebral de la Academia'],[men.t, PAGE(men.slug), 'Acompañamiento individual']] },
+    { t:'Trabajás en docencia, terapias o recreación', d:'Para profesionales de la docencia, las terapias o la recreación con caballos.',
+      go:[[etol.t, PAGE(etol.slug), 'Para quienes trabajan con caballos'],[asi.t, PAGE(asi.slug), 'Para instructores y equinoterapeutas']] },
   ];
   return (
-    <section className="bg-sand bta-section">
+    <section id="empezar" className="bg-sand bta-section">
       <div className="bta-container">
-        <div style={{textAlign:'center',maxWidth:680,margin:'0 auto 48px'}}>
-          <p className="bta-eyebrow leaf reveal" style={{justifyContent:'center'}}>¿Para quién es?</p>
-          <h2 className="reveal" style={{fontSize:'clamp(28px,4vw,42px)'}}>¿Para quiénes están destinadas estas Formaciones?</h2>
+        <div style={{maxWidth:720,marginBottom:40}}>
+          <H2 style={{marginBottom:14}}>¿Por dónde empiezo?</H2>
+          <p style={{fontSize:18,lineHeight:1.65,color:'var(--ink-soft)'}}>Elegí lo que más se parece a tu momento. Y si tenés dudas, escribinos: con mucho gusto te asesoramos.</p>
         </div>
-        <div className="bta-who-grid" style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:22}}>
-          {who.map((w,i)=>(
-            <div key={w.t} className="reveal bta-lift" style={{background:'#fff',borderRadius:'var(--radius-lg)',padding:'34px 30px',boxShadow:'var(--shadow-md)',borderTop:'4px solid var(--leaf)',transitionDelay:(i*.08)+'s'}}>
-              <span style={{display:'inline-block',fontSize:11.5,fontWeight:700,letterSpacing:'.1em',textTransform:'uppercase',color:'var(--sun)',background:'rgba(217,174,35,.10)',padding:'5px 12px',borderRadius:'var(--radius-full)',marginBottom:18}}>{w.tag}</span>
-              <h3 style={{fontSize:21,marginBottom:12}}>{w.t}</h3>
-              <p style={{fontSize:15,lineHeight:1.65,color:'var(--ink-soft)'}}>{w.d}</p>
-            </div>
-          ))}
+        <div className="bta-empezar" style={{display:'grid',gridTemplateColumns:'1.25fr 1fr',gap:48,alignItems:'start'}}>
+          <ul style={{listStyle:'none',display:'grid',gridTemplateColumns:'1fr 1fr',gap:18}} className="bta-who-grid">
+            {perfiles.map(p=>(
+              <li key={p.t} style={{background:'#fff',borderRadius:'var(--radius-lg)',padding:'26px 24px',boxShadow:'var(--shadow-sm)',display:'flex',flexDirection:'column',minWidth:0}}>
+                <h3 style={{fontSize:19,lineHeight:1.25,marginBottom:10,color:'var(--ink)'}}>{p.t}</h3>
+                <p style={{fontSize:15,lineHeight:1.6,color:'var(--ink-soft)',marginBottom:18,flex:1}}>{p.d}</p>
+                <p style={{fontSize:13.5,fontWeight:700,color:'var(--gold-text)',marginBottom:8}}>Tu punto de partida</p>
+                <div style={{display:'flex',flexDirection:'column',gap:10}}>
+                  {p.go.map(([t,h,sub])=>(
+                    <a key={t} href={h} className="bta-start-link" style={{display:'block',textDecoration:'none',padding:'10px 0',borderTop:'1px solid var(--line)'}}>
+                      <span style={{display:'block',fontFamily:'var(--font-display)',fontWeight:700,fontSize:15.5,color:'var(--leaf)',lineHeight:1.3}}>{t} <span aria-hidden="true">→</span></span>
+                      <span style={{display:'block',fontSize:13.5,color:'var(--ink-soft)',marginTop:2}}>{sub}</span>
+                    </a>
+                  ))}
+                </div>
+              </li>
+            ))}
+          </ul>
+          <div style={{minWidth:0}}>
+            <h3 style={{fontSize:21,marginBottom:8,color:'var(--ink)'}}>La Pirámide Formativa</h3>
+            <p style={{fontSize:15.5,lineHeight:1.6,color:'var(--ink-soft)',marginBottom:20}}>El orden en que sugerimos ir tomando las capacitaciones. Es una sugerencia y no invalida tomarlas en otro orden.</p>
+            <ol aria-label="Pirámide Formativa, de arriba hacia abajo" style={{listStyle:'none',display:'flex',flexDirection:'column',gap:7,alignItems:'center'}}>
+              {PIRAMIDE.map((row,i)=>{
+                const courses = DATA.filter(d=>d.stars===row.s);
+                const soon = row.soon !== undefined && courses.length===0;
+                return (
+                  <li key={row.s} className="bta-pir-row" style={{width:(52+i*(48/(PIRAMIDE.length-1)))+'%',minWidth:0,background:soon?'transparent':'#fff',
+                    border:soon?'1px dashed var(--line-strong)':'1px solid var(--line)',borderRadius:'var(--radius-md)',padding:'10px 14px',
+                    display:'flex',gap:12,alignItems:'center',flexWrap:'wrap'}}>
+                    <span className="bta-sr">Nivel {row.s} {row.s===1?'estrella':'estrellas'}{soon?', próximamente':''}.</span>
+                    <span aria-hidden="true" style={{flexShrink:0,minWidth:78,fontSize:13.5,fontWeight:800,letterSpacing:'.08em',color:'var(--gold-text)'}}>{starStr(row.s)}</span>
+                    <span style={{flex:1,minWidth:140,display:'flex',flexWrap:'wrap',gap:'3px 12px',fontSize:14,lineHeight:1.4}}>
+                      {soon
+                        ? <span style={{color:'var(--ink-soft)',fontStyle:'italic'}}>{(row.soon.length?row.soon.join(' · ')+' · ':'')}Próximamente</span>
+                        : courses.map(c=><a key={c.slug} href={PAGE(c.slug)} style={{color:'var(--ink)',fontWeight:600}}>{c.t}</a>)}
+                    </span>
+                  </li>
+                );
+              })}
+            </ol>
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-/* ---------- CURSO DESTACADO: Formación Ecuestre Integral 2027 ---------- */
-const BD = window.BTA_DATA;
+/* ---------- FORMACIÓN DESTACADA ---------- */
 function CursoDestacado(){
-  const F = BD.bySlug('formacion-integral');
+  const F = bySlug('formacion-integral');
   return (
-    <section id="curso" className="bg-paper bta-section">
+    <section className="bg-paper bta-section">
       <div className="bta-container">
-        <div className="bta-feat" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:0,borderRadius:'var(--radius-xl)',overflow:'hidden',boxShadow:'var(--shadow-lg)',background:'var(--forest)'}}>
-          <div style={{position:'relative',minHeight:340,background:'var(--paper)'}}>
-            <img src={F.cover} alt={'Portada: '+F.t} style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover'}} onError={imgErr('var(--clay)')}/>
+        <div className="bta-feat" style={{display:'grid',gridTemplateColumns:'1.05fr 1fr',borderRadius:'var(--radius-xl)',overflow:'hidden',boxShadow:'var(--shadow-lg)',background:'var(--forest)',alignItems:'center'}}>
+          <div style={{padding:28}}>
+            <img src={F.cover} alt={'Portada: '+F.t} loading="lazy" style={{width:'100%',aspectRatio:'16/9',objectFit:'contain',display:'block',borderRadius:'var(--radius-md)'}} onError={imgErr('var(--clay)')}/>
           </div>
-          <div style={{padding:'48px 46px',color:'#fff'}} className="bta-feat-body">
-            <p className="bta-eyebrow on-dark">Programa Superior de Capacitación · ★★★★★</p>
-            <h2 style={{color:'#fff',fontSize:'clamp(26px,3.4vw,38px)',marginBottom:14,lineHeight:1.1}}>{F.t}</h2>
-            <p style={{fontSize:15.5,lineHeight:1.7,color:'rgba(246,241,228,.85)',marginBottom:24}}>
-              La columna vertebral de Balance Training ACADEMY: una formación integral, metodológica y súper personalizada, en tres etapas: online, presencial y mentoring.
+          <div style={{padding:'44px 44px 44px 16px',color:'#fff',minWidth:0}} className="bta-feat-body">
+            <p style={{fontSize:14.5,fontWeight:700,color:'var(--leaf-bright)',marginBottom:10}}>{F.eyebrow} · <span aria-label="5 estrellas">★★★★★</span></p>
+            <H2 light style={{fontSize:'clamp(26px,3.2vw,36px)',marginBottom:14}}>{F.t}</H2>
+            <p style={{fontSize:16.5,lineHeight:1.7,color:'rgba(246,241,228,.9)',marginBottom:22}}>
+              La columna vertebral de Balance Training ACADEMY: una formación integral, metodológica y súper personalizada, en tres etapas.
             </p>
-            <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'10px 18px',marginBottom:28}}>
+            <dl style={{display:'grid',gridTemplateColumns:'auto 1fr',gap:'8px 18px',marginBottom:28,fontSize:15}}>
               {F.specs.map(([k,v])=>(
-                <div key={k} style={{display:'flex',gap:9,alignItems:'flex-start',fontSize:13.5,color:'rgba(246,241,228,.9)'}}>
-                  <Check c="var(--leaf-bright)" s={18}/><span><strong style={{color:'#fff'}}>{k}:</strong> {v}</span>
-                </div>
+                <React.Fragment key={k}>
+                  <dt style={{color:'var(--leaf-bright)',fontWeight:700}}>{k}</dt>
+                  <dd style={{color:'rgba(246,241,228,.92)'}}>{v}</dd>
+                </React.Fragment>
               ))}
-            </div>
-            <div style={{display:'flex',gap:12,flexWrap:'wrap'}}>
-              <a className="bta-btn bta-btn-primary" href={BD.PAGE(F.slug)}>Conocer la Formación</a>
-              <a className="bta-btn bta-btn-light" href={B.CURSOS}>Ver todas las capacitaciones</a>
-            </div>
-            <p style={{fontSize:12.5,color:'rgba(246,241,228,.6)',marginTop:18}}>{F.dateNote} · {CONTACT.email}</p>
+            </dl>
+            <a className="bta-btn bta-btn-primary" href={PAGE(F.slug)}>Conocer la Formación</a>
           </div>
         </div>
       </div>
@@ -252,172 +254,93 @@ function CursoDestacado(){
 
 /* ---------- CATÁLOGO ---------- */
 function Catalogo(){
-  const cursos = ['iniciacion','etologia','arte-menor-esfuerzo','psicofisica','caballo-deportivo','webinar-asiento'].map(BD.bySlug);
+  const cursos = ['iniciacion','etologia','arte-menor-esfuerzo','caballo-deportivo','mentorias','estadias'].map(bySlug);
   return (
-    <section id="cursos" className="bg-green bta-section">
+    <section id="cursos" className="bg-paper2 bta-section">
       <div className="bta-container">
-        <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-end',flexWrap:'wrap',gap:16,marginBottom:42}}>
-          <div>
-            <p className="bta-eyebrow leaf reveal">El catálogo</p>
-            <h2 className="reveal" style={{fontSize:'clamp(28px,4vw,42px)',maxWidth:520}}>Capacitaciones según tu nivel, experiencia e intereses</h2>
-          </div>
-          <p className="lead reveal" style={{maxWidth:380}}>Y si tenés dudas sobre cuál opción es mejor para vos, escribinos y con mucho gusto vamos a asesorarte.</p>
+        <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-end',flexWrap:'wrap',gap:16,marginBottom:36}}>
+          <H2 style={{maxWidth:560}}>Capacitaciones según tu nivel, experiencia e intereses</H2>
+          <a className="bta-btn bta-btn-outline bta-btn-sm" href={CURSOS}>Ver las {DATA.length} propuestas</a>
         </div>
-        <div className="bta-cat-grid" style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:22}}>
-          {cursos.map((c,i)=>(
-            <a key={c.slug} href={BD.PAGE(c.slug)} className="reveal bta-lift" style={{display:'flex',flexDirection:'column',background:'#fff',borderRadius:'var(--radius-lg)',overflow:'hidden',boxShadow:'var(--shadow-md)',border:'1px solid var(--line)',textDecoration:'none',transitionDelay:(i%3*.07)+'s'}}>
-              <div style={{position:'relative',aspectRatio:'16/9',overflow:'hidden',background:'var(--clay)'}}>
-                <img src={c.cover} alt={'Portada: '+c.t} style={{width:'100%',height:'100%',objectFit:'cover',display:'block'}} onError={imgErr('var(--clay)')}/>
-              </div>
-              <div style={{padding:'20px 22px 24px',display:'flex',flexDirection:'column',flex:1}}>
-                <div style={{fontSize:11.5,textTransform:'uppercase',letterSpacing:'.08em',color:'var(--leaf)',fontWeight:700,marginBottom:8}}>{c.eyebrow}</div>
-                <h3 style={{fontSize:18,marginBottom:9,lineHeight:1.25,color:'var(--ink)'}}>{c.t}</h3>
-                <p style={{fontSize:13.5,lineHeight:1.6,color:'var(--ink-soft)',flex:1,marginBottom:18}}>{c.short}</p>
-                <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',paddingTop:14,borderTop:'1px solid var(--line)'}}>
-                  {c.stars ? <span style={{color:'var(--sun)',fontSize:14,letterSpacing:'.1em'}}>{'★'.repeat(c.stars)}</span> : <span style={{fontSize:12.5,color:'var(--ink-soft)'}}>Encuentro puntual</span>}
-                  <span className="bta-arrow">Ver más →</span>
+        <ul className="bta-cat-grid" style={{listStyle:'none',display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:22}}>
+          {cursos.map(c=>(
+            <li key={c.slug} style={{minWidth:0}}>
+              <a href={PAGE(c.slug)} className="bta-lift" style={{height:'100%',display:'flex',flexDirection:'column',background:'#fff',borderRadius:'var(--radius-lg)',overflow:'hidden',boxShadow:'var(--shadow-md)',textDecoration:'none'}}>
+                {c.cover
+                  ? <img src={c.cover} alt="" loading="lazy" style={{width:'100%',aspectRatio:'16/9',objectFit:'cover',display:'block'}} onError={imgErr('var(--clay)')}/>
+                  : <div style={{aspectRatio:'16/9',background:'var(--forest)',display:'flex',alignItems:'flex-end',padding:'18px 20px'}}>
+                      <span style={{fontFamily:'var(--font-display)',fontWeight:800,fontSize:22,lineHeight:1.15,color:'var(--leaf-bright)'}}>{c.cat==='Presenciales'?'Presencial en Relinchos':'Acompañamiento personalizado'}</span>
+                    </div>}
+                <div style={{padding:'18px 20px 22px',display:'flex',flexDirection:'column',flex:1}}>
+                  <h3 style={{fontSize:18,marginBottom:8,lineHeight:1.28,color:'var(--ink)'}}>{c.t}</h3>
+                  <p style={{fontSize:15,lineHeight:1.6,color:'var(--ink-soft)',flex:1,marginBottom:16}}>{c.short}</p>
+                  <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',gap:10,paddingTop:12,borderTop:'1px solid var(--line)',fontSize:14}}>
+                    <span style={{color:'var(--gold-text)',fontWeight:700}}>{c.stars ? <><span aria-hidden="true">{starStr(c.stars)}</span><span className="bta-sr">{c.stars} estrellas</span> · {c.stars===1?'Primer escalón':'Nivel de la Pirámide'}</> : c.eyebrow}</span>
+                    <span className="bta-arrow">Ver más <span aria-hidden="true">→</span></span>
+                  </div>
                 </div>
-              </div>
-            </a>
+              </a>
+            </li>
           ))}
-        </div>
-        <div style={{textAlign:'center',marginTop:40}}>
-          <a className="bta-btn bta-btn-green reveal" href={B.CURSOS}>Ver todas las capacitaciones</a>
-        </div>
-      </div>
-    </section>
-  );
-}
-function Transformacion(){
-  const items = ['Bases formativas sólidas basadas en experiencia y aporte científico.','Mayores conocimientos teóricos y prácticos.','Mayor capacidad de resolver problemas con tu caballo y los de tus alumnos.','Más y mejores herramientas para Iniciar, Entrenar y Corregir Caballos.','Comprensión de fundamentos de la práctica ecuestre alineada con el Bienestar del caballo.','Tecnificación y perfeccionamiento real de tu trabajo.','Herramientas para tu trabajo sobre ti mismo.','Solvencia, autonomía y vínculos armoniosos con los caballos.'];
-  return (
-    <section className="bg-paper2 bta-section">
-      <div className="bta-container">
-        <div className="bta-trans" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:56,alignItems:'center'}}>
-          <div>
-            <p className="bta-eyebrow leaf reveal">La transformación</p>
-            <h2 className="reveal" style={{fontSize:'clamp(28px,4vw,42px)',marginBottom:18}}>¿Qué transformación vas a lograr?</h2>
-            <p className="lead reveal" style={{marginBottom:26}}>El objetivo no es que sepas más cosas, sino que cambie tu manera de estar con el caballo —y los resultados que conseguís juntos.</p>
-            <a className="bta-btn bta-btn-green reveal" href={B.CURSOS}>Ver las capacitaciones</a>
-          </div>
-          <div style={{display:'flex',flexDirection:'column',gap:12}}>
-            {items.map((t,i)=>(
-              <div key={i} className="reveal" style={{display:'flex',gap:14,alignItems:'center',background:'#fff',borderRadius:'var(--radius-md)',padding:'16px 20px',boxShadow:'var(--shadow-sm)',border:'1px solid var(--line)',transitionDelay:(i*.05)+'s'}}>
-                <Check/><span style={{fontSize:15,color:'var(--ink)',fontWeight:500}}>{t}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+        </ul>
       </div>
     </section>
   );
 }
 
-/* ---------- ANDREA ---------- */
-function Andrea(){
-  return (
-    <section id="andrea" className="bg-paper bta-section">
-      <div className="bta-container">
-        <div className="bta-andrea" style={{display:'grid',gridTemplateColumns:'.85fr 1.15fr',gap:56,alignItems:'center'}}>
-          <div className="reveal" style={{position:'relative'}}>
-            <div style={{position:'relative',borderRadius:'var(--radius-xl)',overflow:'hidden',aspectRatio:'4/5',background:'linear-gradient(160deg,var(--leaf-dark),var(--forest))',boxShadow:'var(--shadow-lg)'}}>
-              <img src="assets/andrea-portrait.jpg" alt="Andrea Pigazzi" style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'72% 45%'}}/>
-            </div>
-            <div style={{position:'absolute',bottom:-22,right:-18,background:'var(--sun)',color:'#fff',borderRadius:'var(--radius-lg)',padding:'18px 22px',boxShadow:'var(--shadow-md)',textAlign:'center'}}>
-              <div style={{fontFamily:'var(--font-display)',fontWeight:800,fontSize:30,lineHeight:1}}>+35</div>
-              <div style={{fontSize:11.5,letterSpacing:'.04em',marginTop:3}}>años de experiencia</div>
-            </div>
-          </div>
-          <div>
-            <p className="bta-eyebrow leaf reveal">Sobre Andrea</p>
-            <h2 className="reveal" style={{fontSize:'clamp(28px,4vw,42px)',marginBottom:20}}>La experiencia detrás del método</h2>
-            <p className="lead reveal" style={{marginBottom:18}}>
-              Andrea Pigazzi creó la Metodología Balance Training® a partir de 35 años de trabajo con caballos: una forma de enseñar que une el conocimiento profundo de su naturaleza con una técnica clara, ordenada y eficaz.
-            </p>
-            <p className="reveal muted" style={{fontSize:16,lineHeight:1.75,marginBottom:28}}>
-              Su sello es la claridad y la pedagogía: explicar lo complejo de manera simple, acompañar a cada alumno según su nivel y demostrar que se puede ser compasivo con el caballo sin resignar un ápice de rigor técnico.
-            </p>
-            <div className="reveal" style={{display:'flex',gap:14,flexWrap:'wrap',marginBottom:28}}>
-              {['Metodología propia','Enfoque compasivo','Formación integral','Referencias de años'].map(t=>(
-                <span key={t} style={{fontSize:13,fontWeight:600,color:'var(--leaf-dark)',background:'var(--green-bg)',padding:'8px 16px',borderRadius:'var(--radius-full)'}}>{t}</span>
-              ))}
-            </div>
-            <a className="bta-btn bta-btn-outline reveal" href={window.BTA.ANDREA}>Conocé a Andrea</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------- TESTIMONIOS ---------- */
+/* ---------- TESTIMONIOS (fijos, reales) ---------- */
 function Testimonios(){
-  const data = [
-    { t:'Por primera vez entendí el "por qué" de cada cosa. Dejé de pelear con mi caballo y empezamos a entendernos de verdad.', n:'María Sol R.', r:'Aficionada · Córdoba' },
-    { t:'El orden de los contenidos es lo que más valoro. Sentí que avanzaba con bases, no improvisando como venía haciendo.', n:'Diego A.', r:'En profesionalización' },
-    { t:'Técnica seria y, a la vez, un respeto enorme por el animal. Andrea explica con una claridad que no encontré en ningún otro lado.', n:'Lucía F.', r:'Instructora' },
-  ];
-  const [idx,setIdx] = useStateL(0);
-  useEffectL(()=>{ const t=setInterval(()=>setIdx(i=>(i+1)%data.length),6000); return ()=>clearInterval(t); },[]);
   return (
-    <section className="bg-forest bta-section" style={{position:'relative',overflow:'hidden'}}>
-      <div className="bta-container" style={{maxWidth:880,textAlign:'center',position:'relative',zIndex:2}}>
-        <p className="bta-eyebrow on-dark reveal" style={{justifyContent:'center'}}>Lo que dicen los alumnos</p>
-        <div style={{fontFamily:'var(--font-display)',fontSize:90,lineHeight:.6,color:'var(--leaf-bright)',opacity:.5,marginBottom:6}}>“</div>
-        <div style={{minHeight:170}}>
-          {data.map((d,i)=>(
-            <div key={i} style={{display:i===idx?'block':'none'}}>
-              <p style={{fontFamily:'var(--font-display)',fontWeight:400,fontStyle:'italic',fontSize:'clamp(21px,3vw,30px)',lineHeight:1.4,color:'#fff',marginBottom:26}}>{d.t}</p>
-              <div style={{display:'flex',gap:12,alignItems:'center',justifyContent:'center'}}>
-                <div style={{width:44,height:44,borderRadius:'50%',background:i===1?'var(--sun)':'var(--leaf)',display:'flex',alignItems:'center',justifyContent:'center',color:'#fff',fontWeight:700,fontFamily:'var(--font-display)',fontSize:15}}>{d.n.split(' ').map(w=>w[0]).join('').slice(0,2)}</div>
-                <div style={{textAlign:'left'}}>
-                  <div style={{fontWeight:700,color:'#fff',fontSize:15}}>{d.n}</div>
-                  <div style={{fontSize:12.5,color:'var(--leaf-bright)'}}>{d.r}</div>
-                </div>
-              </div>
-            </div>
+    <section className="bg-forest bta-section">
+      <div className="bta-container">
+        <H2 light style={{marginBottom:36}}>Lo que dicen los alumnos</H2>
+        <ul className="bta-testi" style={{listStyle:'none',display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:22}}>
+          {TESTIMONIOS.map(d=>(
+            <li key={d.n} style={{minWidth:0}}>
+              <figure style={{height:'100%',display:'flex',flexDirection:'column',background:'rgba(246,241,228,.06)',borderRadius:'var(--radius-lg)',padding:'30px 28px'}}>
+                <span aria-hidden="true" style={{display:'block',fontFamily:'Georgia, serif',fontSize:56,lineHeight:.6,color:'var(--sun)',marginBottom:14}}>“</span>
+                <blockquote style={{fontSize:18,lineHeight:1.6,fontStyle:'italic',color:'#fff',flex:1,marginBottom:22}}>{d.t}</blockquote>
+                <figcaption style={{fontSize:14.5}}>
+                  <strong style={{display:'block',color:'var(--leaf-bright)'}}>{d.n}</strong>
+                  <span style={{color:'rgba(246,241,228,.8)'}}>{d.r}</span>
+                </figcaption>
+              </figure>
+            </li>
           ))}
-        </div>
-        <div style={{display:'flex',gap:9,justifyContent:'center',marginTop:30}}>
-          {data.map((_,i)=>(
-            <button key={i} onClick={()=>setIdx(i)} aria-label={'Testimonio '+(i+1)} style={{width:i===idx?26:9,height:9,borderRadius:'var(--radius-full)',border:'none',cursor:'pointer',background:i===idx?'var(--sun)':'rgba(255,255,255,.3)',transition:'all .3s'}}></button>
-          ))}
-        </div>
-        <p style={{fontSize:12,color:'rgba(246,241,228,.4)',marginTop:24}}>Testimonios de muestra · se reemplazan por los reales</p>
+        </ul>
       </div>
     </section>
   );
 }
 
-/* ---------- FAQ ---------- */
+/* ---------- FAQ (solo lo que Andrea confirmó) ---------- */
 function Faq(){
   const qs = [
-    { q:'¿La cursada es en vivo o grabada?', a:'Según la capacitación, hay clases online en vivo y contenidos que podés ver a tu ritmo. En los cursos en vivo las clases quedan grabadas para que puedas repasarlas.' },
-    { q:'¿Necesito tener caballo propio o experiencia previa?', a:'No es necesario tener caballo propio. Hay capacitaciones desde 1 estrella, pensadas para quienes recién se inician, hasta 5 y 6 estrellas para formación profesional.' },
-    { q:'¿Qué significan las estrellas de cada curso?', a:'Las estrellas indican el nivel de profundidad y los requerimientos previos sugeridos. La Pirámide Formativa ordena en qué secuencia conviene tomarlos: es una sugerencia y no invalida tomarlos en otro orden.' },
-    { q:'¿Cómo puedo pagar?', a:'Escribinos por WhatsApp o por mail a academybalancetraining@gmail.com y te pasamos el valor vigente y las formas de pago disponibles.' },
-    { q:'¿Entregan certificado?', a:'Sí. Al completar la capacitación recibís un certificado de la Academia.' },
     { q:'No sé cuál capacitación me conviene, ¿me pueden orientar?', a:'Sí, con mucho gusto. Escribinos contándonos tu nivel, tu experiencia y tus intereses, y te asesoramos para que elijas el camino más adecuado para vos.' },
+    { q:'¿Qué significan las estrellas de cada curso?', a:'Indican el escalón de cada capacitación dentro de la Pirámide Formativa: el orden en que sugerimos ir tomándolas y sus requerimientos previos. Es una sugerencia y no invalida tomarlas en otro orden.' },
+    { q:'¿Las clases son en vivo o grabadas?', a:'Depende de cada capacitación. En cada página encontrás su modalidad, y si tenés dudas escribinos y te contamos cómo es el acceso.' },
+    { q:'¿Necesito tener caballo propio?', a:'Depende de la capacitación: cada una detalla sus requisitos. Por ejemplo, las Mentorías requieren contar con un caballo con el cual desarrollar tus prácticas.' },
+    { q:'¿Entregan certificado?', a:'La Formación Ecuestre Integral entrega certificado a quienes completan sus tres etapas y el trabajo final. Para las demás capacitaciones, consultanos.' },
+    { q:'¿Cómo puedo pagar?', a:'Escribinos por WhatsApp o por mail a '+CONTACT.email+' y te pasamos el valor vigente y las formas de pago disponibles.' },
   ];
   const [open,setOpen] = useStateL(0);
   return (
-    <section id="faq" className="bg-paper2 bta-section">
-      <div className="bta-container" style={{maxWidth:820}}>
-        <div style={{textAlign:'center',marginBottom:44}}>
-          <p className="bta-eyebrow leaf reveal" style={{justifyContent:'center'}}>Preguntas frecuentes</p>
-          <h2 className="reveal" style={{fontSize:'clamp(28px,4vw,42px)'}}>Todo lo que querés saber</h2>
-        </div>
+    <section id="faq" className="bg-paper bta-section">
+      <div className="bta-container" style={{maxWidth:800}}>
+        <H2 style={{marginBottom:30,textAlign:'center'}}>Preguntas frecuentes</H2>
         <div style={{display:'flex',flexDirection:'column',gap:12}}>
           {qs.map((item,i)=>{
-            const isOpen=open===i;
+            const isOpen=open===i, id='hfaq-'+i;
             return (
-              <div key={i} className="reveal" style={{background:'#fff',borderRadius:'var(--radius-md)',border:'1px solid var(--line)',boxShadow:isOpen?'var(--shadow-md)':'var(--shadow-sm)',overflow:'hidden',transition:'box-shadow .25s'}}>
-                <button onClick={()=>setOpen(isOpen?-1:i)} style={{width:'100%',display:'flex',justifyContent:'space-between',alignItems:'center',gap:16,padding:'20px 24px',background:'none',border:'none',cursor:'pointer',textAlign:'left'}}>
-                  <span style={{fontFamily:'var(--font-display)',fontWeight:700,fontSize:16.5,color:'var(--ink)'}}>{item.q}</span>
-                  <span style={{flexShrink:0,width:30,height:30,borderRadius:'50%',background:isOpen?'var(--sun)':'var(--green-bg)',color:isOpen?'#fff':'var(--leaf-dark)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:20,fontWeight:700,transition:'all .25s',transform:isOpen?'rotate(45deg)':'none'}}>+</span>
-                </button>
-                <div style={{maxHeight:isOpen?260:0,overflow:'hidden',transition:'max-height .3s var(--ease)'}}>
-                  <p style={{padding:'0 24px 22px',fontSize:15,lineHeight:1.7,color:'var(--ink-soft)'}}>{item.a}</p>
+              <div key={i} style={{background:'#fff',borderRadius:'var(--radius-md)',border:'1px solid var(--line)',boxShadow:isOpen?'var(--shadow-md)':'var(--shadow-sm)',transition:'box-shadow .25s'}}>
+                <h3 style={{fontSize:'inherit'}}>
+                  <button className="bta-faq-q" aria-expanded={isOpen} aria-controls={id} onClick={()=>setOpen(isOpen?-1:i)} style={{width:'100%',minHeight:56,display:'flex',justifyContent:'space-between',alignItems:'center',gap:16,padding:'18px 24px',background:'none',border:'none',cursor:'pointer',textAlign:'left',borderRadius:'var(--radius-md)'}}>
+                    <span style={{fontFamily:'var(--font-display)',fontWeight:700,fontSize:17,color:'var(--ink)'}}>{item.q}</span>
+                    <span aria-hidden="true" style={{flexShrink:0,width:32,height:32,borderRadius:'50%',background:isOpen?'var(--sun)':'var(--green-bg)',color:'var(--forest)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:20,fontWeight:700,transition:'transform .25s var(--ease),background .25s',transform:isOpen?'rotate(45deg)':'none'}}>+</span>
+                  </button>
+                </h3>
+                <div id={id} role="region" hidden={!isOpen}>
+                  <p style={{padding:'0 24px 22px',fontSize:16,lineHeight:1.7,color:'var(--ink-soft)'}}>{item.a}</p>
                 </div>
               </div>
             );
@@ -428,25 +351,23 @@ function Faq(){
   );
 }
 
-/* ---------- CTA FINAL ---------- */
+/* ---------- CIERRE ---------- */
 function CtaFinal(){
+  const wa = CONTACT.whatsapp+'?text='+encodeURIComponent('Hola Andrea, quiero que me orienten para elegir una capacitación.');
   return (
-    <section style={{position:'relative',overflow:'hidden',padding:'110px 0',textAlign:'center'}}>
-      <img src={PHOTOS.field2} alt="" style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover'}} onError={imgErr('var(--forest)')}/>
-      <div style={{position:'absolute',inset:0,background:'linear-gradient(rgba(42,23,8,.85),rgba(42,23,8,.9))'}}></div>
-      <div className="bta-container" style={{position:'relative',zIndex:2,maxWidth:720}}>
-        <p className="bta-eyebrow on-dark reveal" style={{justifyContent:'center'}}>Tu próximo paso</p>
-        <h2 className="reveal" style={{fontSize:'clamp(30px,4.6vw,52px)',color:'#fff',marginBottom:20,lineHeight:1.08}}>
-          Estamos para acompañarte en tu camino de <span style={{color:'var(--sun-soft)'}}>Formación y Profesionalización Ecuestre</span>
-        </h2>
-        <p className="lead reveal" style={{color:'rgba(246,241,228,.88)',maxWidth:560,margin:'0 auto 36px'}}>
+    <section className="bg-forest" style={{padding:'96px 0',textAlign:'center',borderTop:'1px solid rgba(220,182,126,.2)'}}>
+      <div className="bta-container" style={{maxWidth:720}}>
+        <H2 light style={{fontSize:'clamp(28px,4.2vw,46px)',marginBottom:18}}>¡Estamos para acompañarte en tu camino!</H2>
+        <p style={{fontSize:18,lineHeight:1.65,color:'rgba(246,241,228,.9)',maxWidth:560,margin:'0 auto 32px'}}>
           Si tenés alguna duda sobre cuál opción es mejor para vos, contactanos y con mucho gusto vamos a asesorarte.
         </p>
-        <div className="reveal" style={{display:'flex',gap:14,justifyContent:'center',flexWrap:'wrap'}}>
-          <a className="bta-btn bta-btn-primary" href={CONTACT.whatsapp}>Escribinos por WhatsApp</a>
-          <a className="bta-btn bta-btn-light" href={B.CURSOS}>Ver las capacitaciones</a>
+        <div style={{display:'flex',gap:14,justifyContent:'center',flexWrap:'wrap'}}>
+          <a className="bta-btn bta-btn-primary" href={wa}>Escribinos por WhatsApp</a>
+          <a className="bta-btn bta-btn-light" href={CURSOS}>Ver capacitaciones</a>
         </div>
-        <p className="reveal" style={{fontSize:13.5,color:'rgba(246,241,228,.6)',marginTop:22}}>{CONTACT.email}</p>
+        <p style={{fontSize:15,color:'rgba(246,241,228,.8)',marginTop:22}}>
+          o por mail a <a href={'mailto:'+CONTACT.email} style={{color:'var(--leaf-bright)',fontWeight:600}}>{CONTACT.email}</a>
+        </p>
       </div>
     </section>
   );
@@ -455,23 +376,22 @@ function CtaFinal(){
 function App(){
   useReveal();
   return (
-    <div>
-      <Nav active="inicio"/>
+    <div style={{background:'var(--forest)'}}>
+      <Nav active="inicio" skip/>
       <Hero/>
-      <Bienvenida/>
-      <Pain/>
-      <Metodo/>
-      <ImageBreak/>
-      <ParaQuien/>
-      <CursoDestacado/>
-      <Catalogo/>
-      <Transformacion/>
-      <Andrea/>
-      <Testimonios/>
-      <Faq/>
-      <CtaFinal/>
+      <main id="contenido" tabIndex={-1}>
+        <Bienvenida/>
+        <Pain/>
+        <Metodo/>
+        <Empezar/>
+        <CursoDestacado/>
+        <Catalogo/>
+        <Testimonios/>
+        <Faq/>
+        <CtaFinal/>
+      </main>
       <Footer/>
-      <WhatsFloat/>
+      <WhatsFloat msg="Hola Andrea, quiero información sobre la Academia."/>
     </div>
   );
 }
