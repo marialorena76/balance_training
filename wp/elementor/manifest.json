@@ -1,0 +1,114 @@
+[
+  {
+    "slug": "iniciacion",
+    "title": "Iniciación a la Metodología Balance Training®",
+    "cat": "Cursos",
+    "featured": 459,
+    "excerpt": "El primer escalón: los pilares, la filosofía y el modo de trabajo del Método.",
+    "bytes": 28080
+  },
+  {
+    "slug": "etologia",
+    "title": "Etología, Formas de Aprendizaje y Comunicación",
+    "cat": "Cursos",
+    "featured": 460,
+    "excerpt": "El comportamiento del caballo, cómo aprende y cómo comunicarte con él.",
+    "bytes": 28939
+  },
+  {
+    "slug": "arte-menor-esfuerzo",
+    "title": "La Equitación y El Arte del menor esfuerzo",
+    "cat": "Cursos",
+    "featured": 461,
+    "excerpt": "Un camino de mayor liviandad y ligereza con tu caballo, y también en la vida.",
+    "bytes": 28600
+  },
+  {
+    "slug": "psicofisica",
+    "title": "Preparación Psico-Física del Jinete",
+    "cat": "Cursos",
+    "featured": 462,
+    "excerpt": "Cuerpo, mente y emoción alineados como tu mejor instrumento.",
+    "bytes": 27959
+  },
+  {
+    "slug": "caballo-deportivo",
+    "title": "Bases Formativas del Caballo Deportivo",
+    "cat": "Cursos",
+    "featured": 463,
+    "excerpt": "Cómo se construye un caballo atleta desde sus bases, de forma progresiva y respetuosa.",
+    "bytes": 28140
+  },
+  {
+    "slug": "webinar-asiento",
+    "title": "Mejorar tu asiento es posible",
+    "cat": "Webinars",
+    "featured": 465,
+    "excerpt": "Una Master Class de 1 hora y media para una monta más armoniosa y conectada.",
+    "bytes": 20950
+  },
+  {
+    "slug": "webinar-caballo-nuevo",
+    "title": "Del caballo nuevo al caballo hecho",
+    "cat": "Webinars",
+    "featured": 466,
+    "excerpt": "La evolución del caballo joven: madurez mental, morfológica, biomecánica y funcional.",
+    "bytes": 21099
+  },
+  {
+    "slug": "webinar-comunicacion",
+    "title": "Comunicación y Formas de Aprendizaje",
+    "cat": "Webinars",
+    "featured": 467,
+    "excerpt": "El lenguaje de los caballos y cómo relacionarte con ellos de forma respetuosa y colaborativa.",
+    "bytes": 21031
+  },
+  {
+    "slug": "formacion-integral",
+    "title": "Formación Ecuestre Integral 2027",
+    "cat": "Formación",
+    "featured": 464,
+    "excerpt": "La columna vertebral de la Academia: online, presencial y mentoring, con certificado.",
+    "bytes": 26999
+  },
+  {
+    "slug": "mentorias",
+    "title": "Mentorías Personalizadas",
+    "cat": "Acompañamiento",
+    "featured": 454,
+    "excerpt": "Nuestro programa más personalizado: un plan a medida para vos y tu caballo.",
+    "bytes": 28673
+  },
+  {
+    "slug": "asesorias",
+    "title": "Asesorías",
+    "cat": "Acompañamiento",
+    "featured": 454,
+    "excerpt": "Una sesión de 1 h 30 por Zoom para los temas puntuales que necesites resolver.",
+    "bytes": 19360
+  },
+  {
+    "slug": "coaching",
+    "title": "Sesión de Coaching Deportivo y Ontológico",
+    "cat": "Acompañamiento",
+    "featured": 454,
+    "excerpt": "Clarificá qué cambiar, qué camino seguir y qué competencias desarrollar.",
+    "bytes": 20307
+  },
+  {
+    "slug": "presenciales",
+    "title": "Cursos, Capacitaciones y Clínicas en todo el país",
+    "cat": "Presenciales",
+    "featured": 454,
+    "excerpt": "Capacitaciones presenciales en distintos lugares del país, según calendario.",
+    "bytes": 19051
+  },
+  {
+    "slug": "estadias",
+    "title": "Estadías Personalizadas en Relinchos",
+    "cat": "Presenciales",
+    "featured": 454,
+    "excerpt": "Unos días para aprender, practicar y vivir Balance Training® junto a la manada.",
+    "bytes": 27189
+  }
+]

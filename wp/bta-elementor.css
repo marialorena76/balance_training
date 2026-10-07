@@ -1,0 +1,150 @@
+/* Balance Training Academy — CSS global (Kit de Elementor → CSS personalizado) */
+:root{--forest:#2E1A0A;--forest-2:#4F2D10;--leaf:#693C16;--tan:#DCB67E;--sun:#D9AE23;--sun-deep:#B8901A;--sun-soft:#E8C85A;--gold-text:#7E5F0C;--ink:#4F2D10;--ink-soft:#7A5A39;--cream:#F6ECDB;--paper-2:#F6EFE2;--sand:#F1E6D2;--green-bg:#F4EADA;--line:#E8DBC5;--line-strong:#CDB894;--sage:#5F7E45}
+body{font-family:Raleway,sans-serif;color:var(--ink);font-variant-numeric:lining-nums;-webkit-font-smoothing:antialiased}
+::selection{background:var(--sun);color:var(--forest)}
+:focus-visible{outline:3px solid var(--leaf);outline-offset:3px;border-radius:4px}
+.bta-dark :focus-visible{outline-color:var(--sun)}
+.bta-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+[id]{scroll-margin-top:92px}
+
+/* Tipografía */
+.bta-h .elementor-heading-title{font-family:Raleway,sans-serif;font-weight:800;font-size:clamp(26px,3.4vw,38px);line-height:1.15;color:var(--ink);text-wrap:balance}
+.bta-h.bta-h-sm .elementor-heading-title{font-size:clamp(22px,2.6vw,30px)}
+.bta-h.bta-h3 .elementor-heading-title{font-size:21px;line-height:1.3;font-weight:700}
+.bta-h.bta-h1 .elementor-heading-title{font-size:clamp(30px,4.4vw,50px);line-height:1.08;color:#fff}
+.bta-center .elementor-heading-title{text-align:center}
+.bta-dark .bta-h .elementor-heading-title{color:#fff}
+.bta-prose p{font-size:17px;line-height:1.75;color:var(--ink);margin:0 0 18px}
+.bta-prose p:last-child{margin-bottom:0}
+.bta-prose .bta-lead{font-size:19px;font-weight:500}
+.bta-prose-soft p{font-size:15.5px;line-height:1.7;color:var(--ink-soft);margin-bottom:10px}
+.bta-kicker-inline{font-size:14px!important;font-weight:700;color:var(--gold-text)!important;margin-bottom:12px!important}
+.bta-muted{font-size:16px;line-height:1.6;color:var(--ink-soft);margin:0;max-width:640px}
+.bta-note{margin-top:14px;max-width:720px;font-size:18px;line-height:1.65;font-style:italic;color:var(--ink)}
+.elementor-widget-text-editor p:last-child{margin-bottom:0}
+
+/* Hero */
+.bta-hero .bta-crumbs{font-size:13px;color:rgba(246,241,228,.72)}
+.bta-hero .bta-crumbs a{color:rgba(246,241,228,.72);text-decoration:none}
+.bta-hero .bta-crumbs a:hover{color:#fff;text-decoration:underline}
+.bta-hero .bta-crumbs [aria-current]{color:var(--tan)}
+.bta-meta{font-size:14.5px;font-weight:600;color:var(--tan);margin:0}
+.bta-stars{color:var(--sun-soft);letter-spacing:.08em}
+.bta-lead-dark{color:rgba(246,241,228,.92);font-size:clamp(16px,1.9vw,19px);line-height:1.65;max-width:600px;margin:0 0 8px}
+.bta-facts{display:flex;gap:26px;flex-wrap:wrap;margin:10px 0 0}
+.bta-facts div{border-left:1px solid rgba(220,182,126,.45);padding-left:14px}
+.bta-facts dt{font-weight:800;font-size:18px;color:#fff;line-height:1.2}
+.bta-facts dd{font-size:13px;color:rgba(246,241,228,.78);margin:4px 0 0;max-width:180px}
+.bta-hero-img img{width:100%;border-radius:16px;box-shadow:0 24px 50px -16px rgba(0,0,0,.6)}
+.bta-hero-photo img{aspect-ratio:4/3;object-fit:cover;object-position:72% 30%}
+
+/* Botones */
+.bta-btn .elementor-button{font-family:Raleway,sans-serif;font-weight:700;font-size:15.5px;border-radius:9999px;padding:14px 26px;background:var(--sun);color:var(--forest);transition:background .2s,transform .2s}
+.bta-btn .elementor-button:hover,.bta-btn .elementor-button:focus-visible{background:var(--sun-deep);color:var(--forest);transform:translateY(-1px)}
+.bta-btn-light .elementor-button{background:transparent!important;color:#fff!important;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.55)}
+.bta-btn-light .elementor-button:hover{background:rgba(255,255,255,.1)!important}
+.bta-btn-outline .elementor-button{background:transparent!important;color:var(--ink)!important;box-shadow:inset 0 0 0 1.5px var(--line-strong)}
+.bta-btn-outline .elementor-button:hover{background:var(--green-bg)!important;color:var(--forest)!important}
+.bta-btn-sm .elementor-button{font-size:14px;padding:10px 20px}
+.bta-btnrow{flex-wrap:wrap!important}
+.bta-btnrow .elementor-widget-button{width:auto!important}
+.bta-end{align-items:flex-end}
+@media (max-width:767px){.bta-end{align-items:flex-start}.bta-btnrow{flex-direction:row!important}}
+
+/* Listas con tilde */
+.bta-checks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.bta-checks li{position:relative;padding-left:32px;font-size:16px;line-height:1.6;color:var(--ink)}
+.bta-checks li::before{content:'✓';position:absolute;left:0;top:1px;width:21px;height:21px;border-radius:50%;background:rgba(95,126,69,.15);color:var(--sage);font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.bta-checks-leaf li::before{background:rgba(105,60,22,.12);color:var(--leaf)}
+.bta-checks-2{display:grid;grid-template-columns:1fr 1fr;column-gap:48px;row-gap:18px}
+.bta-checks-sm li{font-size:15px;line-height:1.45}
+@media (max-width:767px){.bta-checks-2{grid-template-columns:1fr}}
+
+/* Programa */
+.bta-prog{list-style:none;margin:18px 0 0;padding:0}
+.bta-prog-cols{display:grid;grid-template-columns:1fr 1fr;column-gap:48px}
+.bta-prog li{display:flex;gap:18px;align-items:baseline;padding:18px 0;border-top:1px solid var(--line)}
+.bta-num{flex-shrink:0;min-width:28px;font-weight:800;font-size:17px;color:var(--gold-text);font-variant-numeric:tabular-nums}
+.bta-prog strong{font-weight:700;font-size:17px;color:var(--ink)}
+.bta-prog p{font-size:15px;line-height:1.65;color:var(--ink-soft);margin:5px 0 0}
+@media (max-width:767px){.bta-prog-cols{grid-template-columns:1fr}}
+
+/* Cards */
+.bta-card{background:#fff;border-radius:16px;padding:34px 32px!important;box-shadow:0 1px 3px rgba(34,28,10,.08);border:1px solid var(--line)}
+.bta-card-warm{background:var(--paper-2)}
+.bta-card-note{margin:22px 0 0;padding-top:18px;border-top:1px solid var(--line);font-size:15.5px;font-weight:700;color:var(--ink)}
+.bta-card-foot{margin:22px 0 0;padding-top:18px;border-top:1px solid var(--line);font-size:14.5px;color:var(--ink-soft)}
+.bta-card-foot a{color:var(--leaf);font-weight:700}
+.bta-numlist{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:14px}
+.bta-numlist li{font-size:15.5px;line-height:1.6;color:var(--ink)}
+.bta-numlist li::marker{font-weight:800;color:var(--gold-text)}
+@media (max-width:767px){.bta-card{padding:26px 22px!important}}
+
+/* Citas */
+.bta-quote{margin:24px 0 0;padding-top:28px;border-top:1px solid var(--line)}
+.bta-quote blockquote,.bta-andrea-quote{margin:0;font-size:clamp(18px,2.2vw,22px);line-height:1.55;font-style:italic;font-weight:500;color:var(--ink)}
+.bta-quote blockquote::before{content:'“';display:block;font-family:Georgia,serif;font-size:64px;line-height:.6;color:var(--sun);margin-bottom:10px;font-style:normal}
+
+/* Quién te acompaña */
+.bta-dark p{color:rgba(246,241,228,.9);font-size:17px;line-height:1.7}
+.bta-dark strong{color:#fff}
+.bta-dark .bta-andrea-quote{color:var(--tan);font-size:clamp(18px,2vw,21px);margin:22px 0;max-width:560px}
+.bta-arrow{color:var(--sun-soft)!important;font-weight:700;text-decoration:none}
+.bta-arrow:hover{text-decoration:underline}
+.bta-portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:78% 30%;border-radius:16px}
+
+/* Inscripción */
+.bta-insc-card{background:#fff;border-radius:24px;box-shadow:0 18px 44px rgba(34,28,10,.16);overflow:hidden;padding-bottom:30px!important}
+.bta-insc-head{background:var(--forest);padding:28px 34px}
+.bta-insc-head h2{margin:0;color:#fff;font-weight:800;font-size:clamp(24px,3vw,32px);line-height:1.15}
+.bta-insc-head p{margin:6px 0 0;color:var(--tan);font-size:15px;font-weight:600}
+.bta-insc-body{padding:30px 34px 0}
+.bta-insc-pad{padding:0 34px!important}
+.bta-specs{display:grid;grid-template-columns:auto 1fr;column-gap:22px;row-gap:12px;margin:0 0 26px}
+.bta-specs dt{font-size:14px;color:var(--ink-soft);font-weight:600}
+.bta-specs dd{margin:0;font-size:15.5px;color:var(--ink);font-weight:700}
+.bta-incl-t{font-size:16px;margin:0 0 12px;padding-top:22px;border-top:1px solid var(--line);color:var(--ink)}
+.bta-insc-text{font-size:16px;line-height:1.65;color:var(--ink);margin:22px 0 24px}
+.bta-insc-foot{font-size:14px;color:var(--ink-soft);line-height:1.7;margin:20px 0 0}
+.bta-testi{background:var(--forest);color:var(--cream);border-radius:24px;padding:34px 30px;margin:0}
+.bta-qmark{display:block;font-family:Georgia,serif;font-size:60px;line-height:.6;color:var(--sun);margin-bottom:12px}
+.bta-testi blockquote{margin:0 0 22px;font-size:18px;line-height:1.6;font-style:italic;color:#fff}
+.bta-testi figcaption{font-size:14.5px}
+.bta-testi figcaption strong{display:block;color:var(--tan)}
+.bta-testi figcaption span{color:rgba(246,241,228,.78)}
+@media (max-width:767px){.bta-insc-head,.bta-insc-body{padding-left:22px;padding-right:22px}.bta-insc-pad{padding:0 22px!important}.bta-specs{grid-template-columns:1fr;row-gap:2px}.bta-specs dd{margin-bottom:10px}}
+
+/* FAQ (acordeón clásico) */
+.bta-faq .elementor-accordion-item{background:#fff;border:1px solid var(--line)!important;border-radius:10px;margin-bottom:12px;box-shadow:0 1px 3px rgba(34,28,10,.08)}
+.bta-faq .elementor-tab-title{padding:20px 24px!important;border:0!important}
+.bta-faq .elementor-tab-title a,.bta-faq .elementor-accordion-title{font-family:Raleway,sans-serif;font-weight:700;font-size:17px;color:var(--ink)!important}
+.bta-faq .elementor-tab-title.elementor-active a{color:var(--forest)!important}
+.bta-faq .elementor-accordion-icon{color:var(--gold-text)!important}
+.bta-faq .elementor-accordion-icon svg{fill:var(--gold-text)!important}
+.bta-faq .elementor-tab-content{padding:0 24px 22px!important;border:0!important;font-size:16px;line-height:1.7;color:var(--ink-soft)}
+
+/* Pirámide */
+.bta-pir{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;align-items:center}
+.bta-pir li{min-width:0;background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.bta-pir li.is-here{background:var(--sun);border-color:var(--sun-deep);box-shadow:0 10px 24px -10px rgba(46,26,10,.45)}
+.bta-pir li.is-soon{background:transparent;border:1px dashed var(--line-strong)}
+.bta-pir-stars{flex-shrink:0;min-width:84px;font-size:14px;font-weight:800;letter-spacing:.1em;color:var(--gold-text)}
+.bta-pir li.is-here .bta-pir-stars{color:var(--forest)}
+.bta-pir-items{flex:1;min-width:160px;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:14.5px;line-height:1.4}
+.bta-pir-items a{font-weight:600;color:var(--ink)}
+.bta-pir li.is-here strong,.bta-pir li.is-here a{color:var(--forest);font-weight:800}
+.bta-soon{color:var(--ink-soft);font-style:italic}
+@media (max-width:767px){.bta-pir li{width:100%!important}}
+
+/* Tarjetas de cursos */
+.bta-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.bta-cardlink{display:flex;flex-direction:column;text-decoration:none;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 1px 3px rgba(34,28,10,.08);transition:transform .25s,box-shadow .25s}
+.bta-cardlink:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(34,28,10,.12)}
+.bta-cardlink img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.bta-cardlink img.is-photo{object-position:72% 30%}
+.bta-card-meta{padding:16px 18px 6px;font-size:13.5px;color:var(--leaf);font-weight:700}
+.bta-card-t{padding:0 18px 20px;font-weight:700;font-size:16.5px;color:var(--ink);line-height:1.3}
+@media (max-width:900px){.bta-cards{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.bta-cards{grid-template-columns:1fr}}
+
+@media (prefers-reduced-motion:reduce){.bta-btn .elementor-button,.bta-cardlink{transition:none}.bta-btn .elementor-button:hover,.bta-cardlink:hover{transform:none}}
