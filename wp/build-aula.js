@@ -92,7 +92,7 @@ function miCamino() {
 
   /* CÓMO FUNCIONA EL AULA */
   const faq = [
-    ['¿Cómo avanzo en un curso?', 'Entrá al curso, mirá el video de cada clase y, al terminar, tocá “Marcar como completada”. Así se va llenando tu barra de progreso.'],
+    ['¿Cómo avanzo en un curso?', 'Entrá al curso, mirá el video de cada clase y, al terminar, tocá “Marcar como completado”. Así se va llenando tu barra de progreso.'],
     ['¿Puedo volver a ver una clase?', 'Sí. Entrá al curso y elegí la clase que quieras desde la lista.'],
     ['¿Tengo que seguir las clases en orden?', 'Te sugerimos seguirlas en orden, porque cada una se apoya en la anterior.'],
     ['Tengo una duda sobre una clase, ¿a quién le escribo?', 'Escribinos por WhatsApp al ' + CONTACT.waLabel + ' o a ' + CONTACT.email + ' y te respondemos.'],

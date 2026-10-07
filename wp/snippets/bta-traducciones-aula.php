@@ -23,6 +23,9 @@ function bta_aula_traducciones() {
 		'Back to %s'          => 'Volver al %s',
 		'Expand All'          => 'Ver todo',
 		'Collapse All'        => 'Contraer todo',
+		'of'                  => 'de',
+		'%1$s of %2$s'        => '%1$s de %2$s',
+		'%1$s %2$s of %3$s'   => '%1$s %2$s de %3$s',
 	);
 }
 function bta_aula_traducir( $translation, $text, $domain ) {
