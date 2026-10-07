@@ -263,3 +263,79 @@ body{font-family:Raleway,sans-serif;color:var(--ink);font-variant-numeric:lining
 .bta-foot-list a:hover{color:var(--sun-soft)!important}
 .bta-foot-legal{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12)}
 .bta-foot-legal p{font-size:12.5px!important;color:rgba(246,241,228,.62)!important;margin:0}
+
+/* ===== Aula: cursos y lecciones (LearnDash + BuddyBoss) =====
+   Todo acotado a las vistas del aula y a la página Mi Camino (.bta-aula);
+   no toca las landings de /capacitaciones/. */
+:is(.single-sfwd-courses,.single-sfwd-lessons,.single-sfwd-topic,.single-sfwd-quiz,.bta-aula){--bb-primary-color:#D9AE23;--bb-primary-color-rgb:217,174,35;--bb-body-text-color:#4F2D10;--bb-headings-color:#2E1A0A;--bb-alternate-text-color:#7A5A39;--bb-body-background-color:#F6EFE2;--bb-content-background-color:#FFFFFF;--bb-content-alternate-background-color:#F4EADA;--bb-content-border-color:#E8DBC5;--bb-primary-button-background-regular:#D9AE23;--bb-primary-button-background-hover:#B8901A;--bb-primary-button-border-regular:#D9AE23;--bb-primary-button-border-hover:#B8901A;--bb-primary-button-text-regular:#2E1A0A;--bb-primary-button-text-hover:#2E1A0A;--bb-success-color:#5F7E45;--bb-button-radius:9999px;--bb-block-radius:16px;--bb-option-radius:10px}
+:is(.single-sfwd-courses,.single-sfwd-lessons,.single-sfwd-topic) :is(h1,h2,h3,h4){font-family:Raleway,sans-serif;color:var(--forest)}
+
+/* Portada del curso */
+.single-sfwd-courses .bb-learndash-banner{background-color:var(--forest)!important;border-radius:0 0 24px 24px;overflow:hidden}
+.single-sfwd-courses .bb-learndash-banner :is(h1,.bb-course-title){color:#fff!important;font-weight:800;font-size:clamp(28px,4vw,46px);line-height:1.1;text-wrap:balance}
+.single-sfwd-courses .bb-learndash-banner :is(p,.bb-course-excerpt){color:rgba(246,241,228,.9)!important;font-size:18px;line-height:1.6}
+.single-sfwd-courses .bb-learndash-banner a{color:var(--tan)!important;font-weight:700}
+.single-sfwd-courses .bb-single-course-sidebar :is(.widget,.bb-course-preview-wrap){background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 18px 44px rgba(34,28,10,.12);overflow:hidden}
+
+/* Lista de clases: tarjetas numeradas */
+:is(.single-sfwd-courses,.single-sfwd-lessons) .learndash-wrapper .ld-item-list-items{counter-reset:bta-clase}
+:is(.single-sfwd-courses,.single-sfwd-lessons) .learndash-wrapper .ld-item-list .ld-item-list-item{counter-increment:bta-clase;background:#fff;border:1px solid var(--line)!important;border-radius:14px!important;margin:0 0 10px;box-shadow:0 1px 3px rgba(34,28,10,.06);transition:transform .2s,box-shadow .2s,border-color .2s}
+:is(.single-sfwd-courses,.single-sfwd-lessons) .learndash-wrapper .ld-item-list .ld-item-list-item:hover{transform:translateY(-2px);border-color:var(--line-strong)!important;box-shadow:0 6px 20px rgba(34,28,10,.10)}
+:is(.single-sfwd-courses,.single-sfwd-lessons) .learndash-wrapper .ld-item-list .ld-item-name{color:var(--ink)!important;font-weight:700;font-size:16px}
+:is(.single-sfwd-courses,.single-sfwd-lessons) .learndash-wrapper .ld-item-list .ld-item-title::before{content:counter(bta-clase,decimal-leading-zero);display:inline-block;min-width:34px;margin-right:6px;font-weight:800;color:var(--gold-text);font-variant-numeric:tabular-nums}
+:is(.single-sfwd-courses,.single-sfwd-lessons) .learndash-wrapper .ld-item-list-section-heading{margin:26px 0 10px}
+:is(.single-sfwd-courses,.single-sfwd-lessons) .learndash-wrapper :is(.ld-lesson-section-heading,.ld-item-list-section-heading h2,.ld-item-list-section-heading h3){font-size:13px!important;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-text)!important}
+.learndash-wrapper .ld-status-icon{background:var(--line)!important;color:var(--forest)!important}
+.learndash-wrapper .ld-status-icon.ld-status-complete,.learndash-wrapper .ld-status-complete{background:var(--sage)!important;color:#fff!important}
+.learndash-wrapper .ld-status-icon.ld-status-in-progress{border-color:var(--sun)!important;border-left-color:var(--line)!important}
+
+/* Progreso */
+.learndash-wrapper .ld-progress .ld-progress-bar{background:var(--line)!important;border-radius:9999px;height:10px;overflow:hidden}
+.learndash-wrapper .ld-progress .ld-progress-bar .ld-progress-bar-percentage{background:linear-gradient(90deg,var(--sun),var(--sun-soft))!important;border-radius:9999px}
+.learndash-wrapper .ld-progress .ld-progress-stats,.learndash-wrapper .ld-progress-percentage{color:var(--ink)!important;font-weight:700}
+
+/* Botones del aula (inscribirse, continuar, marcar como vista, siguiente) */
+.learndash-wrapper :is(.ld-button,.btn-join,#btn-join,.learndash_mark_complete_button),:is(.single-sfwd-courses,.single-sfwd-lessons,.single-sfwd-topic) :is(.btn-advance,.learndash_mark_complete_button,#learndash_mark_complete_button){background:var(--sun)!important;color:var(--forest)!important;border:0!important;border-radius:9999px!important;font-family:Raleway,sans-serif;font-weight:700!important;padding:12px 24px;transition:background .2s,transform .2s}
+.learndash-wrapper :is(.ld-button,.btn-join,#btn-join,.learndash_mark_complete_button):hover,:is(.single-sfwd-courses,.single-sfwd-lessons,.single-sfwd-topic) :is(.btn-advance,.learndash_mark_complete_button,#learndash_mark_complete_button):hover{background:var(--sun-deep)!important;transform:translateY(-1px)}
+.learndash-wrapper .ld-button.ld-button-transparent,.learndash-wrapper .ld-content-action .ld-button-reverse{background:transparent!important;box-shadow:inset 0 0 0 1.5px var(--line-strong)}
+
+/* Lección: video protagonista */
+:is(.single-sfwd-lessons,.single-sfwd-topic) .wp-block-embed-youtube{margin:8px 0 28px}
+:is(.single-sfwd-lessons,.single-sfwd-topic) .wp-block-embed-youtube .wp-block-embed__wrapper{border-radius:16px;overflow:hidden;background:var(--forest);box-shadow:0 18px 44px rgba(34,28,10,.18)}
+:is(.single-sfwd-lessons,.single-sfwd-topic) .lms-topic-sidebar-wrapper{background:var(--paper-2)!important;border-right:1px solid var(--line)}
+@media (prefers-reduced-motion:reduce){.learndash-wrapper .ld-item-list .ld-item-list-item,.learndash-wrapper .ld-button{transition:none}.learndash-wrapper .ld-item-list .ld-item-list-item:hover{transform:none}}
+
+/* ===== Mi Camino (escritorio del alumno) ===== */
+.bta-aula-hello{font-size:15px!important;font-weight:700;letter-spacing:.06em;color:var(--tan)!important;margin:0 0 6px!important}
+.bta-aula .ld-course-resume,.bta-aula a.ld-course-resume{display:inline-flex;align-items:center;gap:8px;background:var(--sun)!important;color:var(--forest)!important;font-weight:700;font-size:15.5px;border-radius:9999px;padding:14px 26px;text-decoration:none;margin-top:8px}
+.bta-aula .ld-course-resume:hover{background:var(--sun-deep)!important}
+.bta-mis{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.bta-mis>li{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 3px rgba(34,28,10,.08);transition:transform .25s,box-shadow .25s}
+.bta-mis>li:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(34,28,10,.12)}
+.bta-mis img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.bta-mis-body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.bta-mis-meta{font-size:13.5px;font-weight:700;color:var(--leaf)}
+.bta-mis-t{font-size:18px;font-weight:700;line-height:1.3;color:var(--ink);margin:0}
+.bta-mis-mods{font-size:14px;color:var(--ink-soft);margin:0}
+.bta-mis-state{display:inline-block;align-self:flex-start;font-size:12.5px;font-weight:800;letter-spacing:.04em;padding:5px 12px;border-radius:9999px;background:var(--green-bg);color:var(--forest-2)}
+.bta-mis-state.is-done{background:rgba(95,126,69,.15);color:var(--sage)}
+.bta-mis-state.is-going{background:rgba(217,174,35,.22);color:var(--gold-text)}
+.bta-mis .course_progress{background:var(--line);border-radius:9999px;height:8px;overflow:hidden;margin:4px 0 2px}
+.bta-mis .course_progress_blue{background:linear-gradient(90deg,var(--sun),var(--sun-soft));height:100%}
+.bta-mis-go{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);font-weight:700;color:var(--leaf)!important;text-decoration:none}
+.bta-mis-go:hover{text-decoration:underline}
+.bta-next{background:var(--forest);border-radius:24px;padding:30px 32px;color:var(--cream)}
+.bta-next p{color:rgba(246,241,228,.9);font-size:16.5px;line-height:1.65;margin:0 0 14px}
+.bta-next strong{color:#fff}
+.bta-next a{color:var(--sun-soft)!important;font-weight:700}
+.bta-pir-badge{display:inline-block;margin-left:8px;font-size:12px;font-weight:800;padding:3px 10px;border-radius:9999px;background:rgba(95,126,69,.15);color:var(--sage);white-space:nowrap}
+.bta-pir-badge.is-going{background:rgba(217,174,35,.22);color:var(--gold-text)}
+.bta-howto{display:flex;flex-direction:column;gap:10px}
+.bta-howto details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:0 20px;box-shadow:0 1px 3px rgba(34,28,10,.06)}
+.bta-howto summary{cursor:pointer;list-style:none;padding:18px 28px 18px 0;font-weight:700;font-size:16.5px;color:var(--ink);position:relative}
+.bta-howto summary::-webkit-details-marker{display:none}
+.bta-howto summary::after{content:'+';position:absolute;right:0;top:14px;font-size:22px;font-weight:600;color:var(--gold-text);transition:transform .2s}
+.bta-howto details[open] summary::after{transform:rotate(45deg)}
+.bta-howto details p{margin:0 0 18px;font-size:15.5px;line-height:1.7;color:var(--ink-soft)}
+@media (max-width:767px){.bta-mis{grid-template-columns:1fr}.bta-next{padding:24px 22px}}
+@media (prefers-reduced-motion:reduce){.bta-mis>li{transition:none}.bta-mis>li:hover{transform:none}.bta-howto summary::after{transition:none}}
