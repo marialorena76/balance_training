@@ -244,6 +244,9 @@ function build(C) {
   return out;
 }
 
+module.exports = { DATA, TESTIMONIOS, PIRAMIDE, B, M, URL_CAT, URL_ANDREA, url, CONTACT, q, esc, stars, img, coverKey, px, box, section, row, col, W, H, T, BTN, IMG, ul, resetIds: () => { seq = 0; } };
+
+if (require.main === module) {
 const outDir = path.join(__dirname, 'elementor');
 fs.mkdirSync(outDir, { recursive: true });
 const manifest = [];
@@ -256,3 +259,4 @@ for (const C of DATA) {
 }
 fs.writeFileSync(path.join(outDir, 'manifest.json'), JSON.stringify(manifest, null, 2));
 console.log(manifest.map(m => m.slug + ' ' + m.bytes).join('\n'));
+}
