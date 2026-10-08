@@ -72,7 +72,7 @@ function miCamino() {
   ]));
 
   /* TUS CURSOS */
-  out.push(section({ cls: 'bta-aula', bg: '#F6EFE2', gap: 22 }, [
+  out.push(section({ cls: 'bta-aula bta-solo-alumno', bg: '#F6EFE2', gap: 22 }, [
     H('Tus cursos', 'h2', 'bta-h-sm'),
     T('<p class=\'bta-muted\'>Entrá al aula, mirá cada clase y marcala como completada para ir sumando avance.</p>'),
     T('<ul class=\'bta-mis\'>' + AULA.map(cursoCard).join('') + '</ul>'),
@@ -86,7 +86,7 @@ function miCamino() {
     + sc('course_inprogress', ini, '<p><strong>Estás haciendo la Iniciación.</strong> Cuando la termines, la Pirámide sugiere seguir por el escalón ★★.</p><p><a href=\'' + aulaUrl(ini) + '\'>Seguir con la Iniciación →</a></p>')
     + sc('course_complete', ini, '<p><strong>¡Completaste la Iniciación!</strong> Tu próximo escalón (★★) es Etología, Comunicación y Formas de Aprendizaje.</p><p><a href=\'' + url('etologia') + '\'>Conocé el escalón ★★ →</a></p>')
     + '<p>¿Dudas sobre qué seguir? <a href=\'' + WA + '\'>Escribile a Andrea por WhatsApp</a>.</p></div>';
-  out.push(section({ cls: 'bta-aula', gap: 28 }, [row([
+  out.push(section({ cls: 'bta-aula bta-solo-alumno', gap: 28 }, [row([
     col(40, [H('Tu próximo paso', 'h2', 'bta-h-sm'), T(next)], { gap: 16 }),
     col(60, [H('Tu lugar en la Pirámide Formativa', 'h2', 'bta-h-sm'), T('<p class=\'bta-muted\'>El orden en que sugerimos ir tomando las capacitaciones. Es una guía, no una obligación: cada escalón suma sobre el anterior.</p>' + piramideAula())], { gap: 8 }),
   ], { gap: 48 })]));
