@@ -24,12 +24,23 @@ function bta_aula_traducciones() {
 		'Expand All'          => 'Ver todo',
 		'Collapse All'        => 'Contraer todo',
 		'of'                  => 'de',
+		// Panel del alumno (ld_profile)
+		'Certificates'        => 'Certificados',
+		'Points'              => 'Puntos',
+		'Your Courses'        => 'Tus cursos',
+		// Formulario de ingreso (WooCommerce)
+		'Login'               => 'Ingresar a mi Academia',
+		'Log in'              => 'Ingresar a mi Academia',
+		'Username or email address' => 'Email o usuario',
+		'Password'            => 'Contraseña',
+		'Remember me'         => 'Recordarme',
+		'Lost your password?' => '¿Olvidaste tu contraseña?',
 		'%1$s of %2$s'        => '%1$s de %2$s',
 		'%1$s %2$s of %3$s'   => '%1$s %2$s de %3$s',
 	);
 }
 function bta_aula_traducir( $translation, $text, $domain ) {
-	if ( ! in_array( $domain, array( 'buddyboss-theme', 'learndash' ), true ) ) {
+	if ( ! in_array( $domain, array( 'buddyboss-theme', 'learndash', 'woocommerce' ), true ) ) {
 		return $translation;
 	}
 	$map = bta_aula_traducciones();

@@ -324,19 +324,34 @@ body{font-family:Raleway,sans-serif;color:var(--ink);font-variant-numeric:lining
 .bta-login .elementor-button{font-weight:700}
 /* Visitante sin sesión: solo ingreso + cómo funciona (los cursos están en Capacitaciones) */
 body:not(.logged-in) :is(.bta-solo-alumno,.elementor-element-06e6cb20,.elementor-element-74660037){display:none!important}
-/* Ingreso: formulario de WooCommerce dentro del hero (el widget Login de Elementor no se renderiza por la caché de elementos) */
+/* Ingreso: formulario de WooCommerce dentro del hero (BuddyBoss lo pinta como tarjeta blanca) */
 .bta-login{display:none!important}
-body.logged-in .bta-login-wrap{display:none!important}
-.bta-login-wrap{max-width:440px;margin-top:22px}
-.bta-login-wrap .u-columns{display:block}
+body.logged-in .bta-login-wrap,body.logged-in .bta-solo-visit,body:not(.logged-in) :is(.bta-solo-alum,.bta-perfil){display:none!important}
+.bta-login-wrap{width:100%;max-width:560px;margin-top:24px}
+.bta-login-wrap :is(.u-columns,.u-column1,.col-1,.col2-set,.woocommerce-form-login,.woocommerce-form-row,.form-row,.woocommerce-Input,input.input-text,.password-input){width:100%!important;max-width:none!important;float:none!important;flex:1 1 100%!important;margin-left:0!important;margin-right:0!important}
 .bta-login-wrap :is(.u-column2,.col-2){display:none!important}
-.bta-login-wrap h2{color:#fff!important;font-size:20px!important;margin:0 0 12px!important}
-.bta-login-wrap .woocommerce-form-login{border:0!important;padding:0!important;margin:0!important;background:none!important}
-.bta-login-wrap label{color:rgba(246,241,228,.9)!important;font-size:14px;font-weight:600}
-.bta-login-wrap input.input-text{width:100%;background:#fff!important;border:1px solid var(--line-strong)!important;border-radius:10px!important;padding:12px 14px!important;color:var(--forest)!important}
-.bta-login-wrap .woocommerce-form-login__submit{background:var(--sun)!important;color:var(--forest)!important;border:0!important;border-radius:9999px!important;padding:12px 26px!important;font-weight:700!important;margin-top:6px}
+.bta-login-wrap h2{color:var(--forest)!important;font-size:22px!important;font-weight:800!important;margin:0 0 6px!important}
+.bta-login-wrap .woocommerce-form-login{padding:0!important;border:0!important}
+.bta-login-wrap label{color:var(--ink)!important;font-size:14.5px!important;font-weight:700!important;display:block;margin-bottom:6px}
+.bta-login-wrap .woocommerce-form-login__rememberme{display:inline-flex!important;align-items:center;gap:8px;width:auto!important;font-weight:600!important}
+.bta-login-wrap input.input-text{background:#fff!important;border:1px solid var(--line-strong)!important;border-radius:10px!important;padding:13px 14px!important;color:var(--forest)!important;font-size:16px!important}
+.bta-login-wrap .woocommerce-form-login__submit{display:block;width:100%!important;background:var(--sun)!important;color:var(--forest)!important;border:0!important;border-radius:9999px!important;padding:14px 26px!important;font-weight:700!important;font-size:16px!important;margin-top:10px}
 .bta-login-wrap .woocommerce-form-login__submit:hover{background:var(--sun-deep)!important}
-.bta-login-wrap .lost_password a,.bta-login-wrap .woocommerce-LostPassword a{color:var(--tan)!important}
+.bta-login-wrap :is(.lost_password,.woocommerce-LostPassword) a{color:var(--leaf)!important;font-weight:600}
+/* Panel del alumno (ld_profile: foto, nombre y estadísticas); la lista de cursos de LearnDash se oculta, ya están las tarjetas */
+.bta-solo-alum{font-size:15px}
+.bta-perfil{margin:18px 0 6px;max-width:760px}
+.bta-perfil :is(.ld-item-list,.ld-section-heading,.ld-profile-search,.ld-profile-edit-link){display:none!important}
+.bta-perfil .learndash-wrapper{background:transparent!important}
+.bta-perfil .ld-profile-summary{display:flex;flex-wrap:wrap;align-items:center;gap:22px;background:rgba(246,241,228,.07)!important;border:1px solid rgba(220,182,126,.3)!important;border-radius:16px!important;padding:20px 24px!important;margin:0!important}
+.bta-perfil .ld-profile-card{display:flex;align-items:center;gap:14px;margin:0!important;flex:0 0 auto}
+.bta-perfil .ld-profile-avatar img,.bta-perfil .ld-profile-avatar{width:64px!important;height:64px!important;border-radius:50%!important;overflow:hidden}
+.bta-perfil .ld-profile-heading{color:#fff!important;font-weight:800;font-size:20px!important;margin:0!important}
+.bta-perfil .ld-profile-stats{display:flex;flex:1 1 auto;gap:12px;flex-wrap:wrap;margin:0!important}
+.bta-perfil .ld-profile-stat{flex:1 1 100px;background:rgba(0,0,0,.18);border-radius:12px;padding:12px 14px!important;border:0!important;text-align:left!important}
+.bta-perfil .ld-profile-stat strong{display:block;font-size:28px!important;font-weight:800;line-height:1;color:var(--sun-soft)!important}
+.bta-perfil .ld-profile-stat span{display:block;margin-top:6px;font-size:13px!important;color:rgba(246,241,228,.8)!important;text-transform:none!important;letter-spacing:0!important}
+@media (max-width:767px){.bta-perfil .ld-profile-summary{padding:16px!important}.bta-perfil .ld-profile-stat strong{font-size:24px!important}}
 .bta-mis{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
 .bta-mis>li{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 3px rgba(34,28,10,.08);transition:transform .25s,box-shadow .25s}
 .bta-mis>li:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(34,28,10,.12)}
