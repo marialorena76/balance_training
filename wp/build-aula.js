@@ -17,7 +17,7 @@ const AULA = [
   { id: 533, t: 'Tres Master Class (Combo)', cover: img('portada-webinar-asiento').url, meta: 'Master Classes', mods: 'Mejorar tu asiento · Del caballo nuevo al caballo hecho · Comunicación y Formas de Aprendizaje', landing: null },
 ];
 const AULA_BY_SLUG = { iniciacion: 529, etologia: 531 };
-const aulaUrl = (id) => B + '/?p=' + id;
+const aulaUrl = (id) => B + '/?post_type=sfwd-courses&p=' + id;
 const WA = CONTACT.wa + '?text=' + encodeURIComponent('Hola Andrea, tengo una consulta sobre el aula.');
 
 /* Shortcodes con comillas simples: evitan barras invertidas en el JSON */
