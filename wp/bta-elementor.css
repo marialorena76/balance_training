@@ -328,27 +328,28 @@ body:not(.logged-in) :is(.bta-solo-alumno,.elementor-element-06e6cb20,.elementor
 .bta-login{display:none!important}
 body.logged-in .bta-login-wrap,body.logged-in .bta-solo-visit,body:not(.logged-in) :is(.bta-solo-alum,.bta-perfil){display:none!important}
 .bta-login-wrap{width:100%!important;max-width:560px!important;margin-top:24px}
-/* BuddyBoss arma el formulario con su propia grilla angosta: se fuerza todo a una columna de ancho completo, sin depender de sus clases */
-.bta-login-wrap :is(div,form,fieldset,p,label,input:not([type=checkbox]):not([type=radio]),button,.password-input){width:100%!important;max-width:100%!important;min-width:0!important;float:none!important;flex:1 1 100%!important;margin-left:0!important;margin-right:0!important;box-sizing:border-box!important}
-.bta-login-wrap :is(div,form,fieldset){display:block!important;padding-left:0!important;padding-right:0!important;grid-template-columns:none!important;columns:auto!important;text-align:left!important}
-.bta-login-wrap .password-input{display:block!important;position:relative!important}
-.bta-login-wrap :is(.u-column2,.col-2){display:none!important}
-.bta-login-wrap h2{color:var(--forest)!important;font-size:22px!important;font-weight:800!important;margin:0 0 14px!important;padding:0 0 12px!important}
-.bta-login-wrap form{padding:0!important;border:0!important;margin:0!important;box-shadow:none!important;background:transparent!important}
-.bta-login-wrap label{display:block!important;color:var(--ink)!important;font-size:14.5px!important;font-weight:700!important;margin:0 0 6px!important}
-.bta-login-wrap p{margin:0 0 16px!important}
-.bta-login-wrap input:is([type=text],[type=email],[type=password]){display:block!important;height:auto!important;background:#fff!important;border:1px solid var(--line-strong)!important;border-radius:10px!important;padding:13px 44px 13px 14px!important;color:var(--forest)!important;font-size:16px!important}
+/* BuddyBoss pisa el formulario con reglas de ID + !important: los :not(#…) suben la especificidad para ganarle.
+   BuddyBoss arma el formulario con su propia grilla angosta: se fuerza todo a una columna de ancho completo, sin depender de sus clases */
+.bta-login-wrap:not(#bta-a):not(#bta-b) :is(div,form,fieldset,p,label,input:not([type=checkbox]):not([type=radio]),button,.password-input){width:100%!important;max-width:100%!important;min-width:0!important;float:none!important;flex:1 1 100%!important;margin-left:0!important;margin-right:0!important;box-sizing:border-box!important}
+.bta-login-wrap:not(#bta-a):not(#bta-b) :is(div,form,fieldset){display:block!important;padding-left:0!important;padding-right:0!important;grid-template-columns:none!important;columns:auto!important;text-align:left!important}
+.bta-login-wrap:not(#bta-a):not(#bta-b) .password-input{display:block!important;position:relative!important}
+.bta-login-wrap:not(#bta-a):not(#bta-b) :is(.u-column2,.col-2){display:none!important}
+.bta-login-wrap:not(#bta-a):not(#bta-b) h2{color:var(--forest)!important;font-size:22px!important;font-weight:800!important;margin:0 0 14px!important;padding:0 0 12px!important}
+.bta-login-wrap:not(#bta-a):not(#bta-b) form{padding:0!important;border:0!important;margin:0!important;box-shadow:none!important;background:transparent!important}
+.bta-login-wrap:not(#bta-a):not(#bta-b) label{display:block!important;color:var(--ink)!important;font-size:14.5px!important;font-weight:700!important;margin:0 0 6px!important}
+.bta-login-wrap:not(#bta-a):not(#bta-b) p{margin:0 0 16px!important}
+.bta-login-wrap:not(#bta-a):not(#bta-b) input:is([type=text],[type=email],[type=password]){display:block!important;height:auto!important;background:#fff!important;border:1px solid var(--line-strong)!important;border-radius:10px!important;padding:13px 44px 13px 14px!important;color:var(--forest)!important;font-size:16px!important}
 /* Fila "Recordarme" + "¿Olvidaste tu contraseña?" */
-.bta-login-wrap :is(p,div):has(input[type=checkbox]){display:flex!important;flex-wrap:wrap!important;align-items:center!important;justify-content:space-between!important;gap:10px 16px!important}
-.bta-login-wrap :is(p,div):has(input[type=checkbox]) :is(p,div,label){width:auto!important;flex:0 0 auto!important;margin:0!important}
-.bta-login-wrap label:has(input[type=checkbox]){display:inline-flex!important;align-items:center!important;gap:8px!important;width:auto!important;flex:0 0 auto!important;margin:0!important;font-weight:600!important;white-space:nowrap!important}
-.bta-login-wrap input[type=checkbox]{width:18px!important;height:18px!important;margin:0!important;flex:0 0 18px!important;accent-color:var(--sun-deep)}
-.bta-login-wrap :is(p,div):has(> a[href*=lost-password]){width:auto!important;flex:0 0 auto!important;margin:0!important}
-.bta-login-wrap a[href*=lost-password]{color:var(--leaf)!important;font-weight:600!important;font-size:14.5px!important;white-space:nowrap!important}
+.bta-login-wrap:not(#bta-a):not(#bta-b) :is(p,div):has(input[type=checkbox]){display:flex!important;flex-wrap:wrap!important;align-items:center!important;justify-content:space-between!important;gap:10px 16px!important}
+.bta-login-wrap:not(#bta-a):not(#bta-b) :is(p,div):has(input[type=checkbox]) :is(p,div,label){width:auto!important;flex:0 0 auto!important;margin:0!important}
+.bta-login-wrap:not(#bta-a):not(#bta-b) label:has(input[type=checkbox]){display:inline-flex!important;align-items:center!important;gap:8px!important;width:auto!important;flex:0 0 auto!important;margin:0!important;font-weight:600!important;white-space:nowrap!important}
+.bta-login-wrap:not(#bta-a):not(#bta-b) input[type=checkbox]{width:18px!important;height:18px!important;margin:0!important;flex:0 0 18px!important;accent-color:var(--sun-deep)}
+.bta-login-wrap:not(#bta-a):not(#bta-b) :is(p,div):has(> a[href*=lost-password]){width:auto!important;flex:0 0 auto!important;margin:0!important}
+.bta-login-wrap:not(#bta-a):not(#bta-b) a[href*=lost-password]{color:var(--leaf)!important;font-weight:600!important;font-size:14.5px!important;white-space:nowrap!important}
 /* Botón de ingreso: ancho completo y en una sola línea */
-.bta-login-wrap :is(button,[type=submit]){display:block!important;width:100%!important;flex:1 1 100%!important;order:9;white-space:nowrap!important;height:auto!important;line-height:1.2!important;background:var(--sun)!important;color:var(--forest)!important;border:0!important;border-radius:9999px!important;padding:15px 26px!important;font-weight:700!important;font-size:16px!important;margin:12px 0 0!important}
-.bta-login-wrap :is(button,[type=submit]):hover{background:var(--sun-deep)!important}
-.bta-login-wrap .password-input :is(button,.show-password-input){position:absolute!important;right:12px!important;top:50%!important;transform:translateY(-50%)!important;width:auto!important;flex:none!important;margin:0!important;padding:0!important;background:transparent!important;order:0}
+.bta-login-wrap:not(#bta-a):not(#bta-b) :is(button,[type=submit]){display:block!important;width:100%!important;flex:1 1 100%!important;order:9;white-space:nowrap!important;height:auto!important;line-height:1.2!important;background:var(--sun)!important;color:var(--forest)!important;border:0!important;border-radius:9999px!important;padding:15px 26px!important;font-weight:700!important;font-size:16px!important;margin:12px 0 0!important}
+.bta-login-wrap:not(#bta-a):not(#bta-b) :is(button,[type=submit]):hover{background:var(--sun-deep)!important}
+.bta-login-wrap:not(#bta-a):not(#bta-b) .password-input :is(button,.show-password-input){position:absolute!important;right:12px!important;top:50%!important;transform:translateY(-50%)!important;width:auto!important;flex:none!important;margin:0!important;padding:0!important;background:transparent!important;order:0}
 /* Panel del alumno (ld_profile: foto, nombre y estadísticas); la lista de cursos de LearnDash se oculta, ya están las tarjetas */
 .bta-solo-alum{font-size:15px}
 .bta-perfil{margin:20px 0 8px;max-width:780px}
