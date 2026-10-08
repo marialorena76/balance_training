@@ -65,9 +65,8 @@ function miCamino() {
     col(70, [
       T('<p class=\'bta-aula-hello\'>Mi Camino · Balance Training Academy®</p>'),
       H('Tu camino en la Academia', 'h1', 'bta-h1'),
-      T('<p class=\'bta-lead-dark\'>Acá tenés tus cursos, tu avance y el próximo escalón de tu formación, a tu ritmo.</p>'),
+      T('<p class=\'bta-lead-dark\'>Acá tenés tus cursos, tu avance y el próximo escalón de tu formación, a tu ritmo.</p><div class=\'bta-login-wrap\'>[woocommerce_my_account]</div>'),
       T('[ld_course_resume label=\'Seguí donde dejaste →\']'),
-      W('login', { show_labels: 'yes', custom_labels: 'yes', user_label: 'Email o usuario', user_placeholder: 'Tu email', password_label: 'Contraseña', password_placeholder: 'Tu contraseña', button_text: 'Ingresar a mi Academia', show_remember_me: 'yes', show_lost_password: 'yes', show_logged_in_message: '', redirect_after_login: 'yes', redirect_url: { url: B + '/mi-camino/', is_external: '', nofollow: '', custom_attributes: '' }, label_color: '#F6ECDB', links_color: '#DCB67E', field_text_color: '#2E1A0A', field_background_color: '#FFFFFF', field_border_color: '#CDB894', button_text_color: '#2E1A0A', button_background_color: '#D9AE23', button_background_hover_color: '#B8901A', button_hover_color: '#2E1A0A', _css_classes: 'bta-login' }),
     ], { gap: 12 }),
   ]));
 

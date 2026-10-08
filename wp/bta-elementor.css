@@ -324,6 +324,19 @@ body{font-family:Raleway,sans-serif;color:var(--ink);font-variant-numeric:lining
 .bta-login .elementor-button{font-weight:700}
 /* Visitante sin sesión: solo ingreso + cómo funciona (los cursos están en Capacitaciones) */
 body:not(.logged-in) :is(.bta-solo-alumno,.elementor-element-06e6cb20,.elementor-element-74660037){display:none!important}
+/* Ingreso: formulario de WooCommerce dentro del hero (el widget Login de Elementor no se renderiza por la caché de elementos) */
+.bta-login{display:none!important}
+body.logged-in .bta-login-wrap{display:none!important}
+.bta-login-wrap{max-width:440px;margin-top:22px}
+.bta-login-wrap .u-columns{display:block}
+.bta-login-wrap :is(.u-column2,.col-2){display:none!important}
+.bta-login-wrap h2{color:#fff!important;font-size:20px!important;margin:0 0 12px!important}
+.bta-login-wrap .woocommerce-form-login{border:0!important;padding:0!important;margin:0!important;background:none!important}
+.bta-login-wrap label{color:rgba(246,241,228,.9)!important;font-size:14px;font-weight:600}
+.bta-login-wrap input.input-text{width:100%;background:#fff!important;border:1px solid var(--line-strong)!important;border-radius:10px!important;padding:12px 14px!important;color:var(--forest)!important}
+.bta-login-wrap .woocommerce-form-login__submit{background:var(--sun)!important;color:var(--forest)!important;border:0!important;border-radius:9999px!important;padding:12px 26px!important;font-weight:700!important;margin-top:6px}
+.bta-login-wrap .woocommerce-form-login__submit:hover{background:var(--sun-deep)!important}
+.bta-login-wrap .lost_password a,.bta-login-wrap .woocommerce-LostPassword a{color:var(--tan)!important}
 .bta-mis{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
 .bta-mis>li{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 3px rgba(34,28,10,.08);transition:transform .25s,box-shadow .25s}
 .bta-mis>li:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(34,28,10,.12)}
