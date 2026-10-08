@@ -252,10 +252,12 @@ body{font-family:Raleway,sans-serif;color:var(--ink);font-variant-numeric:lining
 .bta-head-cta{width:auto!important}
 @media (max-width:1024px){.bta-head-right{gap:8px!important}}
 @media (max-width:767px){.bta-head-cta{display:none}.bta-head-logo img{height:42px!important}}
-/* Botón Mi Academia: reemplaza al CTA 'Ver capacitaciones' (Capacitaciones ya está en el menú) */
+/* Mi Academia: ítem del Menú principal (menu-item-582) como botón dorado; reemplaza al CTA 'Ver capacitaciones' */
 .bta-head-cta{display:none!important}
-.bta-head-academia{width:auto!important}
-@media (max-width:767px){.bta-head-academia .elementor-button{padding:8px 14px;font-size:13px}}
+.bta-head-nav .elementor-nav-menu--main .menu-item-582>a{background:var(--sun);color:var(--forest)!important;border-radius:9999px;padding:10px 20px!important;margin-left:10px;font-weight:700}
+.bta-head-nav .elementor-nav-menu--main .menu-item-582>a:hover,.bta-head-nav .elementor-nav-menu--main .menu-item-582>a.elementor-item-active{background:var(--sun-deep);color:var(--forest)!important}
+.bta-head-nav .elementor-nav-menu--main .menu-item-582>a::before,.bta-head-nav .elementor-nav-menu--main .menu-item-582>a::after{display:none!important}
+.bta-head-nav .elementor-nav-menu--dropdown .menu-item-582>a{color:var(--sun-soft)!important;font-weight:700}
 .bta-foot-logo img{height:64px!important;width:auto!important}
 .bta-foot-txt{font-size:14.5px!important;line-height:1.75!important;color:rgba(246,241,228,.72)!important;max-width:360px;margin:0}
 .bta-foot-social .elementor-social-icon{box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}
