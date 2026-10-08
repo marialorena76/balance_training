@@ -63,7 +63,7 @@ function miCamino() {
   /* HERO: saludo + seguí donde dejaste */
   out.push(section({ cls: 'bta-aula bta-dark bta-hero', bg: '#2E1A0A', pad: [72, 24, 72, 24], padM: [48, 18, 48, 18], bgImage: img('andrea-hero'), gap: 14 }, [
     col(70, [
-      T('<p class=\'bta-aula-hello\'><span class=\'bta-solo-visit\'>Mi Camino · Balance Training Academy®</span><span class=\'bta-solo-alum\'>Hola, [usermeta field=\'first_name\']</span></p>'),
+      T('<p class=\'bta-aula-hello\'><span class=\'bta-solo-visit\'>Mi Camino · Balance Training Academy®</span><span class=\'bta-solo-alum\'>Hola, [usermeta field=\'display_name\']</span></p>'),
       H('Tu camino en la Academia', 'h1', 'bta-h1'),
       T('<p class=\'bta-lead-dark\'>Acá tenés tus cursos, tu avance y el próximo escalón de tu formación, a tu ritmo.</p><div class=\'bta-login-wrap\'>[woocommerce_my_account]</div>'),
       T('<div class=\'bta-perfil\'>[ld_profile show_search=\'no\' show_header=\'yes\' course_points_user=\'yes\' profile_link=\'no\' expand_all=\'no\']</div>[ld_course_resume label=\'Seguí donde dejaste →\']'),
