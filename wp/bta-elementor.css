@@ -328,16 +328,19 @@ body:not(.logged-in) :is(.bta-solo-alumno,.elementor-element-06e6cb20,.elementor
 .bta-login{display:none!important}
 body.logged-in .bta-login-wrap,body.logged-in .bta-solo-visit,body:not(.logged-in) :is(.bta-solo-alum,.bta-perfil){display:none!important}
 .bta-login-wrap{width:100%!important;max-width:560px!important;margin-top:24px}
+/* La tarjeta blanca es el propio contenedor: así el aire interno no depende de cómo arme BuddyBoss sus divs */
+.bta-login-wrap:not(#bta-a):not(#bta-b){background:#fff!important;border:1px solid var(--line)!important;border-radius:18px!important;padding:36px 40px 32px!important;box-shadow:0 18px 44px rgba(0,0,0,.28)!important;box-sizing:border-box!important}
+@media (max-width:767px){.bta-login-wrap:not(#bta-a):not(#bta-b){padding:26px 22px 24px!important}}
 /* BuddyBoss pisa el formulario con reglas de ID + !important: los :not(#…) suben la especificidad para ganarle.
    BuddyBoss arma el formulario con su propia grilla angosta: se fuerza todo a una columna de ancho completo, sin depender de sus clases */
 .bta-login-wrap:not(#bta-a):not(#bta-b) :is(div,form,fieldset,p,label,input:not([type=checkbox]):not([type=radio]),button,.password-input){width:100%!important;max-width:100%!important;min-width:0!important;float:none!important;flex:1 1 100%!important;margin-left:0!important;margin-right:0!important;box-sizing:border-box!important}
-.bta-login-wrap:not(#bta-a):not(#bta-b) :is(div,form,fieldset){display:block!important;padding-left:0!important;padding-right:0!important;grid-template-columns:none!important;columns:auto!important;text-align:left!important}
+.bta-login-wrap:not(#bta-a):not(#bta-b) :is(div,form,fieldset){display:block!important;padding:0!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;min-height:0!important;grid-template-columns:none!important;columns:auto!important;text-align:left!important}
 .bta-login-wrap:not(#bta-a):not(#bta-b) .password-input{display:block!important;position:relative!important}
 .bta-login-wrap:not(#bta-a):not(#bta-b) :is(.u-column2,.col-2){display:none!important}
-.bta-login-wrap:not(#bta-a):not(#bta-b) h2{color:var(--forest)!important;font-size:22px!important;font-weight:800!important;margin:0 0 14px!important;padding:0 0 12px!important}
+.bta-login-wrap:not(#bta-a):not(#bta-b) h2{color:var(--forest)!important;font-size:22px!important;font-weight:800!important;margin:0 0 24px!important;padding:0 0 16px!important;border-bottom:1px solid var(--line)!important}
 .bta-login-wrap:not(#bta-a):not(#bta-b) form{padding:0!important;border:0!important;margin:0!important;box-shadow:none!important;background:transparent!important}
 .bta-login-wrap:not(#bta-a):not(#bta-b) label{display:block!important;color:var(--ink)!important;font-size:14.5px!important;font-weight:700!important;margin:0 0 6px!important}
-.bta-login-wrap:not(#bta-a):not(#bta-b) p{margin:0 0 16px!important}
+.bta-login-wrap:not(#bta-a):not(#bta-b) :is(p,.form-row,.woocommerce-form-row){margin:0 0 20px!important}
 .bta-login-wrap:not(#bta-a):not(#bta-b) input:is([type=text],[type=email],[type=password]){display:block!important;height:auto!important;background:#fff!important;border:1px solid var(--line-strong)!important;border-radius:10px!important;padding:13px 44px 13px 14px!important;color:var(--forest)!important;font-size:16px!important}
 /* Fila "Recordarme" + "¿Olvidaste tu contraseña?" */
 .bta-login-wrap:not(#bta-a):not(#bta-b) :is(p,div):has(input[type=checkbox]){display:flex!important;flex-wrap:wrap!important;align-items:center!important;justify-content:space-between!important;gap:10px 16px!important}
