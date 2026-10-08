@@ -252,6 +252,10 @@ body{font-family:Raleway,sans-serif;color:var(--ink);font-variant-numeric:lining
 .bta-head-cta{width:auto!important}
 @media (max-width:1024px){.bta-head-right{gap:8px!important}}
 @media (max-width:767px){.bta-head-cta{display:none}.bta-head-logo img{height:42px!important}}
+/* Botón Mi Academia: reemplaza al CTA 'Ver capacitaciones' (Capacitaciones ya está en el menú) */
+.bta-head-cta{display:none!important}
+.bta-head-academia{width:auto!important}
+@media (max-width:767px){.bta-head-academia .elementor-button{padding:8px 14px;font-size:13px}}
 .bta-foot-logo img{height:64px!important;width:auto!important}
 .bta-foot-txt{font-size:14.5px!important;line-height:1.75!important;color:rgba(246,241,228,.72)!important;max-width:360px;margin:0}
 .bta-foot-social .elementor-social-icon{box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}
@@ -313,6 +317,9 @@ body{font-family:Raleway,sans-serif;color:var(--ink);font-variant-numeric:lining
 .bta-aula-hello{font-size:15px!important;font-weight:700;letter-spacing:.06em;color:var(--tan)!important;margin:0 0 6px!important}
 .bta-aula .ld-course-resume,.bta-aula a.ld-course-resume{display:inline-flex;align-items:center;gap:8px;background:var(--sun)!important;color:var(--forest)!important;font-weight:700;font-size:15.5px;border-radius:9999px;padding:14px 26px;text-decoration:none;margin-top:8px}
 .bta-aula .ld-course-resume:hover{background:var(--sun-deep)!important}
+.bta-login{margin-top:10px}
+.bta-login .elementor-field-option label,.bta-login .elementor-login__lost-password,.bta-login .elementor-lost-password{color:rgba(246,241,228,.85)!important;font-size:14px}
+.bta-login .elementor-button{font-weight:700}
 .bta-mis{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
 .bta-mis>li{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 3px rgba(34,28,10,.08);transition:transform .25s,box-shadow .25s}
 .bta-mis>li:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(34,28,10,.12)}

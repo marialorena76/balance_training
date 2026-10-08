@@ -12,7 +12,7 @@ function header() {
   L.resetIds();
   const logo = W('image', { image: Object.assign(img('logo-cream'), { alt: 'Balance Training Academy' }), image_size: 'full', link_to: 'custom', link: { url: B + '/', is_external: '', nofollow: '' }, _css_classes: 'bta-head-logo' });
   const nav = W('nav-menu', { menu: 'menu-principal', layout: 'horizontal', align_items: 'right', pointer: 'none', dropdown: 'tablet', full_width: 'stretch', toggle: 'burger', _css_classes: 'bta-head-nav' });
-  const cta = BTN('Ver capacitaciones', URL_CAT, 'bta-btn-sm bta-head-cta');
+  const cta = BTN('Mi Academia', B + '/mi-camino/', 'bta-btn-sm bta-head-academia');
   return [box({
     content_width: 'full', css_classes: 'bta-head', background_background: 'classic', background_color: '#2E1A0A',
     padding: px(12, 24, 12, 24), padding_mobile: px(10, 18, 10, 18), sticky: 'top', sticky_on: ['desktop', 'tablet', 'mobile'],
